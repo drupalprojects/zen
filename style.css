@@ -266,7 +266,7 @@ div.menu {
 }
 
 #primary a {
-  background:url(images/tabs.gif) repeat-x;
+  background:#6DA6E2 url(images/tabs.gif) repeat-x;
   color:#FFF;
   font-weight:bold;
   display:block;
