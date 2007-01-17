@@ -1,0 +1,35 @@
+/* $Id$ */
+
+/* white background, black text, arial font, decent font size */
+body, .content {
+  background-color: #fff;
+  color: #000;
+  font-family: arial,helvetica,clean,sans-serif;
+  font-size: 11pt;
+  width: 100%;
+}
+
+.submitted {
+  color: #000;
+  font-family: "Times New Roman", Garamond, serif;
+  font-size: 10pt; 
+}
+
+html body {
+  background: transparent;
+  width: 800px;
+}
+
+#primary, #secondary, #sidebar-left, #sidebar-right, #search, #tabs, #menu, #mission, #footer-wrapper {
+  visibility: hidden;
+  display: none;
+}
+
+.book-navigation, .tabs, .links, .breadcrumb, .taxonomy, .pager, .feed-icon, .forum-topic-navigation {
+  visibility: hidden;
+  display: none;
+}
+
+#logo-title {
+  margin: 20pt 20pt 0 20pt;
+}

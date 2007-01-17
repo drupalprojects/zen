@@ -110,6 +110,12 @@ function _phptemplate_variables($hook, $vars = array()) {
   switch ($hook) {
     // Send a new variable, $logged_in, to page.tpl.php to tell us if the current user is logged in or out.
     case 'page':
+
+      // These next lines add the print.css file and redefine
+      // the $css and $styles variables available to your page template
+      $vars['css'] = drupal_add_css($vars['directory'] .'/print.css', 'theme', 'print');
+      $vars['styles'] = drupal_get_css();
+      
       // get the currently logged in user
       global $user;
       
