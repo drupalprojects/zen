@@ -194,6 +194,7 @@ function _phptemplate_variables($hook, $vars = array()) {
 */
 function zen_id_safe($string) {
   if (is_numeric($string{0})) {
+    // if the first character is numeric, add 'n' in front
     $string = 'n'. $string;
   }
   return strtolower(preg_replace('/[^a-zA-Z0-9-]+/', '-', $string));
