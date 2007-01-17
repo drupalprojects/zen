@@ -621,3 +621,20 @@ div.node div.content .book-navigation .page-links {
 .block .item-list ul {
   padding-left:0;
 }
+
+/**
+ * Status report colors.
+ */
+table.system-status-report tr.error, table.system-status-report tr.error th {
+  background-color: #fcc;
+  border-color: #ebb;
+  color: #200;
+} 
+table.system-status-report tr.warning, table.system-status-report tr.warning th {
+  background-color: #ffd;
+  border-color: #eeb;
+} 
+table.system-status-report tr.ok, table.system-status-report tr.ok th {
+  background-color: #dfd;
+  border-color: #beb;
+}
