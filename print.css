@@ -26,6 +26,7 @@ a:link, a:visited {
   text-decoration: underline !important;
 }
 
+/* CSS2 selector to add visible href after links */
 #main a:link:after, #main a:visited:after,
 .content a:link:after, .content a:visited:after {
   content: " (" attr(href) ") ";
