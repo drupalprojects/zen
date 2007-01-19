@@ -107,6 +107,16 @@ function zen_regions() {
  */
 
 function _phptemplate_variables($hook, $vars = array()) {
+  // get the currently logged in user
+  global $user;
+
+  // set a new $is_admin variable
+  // this is determined by looking at the currently logged in user and seeing if they are in the role 'admin'
+  // the 'admin' will need to have been created manually for this to work
+  // this variable is available to all templates
+  $vars['is_admin'] = in_array('admin', $user->roles);
+
+
   switch ($hook) {
     // Send a new variable, $logged_in, to page.tpl.php to tell us if the current user is logged in or out.
     case 'page':
@@ -154,12 +164,6 @@ function _phptemplate_variables($hook, $vars = array()) {
       break;
       
     case 'node':
-      // get the currently logged in user
-      global $user;
-
-      // set a new $is_admin variable
-      // this is determined by looking at the currently logged in user and seeing if they are in the role 'admin'
-      $vars['is_admin'] = in_array('admin', $user->roles);
       
       $node_classes = array('node');
       if ($vars['sticky']) {
