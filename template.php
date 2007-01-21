@@ -184,6 +184,25 @@ function _phptemplate_variables($hook, $vars = array()) {
       // if the author of this comment is equal to the author of the node, we set a variable
       // then in our theme we can theme this comment differently to stand out
       $vars['author_comment'] = $vars['comment']->uid == $node->uid ? TRUE : FALSE;
+
+      $comment_classes = array('comment');
+      if ($vars['comment']->status == COMMENT_NOT_PUBLISHED) {
+      	$comment_classes[] = 'comment-unpublished';
+      }
+      if ($vars['author_comment']) {
+      	$comment_classes[] = 'comment-by-author';
+      }
+      if ($vars['comment']->uid == 0) {
+      	$comment_classes[] = 'comment-by-anon';
+      }
+      $vars['comment_classes'] = implode(' ', $comment_classes);
+      
+      
+      // if comment subjects are disabled, don't display 'em
+      if (variable_get('comment_subject_field', 1) == 0) {
+        $vars['title'] = '';
+      }
+      
       break;
   }
   

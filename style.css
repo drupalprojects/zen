@@ -497,6 +497,11 @@ div.error {
   background: #EBF2F8;
 }
 
+.comment-by-author {
+  background: none;
+  border: 1px solid #EBF2F8;
+}
+
 .comment  h3.title, .comment  h3.title a {
   font-size: 122%;
   color: #2266AB;
