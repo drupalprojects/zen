@@ -183,6 +183,11 @@ ol, ul, dl {
   position: relative; 
 }
 
+abbr.created {
+  border-bottom: none;
+  text-decoration: none;
+}
+
 /* Header styles */
  
 #logo-title {
@@ -497,6 +502,13 @@ div.error {
   background: #EBF2F8;
 }
 
+.comment-unpublished {
+  background-color: #FFF;
+  background-image: url(images/unpublished.png);
+  background-position: center 20px;
+  background-repeat: no-repeat;
+}
+
 .comment-by-author {
   background: none;
   border: 1px solid #6191C5;
@@ -514,10 +526,6 @@ div.error {
 .comment .picture, .node .picture {
   float:left;
   margin-right:15px;
-}
-
-.comment-unpublished {
-  background: #FCE38E;
 }
 
 .comment .new {
@@ -590,6 +598,12 @@ div.node div.content .book-navigation .page-links {
 .node {
   margin-bottom:15px;
   padding-bottom:15px;
+}
+
+.node-unpublished {
+  background-image: url(images/unpublished.png);
+  background-position: center 20px;
+  background-repeat: no-repeat;
 }
 
 .node h2.title {

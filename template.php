@@ -116,7 +116,6 @@ function _phptemplate_variables($hook, $vars = array()) {
   // this variable is available to all templates
   $vars['is_admin'] = in_array('admin', $user->roles);
 
-
   switch ($hook) {
     // Send a new variable, $logged_in, to page.tpl.php to tell us if the current user is logged in or out.
     case 'page':
@@ -125,9 +124,6 @@ function _phptemplate_variables($hook, $vars = array()) {
       // the $css and $styles variables available to your page template
       $vars['css'] = drupal_add_css($vars['directory'] .'/print.css', 'theme', 'print');
       $vars['styles'] = drupal_get_css();
-      
-      // get the currently logged in user
-      global $user;
       
       // An anonymous user has a user id of zero.      
       if ($user->uid > 0) {
@@ -145,6 +141,7 @@ function _phptemplate_variables($hook, $vars = array()) {
       $body_classes[] = ($vars['is_front']) ? 'front' : 'not-front';
       $body_classes[] = ($vars['logged_in']) ? 'logged-in' : 'not-logged-in';
       if ($vars['node']->type) {
+        // if on an individual node page, put the node type in the body classes
         $body_classes[] = 'ntype-'. zen_id_safe($vars['node']->type);
       }
       switch (TRUE) {
@@ -164,7 +161,20 @@ function _phptemplate_variables($hook, $vars = array()) {
       break;
       
     case 'node':
-      
+      if ($vars['submitted']) {
+        // we redefine the format for submitted
+        // adding macrotags and 
+        $vars['submitted'] =
+          t('Posted <abbr class="created" title="!microdate">@date</abbr> by !username',
+            array(
+              '!username' => theme('username', $vars['node']),
+              '@date' => format_date($vars['node']->created,'custom', "F jS, Y"),
+              '!microdate' => format_date($vars['node']->created,'custom', "Y-m-d\TH:i:sO")
+            )
+          );
+      }
+
+      // special classes for nodes
       $node_classes = array('node');
       if ($vars['sticky']) {
       	$node_classes[] = 'sticky';
@@ -172,6 +182,11 @@ function _phptemplate_variables($hook, $vars = array()) {
       if (!$vars['node']->status) {
       	$node_classes[] = 'node-unpublished';
       }
+      if ($vars['node']->uid && $vars['node']->uid == $user->uid) {
+        // node is authored by current user
+        $node_classes[] = 'node-mine';
+      }
+      // class for node type: "ntype-page", "ntype-story", "ntype-my-custom-type", etc.
       $node_classes[] = 'ntype-'. zen_id_safe($vars['node']->type);
       // implode with spaces
       $vars['node_classes'] = implode(' ', $node_classes);
@@ -190,10 +205,16 @@ function _phptemplate_variables($hook, $vars = array()) {
       	$comment_classes[] = 'comment-unpublished';
       }
       if ($vars['author_comment']) {
+        // comment is by the node author
       	$comment_classes[] = 'comment-by-author';
       }
       if ($vars['comment']->uid == 0) {
+        // comment is by an anonymous user
       	$comment_classes[] = 'comment-by-anon';
+      }
+      if ($user->uid && $vars['comment']->uid == $user->uid) {
+        // comment was posted by current user
+      	$comment_classes[] = 'comment-mine';
       }
       $vars['comment_classes'] = implode(' ', $comment_classes);
       

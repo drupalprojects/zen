@@ -16,7 +16,7 @@
       
         <?php print $search_box; ?>      
         <?php if ($logo): ?>
-          <a href="<?php print $base_path; ?>" title="<?php print t('Home'); ?>">
+          <a href="<?php print $base_path; ?>" title="<?php print t('Home'); ?>" rel="home">
             <img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" id="logo" />
           </a>
         <?php endif; ?>

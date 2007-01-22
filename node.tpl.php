@@ -9,7 +9,7 @@
   
   <?php if ($submitted): ?>
     <span class="submitted">
-      <?php print t('Posted !date by !name', array('!date' => format_date($node->created, 'custom', "F jS, Y"), '!name' => theme('username', $node))); ?>
+      <?php print $submitted ?>
     </span> 
   <?php endif; ?>
 
