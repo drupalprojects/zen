@@ -106,7 +106,7 @@ function zen_regions() {
  *   A sequential array of variables passed to the theme function.
  */
 
-function _phptemplate_variables($hook, $vars = array()) {
+function _phptemplate_variables($hook, $vars = array()) {  
   // get the currently logged in user
   global $user;
 
@@ -119,11 +119,21 @@ function _phptemplate_variables($hook, $vars = array()) {
   switch ($hook) {
     // Send a new variable, $logged_in, to page.tpl.php to tell us if the current user is logged in or out.
     case 'page':
-
-      // These next lines add the print.css file and redefine
-      // the $css and $styles variables available to your page template
-      $vars['css'] = drupal_add_css($vars['directory'] .'/print.css', 'theme', 'print');
-      $vars['styles'] = drupal_get_css();
+      
+      global $theme, $theme_key;
+      
+      // if we're in the main theme
+      if ($theme == $theme_key) {
+        // These next lines add additional CSS files and redefine
+        // the $css and $styles variables available to your page template
+        // We had previously used @import declarations in the css files,
+        // but these are incompatible with the CSS caching in Drupal 5
+        drupal_add_css($vars['directory'] .'/layout.css', 'theme', 'all');
+        drupal_add_css($vars['directory'] .'/icons.css', 'theme', 'all');
+        drupal_add_css($vars['directory'] .'/style.css', 'theme', 'all');
+        $vars['css'] = drupal_add_css($vars['directory'] .'/print.css', 'theme', 'print');
+        $vars['styles'] = drupal_get_css();
+      }
       
       // An anonymous user has a user id of zero.      
       if ($user->uid > 0) {
@@ -227,6 +237,11 @@ function _phptemplate_variables($hook, $vars = array()) {
       break;
   }
   
+  // allow subtheme to add/alter variables
+  if (function_exists('zen_variables')) {
+    $vars = zen_variables($hook, $vars);
+  }
+  
   return $vars;
 }
 
@@ -248,4 +263,108 @@ function zen_id_safe($string) {
     $string = 'n'. $string;
   }
   return strtolower(preg_replace('/[^a-zA-Z0-9-]+/', '-', $string));
+}
+
+/**
+ * This bit allows the subtheme to have its own template.php
+ */ 
+if (path_to_subtheme()) {
+  // I'm being careful not to create variables in the global scope
+  if (file_exists(path_to_subtheme() .'/template.php')) {
+    include_once(path_to_subtheme() .'/template.php');
+  }
+}
+
+/**
+ * These next functions allow subthemes to have their own
+ * page.tpl.php, node.tpl.php, node-type.tpl.php, etc.
+ */ 
+function _phptemplate_node($vars, $suggestions) {
+  array_unshift($suggestions, 'node'); // not quite sure why I need to do this...
+  return _zen_default('node', $vars, $suggestions);
+}
+
+function _phptemplate_comment($vars, $suggestions) {
+  array_unshift($suggestions, 'comment'); // not quite sure why I need to do this...
+  return _zen_default('comment', $vars, $suggestions);
+}
+
+function _phptemplate_page($vars, $suggestions) {
+  return _zen_default('page', $vars, $suggestions);
+}
+
+function _phptemplate_block($vars, $suggestions) {
+  return _zen_default('block', $vars, $suggestions);
+}
+
+function _phptemplate_box($vars, $suggestions) {
+  return _zen_default('box', $vars, $suggestions);
+}
+
+/**
+ * return path to the subtheme directory
+ * or FALSE if there is no subtheme
+ */ 
+function path_to_subtheme() {
+  global $theme, $theme_key;
+  static $theme_path;
+  if (!isset($theme_path)) {
+    if ($theme != $theme_key) {
+      $themes = list_themes();
+      $theme_path = dirname($themes[$theme_key]->filename);
+    }
+    else {
+      $theme_path = FALSE;
+    }
+  }
+  return $theme_path;
+}
+
+/**
+ * This is an exact copy of _phptemplate_default() with the
+ * addition of the $theme_path and $parent_theme_path
+ */ 
+function _zen_default($hook, $variables, $suggestions = array(), $extension = '.tpl.php') {
+  global $theme_engine;
+  global $theme;
+  global $theme_key;
+  
+  if ($theme_path = path_to_subtheme()) {
+    $parent_theme_path = path_to_theme();
+  }
+  else {
+    $theme_path = path_to_theme();
+  }
+  
+  // Loop through any suggestions in FIFO order.
+  $suggestions = array_reverse($suggestions);
+  foreach ($suggestions as $suggestion) {
+    if (!empty($suggestion) && file_exists($theme_path .'/'. $suggestion . $extension)) {
+      $file = $theme_path .'/'. $suggestion . $extension;
+      break;
+    }
+    elseif (isset($parent_theme_path) && !empty($suggestion) && file_exists($parent_theme_path .'/'. $suggestion . $extension)) {
+      $file = $parent_theme_path .'/'. $suggestion . $extension;
+      break;
+    }
+  }
+
+  if (!isset($file)) {
+    if (file_exists($theme_path ."/$hook$extension")) {
+      $file = $theme_path ."/$hook$extension";
+    }
+    else {
+      if (in_array($hook, array('node', 'block', 'box', 'comment'))) {
+        $file = "themes/engines/$theme_engine/$hook$extension";
+      }
+      else {
+        $variables['hook'] = $hook;
+        watchdog('error', t('%engine.engine was instructed to override the %name theme function, but no valid template file was found.', array('%engine' => $theme_engine, '%name' => $hook)));
+        $file = "themes/engines/$theme_engine/default$extension";
+      }
+    }
+  }
+  if (isset($file)) {
+    return call_user_func('_'. $theme_engine .'_render', $file, $variables);
+  }
 }

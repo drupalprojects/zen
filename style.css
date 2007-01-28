@@ -7,14 +7,6 @@
 */
 
 /**
-*   IMPORT EXTERNAL STYLE SHEETS 
-*   We have separated out these styles because they are
-*   common to the zen template system.
-*/
-@import "layout.css";
-@import "icons.css";
-
-/**
 *   FONT STYLES 
 *
 *  Standardize font sizes and line-height across browsers 

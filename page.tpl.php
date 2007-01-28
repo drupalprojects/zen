@@ -25,7 +25,7 @@
         
         <?php if ($site_name): ?>
           <h1 id='site-name'>
-            <a href="<?php print $base_path ?>" title="<?php print t('Home'); ?>">
+            <a href="<?php print $base_path ?>" title="<?php print t('Home'); ?>" rel="home">
               <?php print $site_name; ?>
             </a>
           </h1>
