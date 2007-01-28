@@ -26,7 +26,7 @@ function zen_variables($hook, $vars) {
       // add main Zen styles
       drupal_add_css($vars['directory'] .'/layout.css', 'theme', 'all');
       drupal_add_css($vars['directory'] .'/icons.css', 'theme', 'all');
-      drupal_add_css($vars['directory'] .'/style.css', 'theme', 'all');
+      drupal_add_css($vars['directory'] .'/zen.css', 'theme', 'all');
       drupal_add_css($vars['directory'] .'/print.css', 'theme', 'print');
       // then load the overrides for the above css
       $vars['css'] = drupal_add_css($vars['subtheme_directory'] .'/overrides.css', 'theme', 'all');

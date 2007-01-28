@@ -130,7 +130,7 @@ function _phptemplate_variables($hook, $vars = array()) {
         // but these are incompatible with the CSS caching in Drupal 5
         drupal_add_css($vars['directory'] .'/layout.css', 'theme', 'all');
         drupal_add_css($vars['directory'] .'/icons.css', 'theme', 'all');
-        drupal_add_css($vars['directory'] .'/style.css', 'theme', 'all');
+        drupal_add_css($vars['directory'] .'/zen.css', 'theme', 'all');
         $vars['css'] = drupal_add_css($vars['directory'] .'/print.css', 'theme', 'print');
         $vars['styles'] = drupal_get_css();
       }
