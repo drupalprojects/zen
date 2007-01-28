@@ -9,7 +9,7 @@ body, node.content {
   width: 100%;
 }
 
-#page, #squeeze {
+#page {
   margin: 0;
   width: 90%;
 }
