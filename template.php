@@ -211,6 +211,12 @@ function _phptemplate_variables($hook, $vars = array()) {
       $vars['author_comment'] = $vars['comment']->uid == $node->uid ? TRUE : FALSE;
 
       $comment_classes = array('comment');
+      
+      // odd/even handling
+      static $comment_odd = TRUE;
+      $comment_classes[] = $comment_odd ? 'odd' : 'even';
+      $comment_odd = !$comment_odd;
+      
       if ($vars['comment']->status == COMMENT_NOT_PUBLISHED) {
       	$comment_classes[] = 'comment-unpublished';
       }
@@ -227,7 +233,6 @@ function _phptemplate_variables($hook, $vars = array()) {
       	$comment_classes[] = 'comment-mine';
       }
       $vars['comment_classes'] = implode(' ', $comment_classes);
-      
       
       // if comment subjects are disabled, don't display 'em
       if (variable_get('comment_subject_field', 1) == 0) {
