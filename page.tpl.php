@@ -76,7 +76,7 @@
       <div id="main" class="column"><div id="squeeze">
         <?php if (!empty($mission)): ?><div id="mission"><?php print $mission; ?></div><?php endif; ?>
         <?php if (!empty($content_top)):?><div id="content-top"><?php print $content_top; ?></div><?php endif; ?>
-        <div id="#content">
+        <div id="content">
           <?php if (!empty($title)): ?><h1 class="title"><?php print $title; ?></h1><?php endif; ?>
           <?php if (!empty($tabs)): ?><div class="tabs"><?php print $tabs; ?></div><?php endif; ?>
           <?php print $help; ?>
