@@ -1,8 +1,10 @@
 <?php
 
 /**
- * The Zen theme allows its subthemes to have their own template.php files
- * The only restriction with these files is that they cannot redefine any of the
+ * @file
+ *
+ * The Zen theme allows its sub-themes to have their own template.php files. The
+ * only restriction with these files is that they cannot redefine any of the
  * functions that are already defined in Zen's main template.php file.
  *
  * Also remember that the "main" theme is still Zen, so your theme functions
@@ -10,14 +12,20 @@
  *  theme_block()  becomes  zen_block()
  *  theme_feed_icon() becomes zen_feed_icon() as well
  *
- * Additionally, it is not possible for subthemes to redefine regions.
+ * Additionally, it is not possible for sub-themes to redefine regions.
  *
- * For a subtheme to add its own variables, use the function name
+ * For a sub-theme to add its own variables, use the function name
  *   zen_variables($hook, $vars)
  */
 
-
-
+/**
+ * Intercept template variables
+ *
+ * @param $hook
+ *   The name of the theme function being executed
+ * @param $vars
+ *   A sequential array of variables passed to the theme function.
+ */
 function zen_variables($hook, $vars) {
   $vars['subtheme_directory'] = path_to_subtheme();
   
