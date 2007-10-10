@@ -136,14 +136,7 @@ function _phptemplate_variables($hook, $vars = array()) {
 
       // Send a new variable, $logged_in, to page.tpl.php to tell us if the
       // current user is logged in or out. An anonymous user has a user id of 0.
-      if ($user->uid > 0) {
-        // The user is logged in.
-        $vars['logged_in'] = TRUE;
-      }
-      else {
-        // The user is not logged in.
-        $vars['logged_in'] = FALSE;
-      }
+      $vars['logged_in'] = ($user->uid > 0) ? TRUE : FALSE;
 
       // Classes for body element. Allows advanced theming based on context
       // (home page, node of certain type, etc.)
@@ -154,16 +147,14 @@ function _phptemplate_variables($hook, $vars = array()) {
         // If on an individual node page, put the node type in the body classes
         $body_classes[] = 'ntype-'. zen_id_safe($vars['node']->type);
       }
-      switch (TRUE) {
-        case $vars['sidebar_left'] && $vars['sidebar_right'] :
-          $body_classes[] = 'both-sidebars';
-          break;
-        case $vars['sidebar_left'] :
-          $body_classes[] = 'sidebar-left';
-          break;
-        case $vars['sidebar_right'] :
-          $body_classes[] = 'sidebar-right';
-          break;
+      if ($vars['sidebar_left'] && $vars['sidebar_right']) {
+        $body_classes[] = 'both-sidebars';
+      }
+      elseif ($vars['sidebar_left']) {
+        $body_classes[] = 'sidebar-left';
+      }
+      elseif ($vars['sidebar_right']) {
+        $body_classes[] = 'sidebar-right';
       }
       $vars['body_classes'] = implode(' ', $body_classes); // implode with spaces
 
