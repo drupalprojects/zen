@@ -80,11 +80,11 @@ body.both-sidebars #squeeze {
 }
 
 #sidebar-left .block {
-  padding: 0 15px 0 0px;
+  padding: 0 15px 0 0;
 }
 
 #sidebar-right .block {
-  padding: 0 0px 0 15px;
+  padding: 0 0 0 15px;
 }
 
 .block .content {
