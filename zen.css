@@ -1,14 +1,14 @@
 @CHARSET "UTF-8";
 
-/**
-*  $Id$
-*/
+/*
+ * $Id$
+ */
 
-/**
-*   FONT STYLES 
-*
-*  Standardize font sizes and line-height across browsers 
-*/
+/*
+ * FONT STYLES
+ *
+ * Standardize font sizes and line-height across browsers
+ */
 
 body {
   font:13px arial,helvetica,clean,sans-serif;
@@ -41,17 +41,17 @@ td.icon {
 }
 
 
-/**
-*   LAYOUT STYLES 
-*
-*  Styles pertaining to minor layout adjustments, such as
-*   changing from fluid width to fixed width.  
-*   See layout.css for major adjustments.
-*/
+/*
+ * LAYOUT STYLES
+ *
+ * Styles pertaining to minor layout adjustments, such as
+ * changing from fluid width to fixed width.
+ * See layout.css for major adjustments.
+ */
 body {
   margin: 0;
   padding: 0;
-  min-width: 700px;      
+  min-width: 700px;
   /* 2x (left-side fullwidth + main padding) + right-side fullwidth */
 }
 
@@ -63,11 +63,11 @@ body {
 }
 
 
-/**
-*  OTHER STYLES
-*
-*  Styles that are specific to this theme.
-*/
+/*
+ * OTHER STYLES
+ *
+ * Styles that are specific to this theme.
+ */
 
 /* Common styles */
 body {
@@ -103,10 +103,10 @@ a:hover, a:focus {
   text-decoration: underline;
 }
 
-a:active, a.active { 
-  color: #89A3E4; 
+a:active, a.active {
+  color: #89A3E4;
 }
-		
+
 h1.title, h1.title a, h1.title a:hover {
   font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
   font-weight: normal;
@@ -131,9 +131,9 @@ h2, h2 a, h2 a:hover, .block h3, .block h3 a {
   margin:.5em 0 .5em 0;
 }
 
-h3 { 
+h3 {
   font-size: 107%;
-  font-weight: bold; 
+  font-weight: bold;
   font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -165,12 +165,12 @@ code {
   font-family: Profont, 'lucida console', 'Courier New', Monaco, monospace;
 }
 
-img { 
-  border: 0; 
+img {
+  border: 0;
 }
 
-ol, ul, dl { 
-  position: relative; 
+ol, ul, dl {
+  position: relative;
 }
 
 abbr.created {
@@ -179,7 +179,7 @@ abbr.created {
 }
 
 /* Header styles */
- 
+
 #logo-title {
   margin: 10px 20px 0 20px;
   position: relative;
@@ -358,12 +358,12 @@ ul.links li.first {
   padding:0 .1em 0 .1em;
 }
 
-.submitted, .taxonomy { 
+.submitted, .taxonomy {
   font-size: 85%;
-  color: #999; 
+  color: #999;
 }
 
-/* Form styles */	
+/* Form styles */
 input, textarea, textfield {
   margin:0;
   color: #000;
@@ -390,7 +390,7 @@ input.form-checkbox, input.form-radio {
   padding: 1px;
 }
 
-#search .button, 
+#search .button,
 #search .form-submit,
 #user-login-form .button,
 #user-login-form .form-submit {
@@ -445,13 +445,13 @@ div.error {
   font-size: 85%;
   padding: 1em;
 }
-  
+
 #footer a {
   color: #fff;
   font-weight:bold;
   border-bottom: 1px dotted #FFFFFF;
 }
-  
+
 #footer a:hover {
   border-bottom: 1px solid #FFFFFF;
 }
@@ -581,7 +581,7 @@ div.node div.content .book-navigation .page-links {
 
 .pager-current {
   color: #fff;
-  background-color: #2763A5;  
+  background-color: #2763A5;
 }
 
 /* Node, Block, Content styles */
@@ -631,18 +631,18 @@ div.node div.content .book-navigation .page-links {
   padding-left:0;
 }
 
-/**
+/*
  * Status report colors.
  */
 table.system-status-report tr.error, table.system-status-report tr.error th {
   background-color: #fcc;
   border-color: #ebb;
   color: #200;
-} 
+}
 table.system-status-report tr.warning, table.system-status-report tr.warning th {
   background-color: #ffd;
   border-color: #eeb;
-} 
+}
 table.system-status-report tr.ok, table.system-status-report tr.ok th {
   background-color: #dfd;
   border-color: #beb;

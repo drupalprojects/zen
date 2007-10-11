@@ -1,10 +1,10 @@
-/*   $Id$ */
+/* $Id$ */
 
-/**
-*   ICON STYLES 
-*
-*  Puts all the references to icon images in one place.
-*/
+/*
+ * ICON STYLES
+ *
+ * Puts all the references to icon images in one place.
+ */
 
 /* Leaf, collapsed, and expanded icons used for navigation*/
 .block li.leaf, ul.menu li.leaf {

@@ -1,15 +1,15 @@
 /* $Id$ */
 
-/**
-*  LAYOUT STYLES
-*
-*  Define CSS classes to create a table-free,
-*  3-column, 2-column, or single column layout 
-*  depending on whether blocks are enabled in the 
-*  left or right columns.
-*/
+/*
+ * LAYOUT STYLES
+ *
+ * Define CSS classes to create a table-free,
+ * 3-column, 2-column, or single column layout
+ * depending on whether blocks are enabled in the
+ * left or right columns.
+ */
 
-/**
+/*
  * Layout
  */
 

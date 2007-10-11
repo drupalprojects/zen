@@ -16,7 +16,7 @@ body, node.content {
 
 #squeeze {
   margin: 0;
-  width: 100%; 
+  width: 100%;
 }
 
 /* underline all links */
@@ -28,7 +28,7 @@ a:link, a:visited {
 
 /* don't underline header */
 #header a:link, #header a:visited {
-  text-decoration: none !important;	
+  text-decoration: none !important;
 }
 
 /* CSS2 selector to add visible href after links */
