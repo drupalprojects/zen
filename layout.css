@@ -62,9 +62,14 @@ body.both-sidebars #squeeze {
 }
 
 /* We ensure the sidebars are still clickable using z-index */
+#container #sidebar-left {
+  width: 210px;
+}
+#container #sidebar-right {
+  width: 210px;
+}
 #container .sidebar {
   margin: 0 0 5em;
-  width: 210px;
   float: left;
   z-index: 2;
   position: relative;
