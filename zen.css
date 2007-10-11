@@ -627,10 +627,6 @@ div.node div.content .book-navigation .page-links {
   border-bottom: solid 3px #ddd;
 }
 
-.profile {
-  clear:none;
-}
-
 #sidebar-left .block, #sidebar-right .block {
   border-bottom: solid #ddd 1px;
   padding-bottom:15px;
