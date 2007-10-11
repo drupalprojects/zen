@@ -8,9 +8,9 @@
   <?php if ($picture) print $picture; ?>  
   
   <?php if ($submitted): ?>
-    <span class="submitted">
+    <div class="submitted">
       <?php print $submitted ?>
-    </span> 
+    </div> 
   <?php endif; ?>
 
   <?php if (count($taxonomy)): ?>
