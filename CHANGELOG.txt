@@ -1,0 +1,8 @@
+Zen 5.x-dev
+  * #182556: Added CHANGELOG.
+
+Zen 5.x-0.6
+  * Another pre-release.
+
+Zen 5.x-0.6
+  * Initial pre-release.
