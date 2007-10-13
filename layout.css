@@ -75,6 +75,13 @@ body.both-sidebars #squeeze {
   position: relative;
 }
 
+/* Ensure long text or wide images don't break IE6 layout. */
+#page, #header, #footer, #squeeze, #container .sidebar {
+  _overflow: hidden;
+  _overflow-y: visible;
+  word-wrap: break-word; /* A very nice CSS3 property */
+}
+
 #container .sidebar .block {
   margin: 0 0 1.5em 0;
 }

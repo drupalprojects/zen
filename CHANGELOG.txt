@@ -1,4 +1,5 @@
 Zen 5.x-dev
+  * #110897: oversize content causes IE6 layout breakage
   * #119270: profile pictures indenting
   * #118170 by mr700: blockquote css border has two widths
   * #110810: change .submitted span to div
