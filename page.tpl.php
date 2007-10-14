@@ -72,7 +72,7 @@
         </div> <!-- /sidebar-left -->
       <?php endif; ?>
 
-      <div id="main" class="column"><div id="squeeze">
+      <div id="main" class="column"><div id="squeeze" class="clear-block">
         <?php if (!empty($mission)): ?>
           <div id="mission"><?php print $mission; ?></div>
         <?php endif; ?>
