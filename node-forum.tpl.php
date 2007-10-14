@@ -5,22 +5,22 @@
     </h2>
   <?php endif; ?>
 
-  <?php if ($picture) print $picture; ?>  
-  
+  <?php if ($picture) print $picture; ?>
+
   <?php if ($submitted): ?>
     <div class="submitted">
       <?php print t('Posted !date by !name', array('!date' => format_date($node->created, 'custom', "F jS, Y"), '!name' => theme('username', $node))); ?>
     </div>
   <?php endif; ?>
-   
+
   <div class="content">
     <?php print $content; ?>
   </div>
-  
+
   <?php if ($links): ?>
     <div class="links">
       <?php print $links; ?>
     </div>
   <?php endif; ?>
-     
+
 </div>
