@@ -8,15 +8,15 @@
 
 /* Leaf, collapsed, and expanded icons used for navigation*/
 .block li.leaf, ul.menu li.leaf {
-  list-style-image: url(images/menu-leaf.gif);
+  list-style-image: url(images/menu-leaf.png);
 }
 
 .block li.collapsed, ul.menu li.collapsed {
-  list-style-image: url(images/menu-collapsed.gif);
+  list-style-image: url(images/menu-collapsed.png);
 }
 
 .block li.expanded, ul.menu li.expanded {
-  list-style-image: url(images/menu-expanded.gif);
+  list-style-image: url(images/menu-expanded.png);
 }
 
 .block li a.active {
@@ -24,7 +24,7 @@
 }
 
 .block ul li {
-  list-style-image: url(images/blue_bullet.gif);
+  list-style-image: url(images/bullet.png);
 }
 
 /* Forum posts and recent blog posts */
@@ -33,7 +33,7 @@
   list-style-image: none;
   margin: 0;
   padding: 5px 0 5px 20px;
-  background-image: url(images/page_text.gif);
+  background-image: url(images/page.png);
   background-repeat: no-repeat;
   background-position: 0 .5em;
 }
@@ -54,20 +54,20 @@
   list-style-image: none;
   margin: 0;
   padding: 5px 0 5px 20px;
-  background-image: url(images/icon_user.gif);
+  background-image: url(images/user.png);
   background-repeat: no-repeat;
   background-position: 0 .5em;
 }
 
 /* Status and Error icons */
 div.status {
-  background-image: url(images/dialog-information_i.gif);
+  background-image: url(images/dialog-information.png);
   background-repeat: no-repeat;
   background-position: .5em 50%;
 }
 
 div.error {
-  background-image: url(images/dialog-warning.gif);
+  background-image: url(images/dialog-warning.png);
   background-repeat: no-repeat;
   background-position: .5em 50%;
 }
@@ -75,7 +75,7 @@ div.error {
 /* Node links such as add comments, User's blog, etc */
 #main .node div.links {
   padding: 5px 0 5px 13px;
-  background: url(images/links.gif) no-repeat 0 .93em;
+  background: url(images/links.png) no-repeat 0 .93em;
 }
 
 /* Administration panel */
