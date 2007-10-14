@@ -1,4 +1,5 @@
 Zen 5.x-dev
+  * #122592: Ability to theme each primary link
   * #178560 by incognito: Shifting avatars in the comment blocks
   * #110553 by rport: Use png instead of gif for images
   * #120052: Add linux fonts

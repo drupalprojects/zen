@@ -44,13 +44,13 @@
       <div id="navigation" class="menu<?php if ($primary_links) { print " withprimary"; } if ($secondary_links) { print " withsecondary"; } ?> ">
         <?php if (!empty($primary_links)): ?>
           <div id="primary" class="clear-block">
-            <?php print theme('menu_links', $primary_links); ?>
+            <?php print theme('links', $primary_links); ?>
           </div>
         <?php endif; ?>
 
         <?php if (!empty($secondary_links)): ?>
           <div id="secondary" class="clear-block">
-            <?php print theme('menu_links', $secondary_links); ?>
+            <?php print theme('links', $secondary_links); ?>
           </div>
         <?php endif; ?>
       </div> <!-- /navigation -->
