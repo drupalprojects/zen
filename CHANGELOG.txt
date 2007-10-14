@@ -1,4 +1,5 @@
 Zen 5.x-dev
+  * #120052: Add linux fonts
   * #183360: Empty H2 appears on blocks with no titles
   * #121101: zen.css does not validate
   * #110902: IE6: text falls outside and to the left of content area
