@@ -69,7 +69,7 @@ body.both-sidebars #squeeze {
   width: 210px;
 }
 #container .sidebar {
-  margin: 0 0 5em;
+  margin: 0;
   float: left;
   z-index: 2;
   position: relative;
