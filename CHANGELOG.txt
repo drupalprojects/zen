@@ -1,4 +1,5 @@
 Zen 5.x-dev
+  * #121101: zen.css does not validate
   * #110902: IE6: text falls outside and to the left of content area
   * #183354: Add a div around the feed icons
   * #120341: Sidebar has unwanted 5em bottom margin

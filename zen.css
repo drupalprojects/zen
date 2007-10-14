@@ -8,20 +8,22 @@
 
 body {
   font: 13px arial,helvetica,clean,sans-serif;
-  *font-size: small;
-  *font: x-small;
+}
+/* IE 5 and 6 can't resize text that is specified in pixels. */
+* html body {
+  font-size: x-small; /* IE5 will get this value */
+  f\ont-size: small; /* IE6 will get this value */
 }
 
 table {
-  font-size: inherit;
-  font: 100%;
+  font-size: 100%; /* Forces font size inheritance in IE5 */
+  f\ont-size: inherit;
 }
 select, input, textarea {
   font: 99% arial,helvetica,clean,sans-serif;
 }
 pre, code {
   font: 115% monospace;
-  *font-size: 100%;
 }
 
 table tr.odd {
