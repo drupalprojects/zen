@@ -8,9 +8,9 @@
   <?php if ($picture) print $picture; ?>  
   
   <?php if ($submitted): ?>
-    <span class="submitted">
+    <div class="submitted">
       <?php print t('Posted !date by !name', array('!date' => format_date($node->created, 'custom', "F jS, Y"), '!name' => theme('username', $node))); ?>
-    </span>
+    </div>
   <?php endif; ?>
    
   <div class="content">
