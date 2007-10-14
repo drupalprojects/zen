@@ -1,4 +1,5 @@
 Zen 5.x-dev
+  * #183354: Add a div around the feed icons
   * #120341: Sidebar has unwanted 5em bottom margin
   * #122938: Enabling CSS aggregation messes up the CSS in Safari
   * #110897: oversize content causes IE6 layout breakage
