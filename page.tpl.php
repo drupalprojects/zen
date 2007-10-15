@@ -27,11 +27,11 @@
         <div id="name-and-slogan">
 
         <?php if (!empty($site_name)): ?>
-          <h1 id='site-name'>
+          <div id='site-name'><strong>
             <a href="<?php print $base_path ?>" title="<?php print t('Home'); ?>" rel="home">
               <?php print $site_name; ?>
             </a>
-          </h1>
+          </strong></div>
         <?php endif; ?>
 
         <?php if (!empty($site_slogan)): ?>

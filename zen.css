@@ -198,13 +198,13 @@ abbr.created {
 #site-name {
   margin: 0;
   display: inline;
+  font-size: 246%;
 }
 
 #site-name a, #site-name a:hover {
   font-family: "Trebuchet MS", "Bitstream Vera Sans", Verdana, Arial, Helvetica, sans-serif;
   font-weight: normal;
   color: #6DA6E2;
-  font-size: 176%;
   margin: 0;
   padding: 0;
 }
