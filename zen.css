@@ -446,10 +446,6 @@ input.form-checkbox, input.form-radio {
   border: 1px solid #4070A1;
 }
 
-#node-form, #node-form .node-form {
-  overflow: auto;
-}
-
 #user-login-form {
   text-align: left;
 }

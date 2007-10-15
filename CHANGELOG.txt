@@ -1,4 +1,5 @@
 Zen 5.x-dev
+  * #118467 by leandrosiow: Screen redraw errors with resizable textareas in Firefox
   * #154937 by msonnabaum: add skip navigation for screen readers/mobility impaired
   * #122592: Ability to theme each primary link
   * #178560 by incognito: Shifting avatars in the comment blocks
