@@ -12,6 +12,9 @@
 <body class="<?php print $body_classes; ?>">
   <div id="page">
     <div id="header">
+
+      <div id="skip-nav"><a href="#content"><?php print t('Skip to Main Content'); ?></a></div>
+
       <div id="logo-title">
 
         <?php print $search_box; ?>

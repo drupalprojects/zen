@@ -216,6 +216,7 @@ abbr.created {
   margin-left: 20px;
 }
 
+
 #search {
   position: absolute;
   padding: 0;
@@ -239,6 +240,50 @@ abbr.created {
   font-size: 85%;
   margin-left: 20px;
 }
+
+/* "Skip to Main Content" link
+ *
+ * This link useful for both blind people and people with mobility impairments
+ * who cannot use a mouse.
+ */
+
+#skip-nav {
+  margin: 0 !important;
+  padding-left: 20px;
+  font-size: 0.8em;
+  line-height: 1;
+}
+#skip-nav a {
+  padding: 1px 10px;
+}
+#skip-nav a:link, #skip-nav a:visited {
+  color: #ffffff; /* same as background color */
+}
+#skip-nav a:hover, #skip-nav a:active, #skip-nav a:focus {
+  color: #ffffff;
+  background: #2763A5;
+  text-decoration: none;
+}
+/* Alternatively, the skip-nav link can be completely hidden until a user tabs
+   to the link. Un-comment the following CSS to use this technique. */
+/*
+#skip-nav a, #skip-nav a:hover, #skip-nav a:visited {
+  position: absolute;
+  left: 0;
+  top: -500px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+#skip-nav a:active, #skip-nav a:focus {
+  position: static;
+  width: auto;
+  height: auto;
+}
+#logo-title {
+  margin: 10px 20px 0 20px;
+}
+*/
 
 /* Menu styles */
 div.menu {

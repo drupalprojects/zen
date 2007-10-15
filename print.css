@@ -57,7 +57,7 @@ html body {
 }
 
 /* Hide sidebars and nav elements */
-#primary, #secondary, #sidebar-left, #sidebar-right, #search, #tabs, #menu, #mission, #footer-wrapper,
+#skip-nav, #primary, #secondary, #sidebar-left, #sidebar-right, #search, #tabs, #menu, #mission, #footer-wrapper,
 .book-navigation, .tabs, .links, .breadcrumb, .taxonomy, .pager, .feed-icon, .forum-topic-navigation {
   visibility: hidden;
   display: none;
