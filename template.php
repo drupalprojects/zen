@@ -173,6 +173,9 @@ function _phptemplate_variables($hook, $vars = array()) {
           );
       }
 
+      // In this section you can also edit the following variables:
+      // $vars['links']
+
       // Special classes for nodes
       $node_classes = array('node');
       if ($vars['sticky']) {
