@@ -1,4 +1,4 @@
-Zen 5.x-dev
+Zen 5.x-0.7
   * #100894: For SEO, H1#site-name should be div#site-name strong
   * #118467 by leandrosiow: Screen redraw errors with resizable textareas in Firefox
   * #154937 by msonnabaum: add skip navigation for screen readers/mobility impaired
@@ -23,5 +23,8 @@ Zen 5.x-dev
 Zen 5.x-0.6
   * Another pre-release.
 
-Zen 5.x-0.6
+Zen 5.x-0.5
   * Initial pre-release.
+
+Zen 5.x-0.4
+  * Un-released version.
