@@ -4,7 +4,7 @@
 body, node.content {
   background-color: #fff;
   color: #000;
-  font-family: arial,helvetica,clean,sans-serif;
+  font-family: Arial, Helvetica, "Bitstream Vera Sans", sans-serif;
   font-size: 12pt;
   width: 100%;
 }
@@ -47,7 +47,7 @@ a:link, a:visited {
 
 .submitted {
   color: #000;
-  font-family: "Times New Roman", Garamond, serif;
+  font-family: "Times New Roman", "Bitstream Vera Serif", Garamond, serif;
   font-size: 10pt;
 }
 
