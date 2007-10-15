@@ -1,5 +1,5 @@
 Zen 5.x-dev
-  * #154937: add skip navigation for screen readers/mobility impaired
+  * #154937 by msonnabaum: add skip navigation for screen readers/mobility impaired
   * #122592: Ability to theme each primary link
   * #178560 by incognito: Shifting avatars in the comment blocks
   * #110553 by rport: Use png instead of gif for images
