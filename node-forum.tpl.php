@@ -1,4 +1,5 @@
-<div class="node<?php if ($sticky) { print " sticky"; } ?><?php if (!$status) { print " node-unpublished"; } ?>" id="node-<?php print $node->nid; ?>">
+<div class="<?php print $node_classes ?>" id="node-<?php print $node->nid; ?>">
+
   <?php if ($page == 0): ?>
     <h2 class="title">
       <a href="<?php print $node_url; ?>"><?php print $title; ?></a>
@@ -9,7 +10,7 @@
 
   <?php if ($submitted): ?>
     <div class="submitted">
-      <?php print t('Posted !date by !name', array('!date' => format_date($node->created, 'custom', "F jS, Y"), '!name' => theme('username', $node))); ?>
+      <?php print $submitted; ?>
     </div>
   <?php endif; ?>
 

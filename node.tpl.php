@@ -1,4 +1,5 @@
 <div class="<?php print $node_classes ?>" id="node-<?php print $node->nid; ?>">
+
   <?php if ($page == 0): ?>
     <h2 class="title">
       <a href="<?php print $node_url; ?>"><?php print $title; ?></a>
@@ -9,12 +10,12 @@
 
   <?php if ($submitted): ?>
     <div class="submitted">
-      <?php print $submitted ?>
+      <?php print $submitted; ?>
     </div>
   <?php endif; ?>
 
   <?php if (count($taxonomy)): ?>
-    <div class="taxonomy"><?php print t(' in ') . $terms ?></div>
+    <div class="taxonomy"><?php print t(' in ') . $terms; ?></div>
   <?php endif; ?>
 
   <div class="content">
