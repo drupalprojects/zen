@@ -145,16 +145,19 @@ function _phptemplate_variables($hook, $vars = array()) {
       $body_classes[] = ($vars['logged_in']) ? 'logged-in' : 'not-logged-in';
       if ($vars['node']->type) {
         // If on an individual node page, put the node type in the body classes
-        $body_classes[] = 'ntype-'. zen_id_safe($vars['node']->type);
+        $body_classes[] = 'node-type-'. zen_id_safe($vars['node']->type);
       }
       if ($vars['sidebar_left'] && $vars['sidebar_right']) {
-        $body_classes[] = 'both-sidebars';
+        $body_classes[] = 'two-sidebars';
       }
       elseif ($vars['sidebar_left']) {
-        $body_classes[] = 'sidebar-left';
+        $body_classes[] = 'one-sidebar sidebar-left';
       }
       elseif ($vars['sidebar_right']) {
-        $body_classes[] = 'sidebar-right';
+        $body_classes[] = 'one-sidebar sidebar-right';
+      }
+      else {
+        $body_classes[] = 'no-sidebars';
       }
       $vars['body_classes'] = implode(' ', $body_classes); // implode with spaces
 
@@ -188,8 +191,8 @@ function _phptemplate_variables($hook, $vars = array()) {
         // Node is authored by current user
         $node_classes[] = 'node-mine';
       }
-      // Class for node type: "ntype-page", "ntype-story", "ntype-my-custom-type", etc.
-      $node_classes[] = 'ntype-'. zen_id_safe($vars['node']->type);
+      // Class for node type: "node-type-page", "node-type-story", "node-type-my-custom-type", etc.
+      $node_classes[] = 'node-type-'. zen_id_safe($vars['node']->type);
       $vars['node_classes'] = implode(' ', $node_classes); // implode with spaces
 
       break;

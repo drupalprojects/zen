@@ -1,3 +1,6 @@
+Zen 5.x-1.x-dev
+  * #183936: Backport Drupal 6 $body_classes
+
 Zen 5.x-0.7
   * #100894: For SEO, H1#site-name should be div#site-name strong
   * #118467 by leandrosiow: Screen redraw errors with resizable textareas in Firefox
