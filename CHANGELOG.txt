@@ -1,4 +1,5 @@
 Zen 5.x-1.x-dev
+  * Added complete Drupal 5 CSS for easy reference by theme developers.
   * #183936: Backport Drupal 6 $body_classes
 
 Zen 5.x-0.7
