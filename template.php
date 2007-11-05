@@ -42,7 +42,7 @@ function zen_regions() {
        'content_top' => t('content top'),
        'content_bottom' => t('content bottom'),
        'header' => t('header'),
-       'footer' => t('footer')
+       'footer' => t('footer'),
   );
 }
 
@@ -65,19 +65,19 @@ function zen_regions() {
  */
 
 
- /**
-  * Return a themed breadcrumb trail.
-  *
-  * @param $breadcrumb
-  *   An array containing the breadcrumb links.
-  * @return
-  *   A string containing the breadcrumb output.
-  */
- function zen_breadcrumb($breadcrumb) {
-   if (!empty($breadcrumb)) {
-     return '<div class="breadcrumb">'. implode(' :: ', $breadcrumb) .'</div>';
-   }
- }
+/**
+ * Return a themed breadcrumb trail.
+ *
+ * @param $breadcrumb
+ *   An array containing the breadcrumb links.
+ * @return
+ *   A string containing the breadcrumb output.
+ */
+function zen_breadcrumb($breadcrumb) {
+  if (!empty($breadcrumb)) {
+    return '<div class="breadcrumb">'. implode(' :: ', $breadcrumb) .'</div>';
+  }
+}
 
 
 /*
@@ -171,7 +171,7 @@ function _phptemplate_variables($hook, $vars = array()) {
             array(
               '!username' => theme('username', $vars['node']),
               '@date' => format_date($vars['node']->created,'custom', "F jS, Y"),
-              '!microdate' => format_date($vars['node']->created,'custom', "Y-m-d\TH:i:sO")
+              '!microdate' => format_date($vars['node']->created,'custom', "Y-m-d\TH:i:sO"),
             )
           );
       }
