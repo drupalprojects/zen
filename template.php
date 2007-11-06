@@ -137,6 +137,7 @@ function _phptemplate_variables($hook, $vars = array()) {
         // We had previously used @import declarations in the css files,
         // but these are incompatible with the CSS caching in Drupal 5
         drupal_add_css($vars['directory'] .'/layout.css', 'theme', 'all');
+        drupal_add_css($vars['directory'] .'/tabs.css', 'theme', 'all');
         $vars['css'] = drupal_add_css($vars['directory'] .'/print.css', 'theme', 'print');
         $vars['styles'] = drupal_get_css();
       }
@@ -373,4 +374,45 @@ function _zen_default($hook, $variables, $suggestions = array(), $extension = '.
   if (isset($file)) {
     return call_user_func('_'. $theme_engine .'_render', $file, $variables);
   }
+}
+
+/**
+ * Generate the HTML representing a given menu item ID.
+ *
+ * An implementation of theme_menu_item_link()
+ *
+ * @param $item
+ *   array The menu item to render.
+ * @param $link_item
+ *   array The menu item which should be used to find the correct path.
+ * @return
+ *   string The rendered menu item.
+ */
+function phptemplate_menu_item_link($item, $link_item) {
+  $tab = ($item['type'] & MENU_IS_LOCAL_TASK) ? TRUE : FALSE;
+  return l(
+    $tab ? '<span class="tab">'. check_plain($item['title']) .'</span>' : $item['title'],
+    $link_item['path'],
+    !empty($item['description']) ? array('title' => $item['description']) : array(),
+    !empty($item['query']) ? $item['query'] : NULL,
+    !empty($link_item['fragment']) ? $link_item['fragment'] : NULL,
+    FALSE,
+    $tab
+  );
+}
+
+/**
+ * Returns the rendered local tasks (adds clear-block to tabs.)
+ */
+function phptemplate_menu_local_tasks() {
+  $output = '';
+
+  if ($primary = menu_primary_local_tasks()) {
+    $output .= '<ul class="tabs primary clear-block">'. $primary .'</ul>';
+  }
+  if ($secondary = menu_secondary_local_tasks()) {
+    $output .= '<ul class="tabs secondary clear-block">'. $secondary .'</ul>';
+  }
+
+  return $output;
 }

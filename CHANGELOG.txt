@@ -1,11 +1,12 @@
 Zen 5.x-1.x-dev
+  * Add prettier tab styling
   * #141784: Add conditional IE stylesheets
-  * Merged zen-fixed with zen_classic
-  * Added optional Theme Settings API integration
-  * Base CSS and tpl files don't get loaded (sub-theme with page.tpl.php)
-  * Create starter theme; migrate current style to a sub-theme
-  * Added ability to change regions in a sub-theme
-  * Added complete Drupal 5 CSS for easy reference by theme developers
+  * Merge zen-fixed with zen_classic
+  * Add optional Theme Settings API integration
+  * #169359: Base CSS and tpl files don't get loaded (sub-theme with page.tpl.php)
+  * #171464: Create starter theme; migrate current style to a sub-theme
+  * Add ability to change regions in a sub-theme
+  * Add complete Drupal 5 CSS for easy reference by theme developers
   * #183936: Backport Drupal 6 $body_classes
 
 Zen 5.x-0.7

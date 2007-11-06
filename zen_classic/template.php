@@ -53,6 +53,7 @@ function zen_variables($hook, $vars) {
     case 'page':
       // Add main Zen styles.
       drupal_add_css($vars['directory'] .'/layout.css', 'theme', 'all');
+      drupal_add_css($vars['directory'] .'/tabs.css', 'theme', 'all');
       drupal_add_css($vars['directory'] .'/print.css', 'theme', 'print');
       // Then add styles for this sub-theme.
       drupal_add_css($vars['subtheme_directory'] .'/zen-classic.css', 'theme', 'all');
