@@ -1,4 +1,5 @@
 Zen 5.x-1.x-dev
+  * Base CSS and tpl files don't get loaded (sub-theme with page.tpl.php)
   * Create starter theme; migrate current style to a sub-theme
   * Added ability to change regions in a sub-theme
   * Added complete Drupal 5 CSS for easy reference by theme developers

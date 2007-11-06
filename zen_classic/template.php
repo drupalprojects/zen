@@ -24,6 +24,14 @@
  */
 
 
+/*
+ * Sub-themes with their own page.tpl.php files are seen by PHPTemplate as their
+ * own theme (seperate from Zen). So we need to re-connect those sub-themes
+ * with the main Zen theme.
+ */
+include_once 'zen-subtheme.php';
+
+
 /**
  * Intercept template variables
  *
