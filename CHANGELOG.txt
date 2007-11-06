@@ -1,4 +1,6 @@
 Zen 5.x-1.x-dev
+  * Merged zen-fixed with zen_classic
+  * Added optional Theme Settings API integration
   * Base CSS and tpl files don't get loaded (sub-theme with page.tpl.php)
   * Create starter theme; migrate current style to a sub-theme
   * Added ability to change regions in a sub-theme
