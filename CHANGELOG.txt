@@ -1,4 +1,5 @@
 Zen 5.x-1.x-dev
+  * #141784: Add conditional IE stylesheets
   * Merged zen-fixed with zen_classic
   * Added optional Theme Settings API integration
   * Base CSS and tpl files don't get loaded (sub-theme with page.tpl.php)
