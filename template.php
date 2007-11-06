@@ -36,6 +36,15 @@
  *   variable_name => t('human readable name')
  */
 function zen_regions() {
+  // Allow a sub-theme to add/alter variables
+  global $theme_key;
+  if ($theme_key != 'zen') {
+    $function = str_replace('-', '_', $theme_key) .'_regions';
+    if (function_exists($function)) {
+      return call_user_func($function);
+    }
+  }
+
   return array(
        'left' => t('left sidebar'),
        'right' => t('right sidebar'),
