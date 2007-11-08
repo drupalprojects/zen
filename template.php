@@ -213,7 +213,7 @@ function _phptemplate_variables($hook, $vars = array()) {
       // $vars['links']
 
       // Special classes for nodes
-      $node_classes = array('node');
+      $node_classes = array();
       if ($vars['sticky']) {
         $node_classes[] = 'sticky';
       }
@@ -237,7 +237,7 @@ function _phptemplate_variables($hook, $vars = array()) {
       // set a variable so we can theme this comment uniquely.
       $vars['author_comment'] = $vars['comment']->uid == $node->uid ? TRUE : FALSE;
 
-      $comment_classes = array('comment');
+      $comment_classes = array();
 
       // Odd/even handling
       static $comment_odd = TRUE;
