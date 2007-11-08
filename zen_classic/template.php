@@ -29,8 +29,11 @@
  * own theme (seperate from Zen). So we need to re-connect those sub-themes
  * with the main Zen theme.
  */
-include_once 'zen-subtheme.php';
-
+global $theme;
+if ($theme != 'zen') {
+  $themes = list_themes();
+  include_once './'. dirname($themes['zen']->filename) .'/template.php';
+}
 
 /*
  * Initialize theme settings
