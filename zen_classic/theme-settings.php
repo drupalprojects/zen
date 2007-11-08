@@ -1,6 +1,9 @@
 <?php
 // $Id$
 
+// Include base theme's settings file.
+include_once path_to_theme() .'/theme-settings.php';
+
 /**
  * Implementation of THEMEHOOK_settings() function.
  *
@@ -9,7 +12,7 @@
  * @return
  *   array A form array.
  */
-function phptemplate_settings($saved_settings) {
+function zen_classic_settings($saved_settings) {
 
   // The default values for the theme variables
   $defaults = array(
@@ -28,6 +31,9 @@ function phptemplate_settings($saved_settings) {
     '#default_value' => $settings['zen_classic_fixed'],
     '#description'   => 'The theme should be centered and fixed at 960 pixels wide.',
   );
+
+  // Add the base theme's settings.
+  $form += zen_settings($saved_settings);
 
   // Return the form
   return $form;

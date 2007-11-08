@@ -1,4 +1,5 @@
 Zen 5.x-1.x-dev
+  * Added customizable breadcrumb settings
   * Split template.php into multiple files to ease theme developer overload
   * Add prettier tab styling
   * #141784: Add conditional IE stylesheets

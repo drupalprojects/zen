@@ -38,7 +38,7 @@ if ($theme != 'zen') {
 /*
  * Initialize theme settings
  */
-include 'theme-settings-init.php';
+include_once 'theme-settings-init.php';
 
 
 /**
