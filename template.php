@@ -178,7 +178,7 @@ function _phptemplate_variables($hook, $vars = array()) {
       $body_classes[] = ($vars['logged_in']) ? 'logged-in' : 'not-logged-in';
       if ($vars['node']->type) {
         // If on an individual node page, put the node type in the body classes
-        $body_classes[] = 'node-type-'. zen_id_safe($vars['node']->type);
+        $body_classes[] = 'node-type-'. $vars['node']->type;
       }
       if ($vars['sidebar_left'] && $vars['sidebar_right']) {
         $body_classes[] = 'two-sidebars';
@@ -225,7 +225,7 @@ function _phptemplate_variables($hook, $vars = array()) {
         $node_classes[] = 'node-mine';
       }
       // Class for node type: "node-type-page", "node-type-story", "node-type-my-custom-type", etc.
-      $node_classes[] = 'node-type-'. zen_id_safe($vars['node']->type);
+      $node_classes[] = 'node-type-'. $vars['node']->type;
       $vars['node_classes'] = implode(' ', $node_classes); // implode with spaces
 
       break;
