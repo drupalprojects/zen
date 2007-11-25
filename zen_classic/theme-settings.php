@@ -8,15 +8,19 @@ include_once path_to_theme() .'/theme-settings.php';
  * Implementation of THEMEHOOK_settings() function.
  *
  * @param $saved_settings
- *   array An array of saved settings for this theme.
+ *   An array of saved settings for this theme.
  * @return
- *   array A form array.
+ *   A form array.
  */
 function zen_classic_settings($saved_settings) {
 
   // The default values for the theme variables
   $defaults = array(
     'zen_classic_fixed' => 0,
+    'zen_breadcrumb' => 'yes',
+    'zen_breadcrumb_separator' => ' :: ',
+    'zen_breadcrumb_home' => 1,
+    'zen_breadcrumb_trailing' => 0,
   );
 
   // Merge the saved variables and their default values
@@ -33,7 +37,7 @@ function zen_classic_settings($saved_settings) {
   );
 
   // Add the base theme's settings.
-  $form += zen_settings($saved_settings);
+  $form += zen_settings($saved_settings, $defaults);
 
   // Return the form
   return $form;

@@ -25,6 +25,12 @@
 
 
 /*
+ * Initialize theme settings
+ */
+include_once 'theme-settings-init.php';
+
+
+/*
  * Sub-themes with their own page.tpl.php files are seen by PHPTemplate as their
  * own theme (seperate from Zen). So we need to re-connect those sub-themes
  * with the main Zen theme.
@@ -34,11 +40,6 @@ if ($theme != 'zen') {
   $themes = list_themes();
   include_once './'. dirname($themes['zen']->filename) .'/template.php';
 }
-
-/*
- * Initialize theme settings
- */
-include_once 'theme-settings-init.php';
 
 
 /**

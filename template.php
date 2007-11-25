@@ -22,11 +22,11 @@
  * this main template.php file.
  */
 
-// Initialize theme settings
-include_once 'theme-settings-init.php';
-
 // Sub-theme support
 include_once 'template-subtheme.php';
+
+// Initialize theme settings
+include_once 'theme-settings-init.php';
 
 // Tabs and menu functions
 include_once 'template-menus.php';
@@ -101,13 +101,14 @@ function phptemplate_breadcrumb($breadcrumb) {
   $show_breadcrumb = theme_get_setting('zen_breadcrumb');
   $show_breadcrumb_home = theme_get_setting('zen_breadcrumb_home');
   $breadcrumb_separator = theme_get_setting('zen_breadcrumb_separator');
+  $separator_trailing = theme_get_setting('zen_breadcrumb_trailing') ? $breadcrumb_separator : '';
   if ($show_breadcrumb == 'yes' || $show_breadcrumb == 'admin' && arg(0) == 'admin') {
     if (!$show_breadcrumb_home) {
       // Get rid of homepage link
       array_shift($breadcrumb);
     }
     if (!empty($breadcrumb)) {
-      return '<div class="breadcrumb">'. implode($breadcrumb_separator, $breadcrumb) ."$breadcrumb_separator</div>";
+      return '<div class="breadcrumb">'. implode($breadcrumb_separator, $breadcrumb) ."$separator_trailing</div>";
     }
   }
   return '';
