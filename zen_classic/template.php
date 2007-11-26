@@ -35,11 +35,7 @@ include_once 'theme-settings-init.php';
  * own theme (seperate from Zen). So we need to re-connect those sub-themes
  * with the main Zen theme.
  */
-global $theme;
-if ($theme != 'zen') {
-  $themes = list_themes();
-  include_once './'. dirname($themes['zen']->filename) .'/template.php';
-}
+include_once './'. drupal_get_path('theme', 'zen') .'/template.php';
 
 
 /**
