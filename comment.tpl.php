@@ -24,4 +24,4 @@
     </div>
   <?php endif; ?>
 
-</div> <!-- /comment-inner, /comment -->
+</div></div> <!-- /comment-inner, /comment -->
