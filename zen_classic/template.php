@@ -39,6 +39,23 @@ include_once './'. drupal_get_path('theme', 'zen') .'/template.php';
 
 
 /**
+ * Declare the available regions implemented by this theme.
+ *
+ * @return
+ *   An array of regions.
+ */
+function zen_classic_regions() {
+  return array(
+    'left' => t('left sidebar'),
+    'right' => t('right sidebar'),
+    'content_top' => t('content top'),
+    'content_bottom' => t('content bottom'),
+    'header' => t('header'),
+    'footer' => t('footer'),
+  );
+}
+
+/**
  * Intercept template variables
  *
  * @param $hook
@@ -52,10 +69,10 @@ function zen_variables($hook, $vars) {
   switch ($hook) {
     case 'page':
       // Add main Zen styles.
-      drupal_add_css($vars['directory'] .'/layout.css', 'theme', 'all');
       drupal_add_css($vars['directory'] .'/tabs.css', 'theme', 'all');
-      drupal_add_css($vars['directory'] .'/print.css', 'theme', 'print');
       // Then add styles for this sub-theme.
+      drupal_add_css($vars['subtheme_directory'] .'/layout.css', 'theme', 'all');
+      drupal_add_css($vars['subtheme_directory'] .'/print.css', 'theme', 'print');
       drupal_add_css($vars['subtheme_directory'] .'/zen-classic.css', 'theme', 'all');
       drupal_add_css($vars['subtheme_directory'] .'/icons.css', 'theme', 'all');
       // Optionally add the fixed width CSS file.
