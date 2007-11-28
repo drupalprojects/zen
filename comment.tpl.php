@@ -1,4 +1,4 @@
-<div class="comment <?php print $comment_classes; ?> clear-block"><div class="comment-inner">
+<div class="comment <?php print $comment_classes; ?>"><div class="comment-inner">
 
   <?php if (!empty($new)): ?>
     <div class="new"><?php print $new; ?></div>

@@ -1,4 +1,4 @@
-<div class="box clear-block"><div class="box-inner">
+<div class="box"><div class="box-inner clear-block">
 
   <?php if ($title): ?>
     <h2 class="title"><?php print $title; ?></h2>
