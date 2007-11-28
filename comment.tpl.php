@@ -1,11 +1,9 @@
 <div class="comment <?php print $comment_classes; ?>"><div class="comment-inner">
 
-  <?php if (!empty($new)): ?>
-    <div class="new"><?php print $new; ?></div>
-  <?php endif; ?>
-
   <?php if ($title): ?>
-    <h3 class="title"><?php print $title; ?></h3>
+    <h3 class="title"><?php print $title; if (!empty($new)): ?> <span class="new"><?php print $new; ?></span><?php endif; ?></h3>
+  <?php elseif (!empty($new)): ?>
+    <div class="new"><?php print $new; ?></div>
   <?php endif; ?>
 
   <?php if ($picture) print $picture; ?>
