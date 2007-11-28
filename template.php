@@ -31,8 +31,9 @@ include_once 'theme-settings-init.php';
 // Tabs and menu functions
 include_once 'template-menus.php';
 
+
 /**
- * Declare the available regions implemented by this engine.
+ * Declare the available regions implemented by this theme.
  *
  * Regions are areas in your theme where you can place blocks. The default
  * regions used in themes are "left sidebar", "right sidebar", "header", and
@@ -79,13 +80,14 @@ function zen_regions() {
  * have to override the theme function. You have to first find the theme
  * function that generates the output, and then "catch" it and modify it here.
  * The easiest way to do it is to copy the original function in its entirety and
- * paste it here, changing the prefix from theme_ to zen_. For example:
+ * paste it here, changing the prefix from theme_ to phptemplate_ or zen_. For
+ * example:
  *
  *   original: theme_breadcrumb()
  *   theme override: zen_breadcrumb()
  *
- * See the following example. In this theme, we want to change all of the
- * breadcrumb separator links from >> to ::
+ * See the following example. In this function, we want to change all of the
+ * breadcrumb separator characters from >> to a custom string.
  */
 
 
@@ -101,16 +103,20 @@ function phptemplate_breadcrumb($breadcrumb) {
   $show_breadcrumb = theme_get_setting('zen_breadcrumb');
   $show_breadcrumb_home = theme_get_setting('zen_breadcrumb_home');
   $breadcrumb_separator = theme_get_setting('zen_breadcrumb_separator');
-  $separator_trailing = theme_get_setting('zen_breadcrumb_trailing') ? $breadcrumb_separator : '';
+  $trailing_separator = theme_get_setting('zen_breadcrumb_trailing') ? $breadcrumb_separator : '';
+
+  // Determine if we are to display the breadcrumb
   if ($show_breadcrumb == 'yes' || $show_breadcrumb == 'admin' && arg(0) == 'admin') {
     if (!$show_breadcrumb_home) {
-      // Get rid of homepage link
+      // Optionally get rid of the homepage link
       array_shift($breadcrumb);
     }
     if (!empty($breadcrumb)) {
-      return '<div class="breadcrumb">'. implode($breadcrumb_separator, $breadcrumb) ."$separator_trailing</div>";
+      // Return the breadcrumb with separators
+      return '<div class="breadcrumb">'. implode($breadcrumb_separator, $breadcrumb) ."$trailing_separator</div>";
     }
   }
+  // Otherwise, return an empty string
   return '';
 }
 
@@ -138,9 +144,11 @@ function phptemplate_breadcrumb($breadcrumb) {
  * Intercept template variables
  *
  * @param $hook
- *   The name of the theme function being executed
+ *   The name of the theme function being executed (name of the .tpl.php file)
  * @param $vars
- *   A sequential array of variables passed to the theme function.
+ *   A copy of the array containing the variables for the hook.
+ * @return
+ *   The array containing additional variables to merge with $vars.
  */
 function _phptemplate_variables($hook, $vars = array()) {
   // Get the currently logged in user
@@ -164,7 +172,8 @@ function _phptemplate_variables($hook, $vars = array()) {
         // but these are incompatible with the CSS caching in Drupal 5
         drupal_add_css($vars['directory'] .'/layout.css', 'theme', 'all');
         drupal_add_css($vars['directory'] .'/tabs.css', 'theme', 'all');
-        $vars['css'] = drupal_add_css($vars['directory'] .'/print.css', 'theme', 'print');
+        drupal_add_css($vars['directory'] .'/print.css', 'theme', 'print');
+        $vars['css'] = drupal_add_css();
         $vars['styles'] = drupal_get_css();
       }
 
