@@ -1,4 +1,5 @@
 Zen 5.x-1.x-dev
+  * #184232: Add README documentation
   * #121991: Source rendering order needs adjustment
   * #110897: oversize content causes IE6 layout breakage
   * Added unique classes for each page and website section
