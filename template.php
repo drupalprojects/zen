@@ -62,12 +62,14 @@ function zen_regions() {
   }
 
   return array(
-       'left' => t('left sidebar'),
-       'right' => t('right sidebar'),
-       'content_top' => t('content top'),
-       'content_bottom' => t('content bottom'),
-       'header' => t('header'),
-       'footer' => t('footer'),
+    'left' => t('left sidebar'),
+    'right' => t('right sidebar'),
+    'navbar' => t('navigation bar'),
+    'content_top' => t('content top'),
+    'content_bottom' => t('content bottom'),
+    'header' => t('header'),
+    'footer' => t('footer'),
+    'closure_region' => t('closure'),
   );
 }
 
@@ -171,7 +173,9 @@ function _phptemplate_variables($hook, $vars = array()) {
         // We had previously used @import declarations in the css files,
         // but these are incompatible with the CSS caching in Drupal 5
         drupal_add_css($vars['directory'] .'/layout.css', 'theme', 'all');
+        drupal_add_css($vars['directory'] .'/html-elements.css', 'theme', 'all');
         drupal_add_css($vars['directory'] .'/tabs.css', 'theme', 'all');
+        drupal_add_css($vars['directory'] .'/zen.css', 'theme', 'all');
         drupal_add_css($vars['directory'] .'/print.css', 'theme', 'print');
         $vars['css'] = drupal_add_css();
         $vars['styles'] = drupal_get_css();
