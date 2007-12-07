@@ -1,0 +1,18 @@
+IMPORTANT DISCLAIMER
+
+  If you are developing a new theme based off of Zen, do NOT use the Zen Classic
+  theme as a starting point. There are known issues with it and you will not get
+  any support.
+
+ABOUT ZEN CLASSIC
+
+  The Zen Classic theme contains the old Zen CSS (before 5.x-0.7) and was made a
+  sub-theme of Zen because, while the theme looked good as-is, everyone was
+  tired of undoing all that CSS when using it to develop a new theme.
+
+SUPPORT
+
+  The Zen Classic theme is left as-is for historical purposes and as a reference
+  for people who used Zen before 5.x-0.7 was released.
+
+  It is no longer supported.
