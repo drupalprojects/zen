@@ -630,11 +630,6 @@
     font-size: 0.9em;
   }
 
-  .section-admin #div-zen-breadcrumb /* Zen's theme settings CSS -- safe to ignore. */
-  {
-    margin-top: 1em;
-  }
-
 /** Drupal admin tables **/
   /* We overrode these styles in html-elements.css, but restore them for the
    * admin section of the site.

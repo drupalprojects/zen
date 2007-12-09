@@ -13,6 +13,9 @@
  */
 function zen_settings($saved_settings, $subtheme_defaults = array()) {
 
+  // Add the form's CSS
+  drupal_add_css(path_to_theme().'/theme-settings.css', 'theme');
+
   // Add javascript to show/hide optional settings
   drupal_add_js(path_to_theme().'/theme-settings.js', 'theme');
 
@@ -31,9 +34,15 @@ function zen_settings($saved_settings, $subtheme_defaults = array()) {
   /*
    * Create the form using Form API
    */
+
+  $form['zen-div-opening'] = array(
+    '#value'         => '<div id="zen-settings">',
+  );
+
   $form['breadcrumb'] = array(
     '#type'          => 'fieldset',
     '#title'         => t('Breadcrumb settings'),
+    '#attributes'    => array('id' => 'zen-breadcrumb'),
   );
   $form['breadcrumb']['zen_breadcrumb'] = array(
     '#type'          => 'select',
@@ -52,7 +61,7 @@ function zen_settings($saved_settings, $subtheme_defaults = array()) {
     '#default_value' => $settings['zen_breadcrumb_separator'],
     '#size'          => 5,
     '#maxlength'     => 10,
-    '#prefix'        => '<div id="div-zen-breadcrumb">', // jquery hook to show/hide optional widgets
+    '#prefix'        => '<div id="div-zen-breadcrumb-collapse">', // jquery hook to show/hide optional widgets
   );
   $form['breadcrumb']['zen_breadcrumb_home'] = array(
     '#type'          => 'checkbox',
@@ -65,6 +74,10 @@ function zen_settings($saved_settings, $subtheme_defaults = array()) {
     '#default_value' => $settings['zen_breadcrumb_trailing'],
     '#description'   => 'Useful when the breadcrumb is placed just before the title.',
     '#suffix'        => '</div>', // #div-zen-breadcrumb
+  );
+
+  $form['zen-div-closing'] = array(
+    '#value'         => '</div>',
   );
 
   // Return the form
