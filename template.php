@@ -166,21 +166,29 @@ function _phptemplate_variables($hook, $vars = array()) {
     case 'page':
       global $theme, $theme_key;
 
-      // If we're in the main theme
-      if ($theme == $theme_key) {
-        // These next lines add additional CSS files and redefine
-        // the $css and $styles variables available to your page template
-        // We had previously used @import declarations in the css files,
-        // but these are incompatible with the CSS caching in Drupal 5
-        drupal_add_css($vars['directory'] .'/layout.css', 'theme', 'all');
+      // These next lines add additional CSS files and redefine
+      // the $css and $styles variables available to your page template
+      if ($theme == $theme_key) { // If we're in the main theme
+        // Load the stylesheet for a liquid layout
+        if (theme_get_setting('zen_layout') == 'slurpy-liquid') {
+          drupal_add_css($vars['directory'] .'/layout-liquid.css', 'theme', 'all');
+        }
+        // Or load the stylesheet for a fixed width layout
+        else {
+          drupal_add_css($vars['directory'] .'/layout-fixed.css', 'theme', 'all');
+        }
         drupal_add_css($vars['directory'] .'/html-elements.css', 'theme', 'all');
         drupal_add_css($vars['directory'] .'/tabs.css', 'theme', 'all');
         drupal_add_css($vars['directory'] .'/zen.css', 'theme', 'all');
-        $vars['css'] = drupal_add_css();
-        $vars['styles'] = drupal_get_css();
         // Avoid IE5 bug that always loads @import print stylesheets
         $vars['head'] = zen_add_print_css($vars['directory'] .'/print.css');
       }
+      // Optionally add the wireframes style.
+      if (theme_get_setting('zen_wireframes')) {
+        drupal_add_css($vars['directory'] .'/wireframes.css', 'theme', 'all');
+      }
+      $vars['css'] = drupal_add_css();
+      $vars['styles'] = drupal_get_css();
 
       // Send a new variable, $logged_in, to page.tpl.php to tell us if the
       // current user is logged in or out. An anonymous user has a user id of 0.

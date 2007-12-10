@@ -36,3 +36,30 @@
     margin-right: 0;
     text-align: left;
   }
+
+  #div-zen-wireframes
+  {
+    margin: 1em 0;
+  }
+
+  #div-zen-wireframes strong
+  {
+    float: left;
+    width: 190px;
+    margin-left: 0;
+    margin-right: 10px;
+    text-align: right;
+  }
+
+  #div-zen-wireframes .form-item
+  {
+    display: inline;
+    margin-left: 0;
+    padding-left: 0;
+  }
+
+  #div-zen-wireframes .form-item .description
+  {
+    display: block;
+    margin-left: 200px;
+  }

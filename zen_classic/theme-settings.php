@@ -39,6 +39,9 @@ function zen_classic_settings($saved_settings) {
   // Add the base theme's settings.
   $form += zen_settings($saved_settings, $defaults);
 
+  // Remove some of the base theme's settings.
+  unset($form['themedev']);
+
   // Return the form
   return $form;
 }

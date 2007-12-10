@@ -1,7 +1,7 @@
 <?php
 // $Id$
 
-if (is_null(theme_get_setting('zen_breadcrumb_trailing'))) {
+if (is_null(theme_get_setting('zen_wireframes'))) {
   global $theme_key;
   // Save default theme settings
   $defaults = array(
@@ -9,6 +9,8 @@ if (is_null(theme_get_setting('zen_breadcrumb_trailing'))) {
     'zen_breadcrumb_separator' => ' › ',
     'zen_breadcrumb_home' => 1,
     'zen_breadcrumb_trailing' => 1,
+    'zen_layout' => 'slurpy-liquid',
+    'zen_wireframes' => 0,
   );
   variable_set(
     str_replace('/', '_', 'theme_'. $theme_key .'_settings'),

@@ -49,15 +49,15 @@ function zen_settings($saved_settings, $subtheme_defaults = array()) {
     '#title'         => t('Display breadcrumb'),
     '#default_value' => $settings['zen_breadcrumb'],
     '#options'       => array(
-                          'yes'   => 'Yes',
-                          'admin' => 'Only in admin section',
-                          'no'    => 'No',
+                          'yes'   => t('Yes'),
+                          'admin' => t('Only in admin section'),
+                          'no'    => t('No'),
                         ),
   );
   $form['breadcrumb']['zen_breadcrumb_separator'] = array(
     '#type'          => 'textfield',
     '#title'         => t('Breadcrumb separator'),
-    '#description'   => 'Text only. Don’t forget to include spaces.',
+    '#description'   => t('Text only. Don’t forget to include spaces.'),
     '#default_value' => $settings['zen_breadcrumb_separator'],
     '#size'          => 5,
     '#maxlength'     => 10,
@@ -72,8 +72,31 @@ function zen_settings($saved_settings, $subtheme_defaults = array()) {
     '#type'          => 'checkbox',
     '#title'         => t('Append a separator to the end of the breadcrumb'),
     '#default_value' => $settings['zen_breadcrumb_trailing'],
-    '#description'   => 'Useful when the breadcrumb is placed just before the title.',
+    '#description'   => t('Useful when the breadcrumb is placed just before the title.'),
     '#suffix'        => '</div>', // #div-zen-breadcrumb
+  );
+
+  $form['themedev'] = array(
+    '#type'          => 'fieldset',
+    '#title'         => t('Theme development settings'),
+    '#attributes'    => array('id' => 'zen-themedev'),
+  );
+  $form['themedev']['zen_layout'] = array(
+    '#type'          => 'radios',
+    '#title'         => t('Layout method'),
+    '#options'       => array(
+                          'slurpy-liquid' => t('Liquid layout') .' <small>(layout-liquid.css)</small>',
+                          'slurpy-fixed' => t('Fixed layout') .' <small>(layout-fixed.css)</small>',
+                        ),
+    '#default_value' => $settings['zen_layout'],
+  );
+  $form['themedev']['zen_wireframes'] = array(
+    '#type'          => 'checkbox',
+    '#title'         => t('Display borders around main layout elements'),
+    '#default_value' => $settings['zen_wireframes'],
+    '#description'   => l(t('Wireframes'), 'http://www.boxesandarrows.com/view/html_wireframes_and_prototypes_all_gain_and_no_pain') . t(' are useful when prototyping a website.'),
+    '#prefix'        => '<div id="div-zen-wireframes"><strong>'. t('Wireframes:') .'</strong>',
+    '#suffix'        => '</div>',
   );
 
   $form['zen-div-closing'] = array(
