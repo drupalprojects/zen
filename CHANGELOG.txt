@@ -1,4 +1,5 @@
 Zen 5.x-1.x-dev
+  #199682: 'Submitted by' text is shown even if setting is disabled
   #171201: Remove un-localizable date/time format from base theme
 
 Zen 5.x-0.8
