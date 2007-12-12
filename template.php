@@ -237,21 +237,6 @@ function _phptemplate_variables($hook, $vars = array()) {
       break;
 
     case 'node':
-      if ($vars['submitted']) {
-        // We redefine the format for submitted.
-        $vars['submitted'] =
-          t('Posted <abbr class="created" title="!microdate">@date</abbr> by !username',
-            array(
-              '!username' => theme('username', $vars['node']),
-              '@date' => format_date($vars['node']->created,'custom', "F jS, Y"),
-              '!microdate' => format_date($vars['node']->created,'custom', "Y-m-d\TH:i:sO"),
-            )
-          );
-      }
-
-      // In this section you can also edit the following variables:
-      // $vars['links']
-
       // Special classes for nodes
       $node_classes = array();
       if ($vars['sticky']) {
