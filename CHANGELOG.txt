@@ -1,4 +1,5 @@
 Zen 5.x-1.x-dev
+  #199578: Fatal error on Zen Classic theme settings when using admin theme
   #196230: Tabs broken in IE5 and IE6
   #199682: 'Submitted by' text is shown even if setting is disabled
   #171201: Remove un-localizable date/time format from base theme

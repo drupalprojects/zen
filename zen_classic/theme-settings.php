@@ -2,7 +2,7 @@
 // $Id$
 
 // Include base theme's settings file.
-include_once path_to_theme() .'/theme-settings.php';
+include_once './'. drupal_get_path('theme', 'zen') .'/theme-settings.php';
 
 /**
  * Implementation of THEMEHOOK_settings() function.
