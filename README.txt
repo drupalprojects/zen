@@ -38,7 +38,7 @@ Build your own sub-theme:
   1. Copy the SUBTHEME folder and rename it to be your new sub-theme. IMPORTANT:
      Only lowercase letters and underscores should be used.
 
-     For example, rename the zen/SUBTHEME folder to zen/foo.
+     For example, copy the zen/SUBTHEME folder and rename it as zen/foo.
 
   2. If you want a liquid layout for your theme, copy the layout-liquid.css from
      the zen folder and place it in your sub-theme's folder. If you want a
@@ -95,10 +95,5 @@ Build your own sub-theme:
 
   10. FURTHER EXTENSIONS OF YOUR SUB-THEME:
      Discover further ways to extend your sub-theme by reading Zen's
-     documentation and Drupal's Theme Developer's Handbook online at:
+     documentation and Drupal's Theme Developer's Guide online at:
        http://drupal.org/handbooks
- 
-Layout method for the base Zen theme:
-
-  Based on the completely undocumented "Holy Slurpy Cup" layout method. Docs to
-  follow soon; I promise.
