@@ -42,17 +42,18 @@ body.two-sidebars #main {
 
 #squeeze {
   position: relative;
-  padding: 0 1em;
 }
 
 /* And add blanks left and right for the sidebars to fill */
 body.sidebar-left #squeeze,
 body.two-sidebars #squeeze {
   margin-left: 210px;
+  padding-left: 1em;
 }
 body.sidebar-right #squeeze,
 body.two-sidebars #squeeze {
   margin-right: 210px;
+  padding-right: 1em;
 }
 
 /* We ensure the sidebars are still clickable using z-index */
