@@ -57,7 +57,7 @@ function zen_regions() {
   if ($theme_key != 'zen') {
     $function = str_replace('-', '_', $theme_key) .'_regions';
     if (function_exists($function)) {
-      return call_user_func($function);
+      return $function();
     }
   }
 
