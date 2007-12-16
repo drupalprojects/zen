@@ -154,7 +154,7 @@ function phptemplate_breadcrumb($breadcrumb) {
  */
 function _phptemplate_variables($hook, $vars = array()) {
   // Get the currently logged in user
-  global $user;
+  global $user, $theme_key;
 
   // Set a new $is_admin variable. This is determined by looking at the
   // currently logged in user and seeing if they are in the role 'admin'. The
@@ -164,7 +164,7 @@ function _phptemplate_variables($hook, $vars = array()) {
 
   switch ($hook) {
     case 'page':
-      global $theme, $theme_key;
+      global $theme;
 
       // These next lines add additional CSS files and redefine
       // the $css and $styles variables available to your page template
@@ -234,6 +234,15 @@ function _phptemplate_variables($hook, $vars = array()) {
       }
       $vars['body_classes'] = implode(' ', $body_classes); // implode with spaces
 
+      // Allow a sub-theme to add/alter variables
+      if (function_exists($theme_key .'_preprocess_page')) {
+        $function = $theme_key .'_preprocess_page';
+        $function($vars);
+      }
+      elseif (function_exists('phptemplate_preprocess_page')) {
+        phptemplate_preprocess_page($vars);
+      }
+
       break;
 
     case 'node':
@@ -252,6 +261,15 @@ function _phptemplate_variables($hook, $vars = array()) {
       // Class for node type: "node-type-page", "node-type-story", "node-type-my-custom-type", etc.
       $node_classes[] = 'node-type-'. $vars['node']->type;
       $vars['node_classes'] = implode(' ', $node_classes); // implode with spaces
+
+      // Allow a sub-theme to add/alter variables
+      if (function_exists($theme_key .'_preprocess_node')) {
+        $function = $theme_key .'_preprocess_node';
+        $function($vars);
+      }
+      elseif (function_exists('phptemplate_preprocess_node')) {
+        phptemplate_preprocess_node($vars);
+      }
 
       break;
 
@@ -291,10 +309,20 @@ function _phptemplate_variables($hook, $vars = array()) {
         $vars['title'] = '';
       }
 
+      // Allow a sub-theme to add/alter variables
+      if (function_exists($theme_key .'_preprocess_comment')) {
+        $function = $theme_key .'_preprocess_comment';
+        $function($vars);
+      }
+      elseif (function_exists('phptemplate_preprocess_comment')) {
+        phptemplate_preprocess_comment($vars);
+      }
+
       break;
   }
 
-  // Allow a sub-theme to add/alter variables
+  // The following is a deprecated function included for backwards compatibility
+  // with Zen 5.x-0.8 and earlier. New sub-themes should not use this function.
   if (function_exists('zen_variables')) {
     $vars = zen_variables($hook, $vars);
   }
