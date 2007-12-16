@@ -33,7 +33,7 @@ function zen_classic_settings($saved_settings) {
     '#type'          => 'checkbox',
     '#title'         => t('Use fixed width for theme'),
     '#default_value' => $settings['zen_classic_fixed'],
-    '#description'   => 'The theme should be centered and fixed at 960 pixels wide.',
+    '#description'   => t('The theme should be centered and fixed at 960 pixels wide.'),
   );
 
   // Add the base theme's settings.
