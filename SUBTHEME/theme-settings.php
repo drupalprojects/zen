@@ -32,6 +32,7 @@ function SUBTHEME_settings($saved_settings) {
   /*
    * Create the form using Forms API: http://api.drupal.org/api/5
    */
+  $form = array();
   /* -- Delete this line if you want to use this setting
   $form['subtheme_example'] = array(
     '#type'          => 'checkbox',
