@@ -14,10 +14,10 @@
 function zen_settings($saved_settings, $subtheme_defaults = array()) {
 
   // Add the form's CSS
-  drupal_add_css(path_to_theme().'/theme-settings.css', 'theme');
+  drupal_add_css(drupal_get_path('theme', 'zen') .'/theme-settings.css', 'theme');
 
   // Add javascript to show/hide optional settings
-  drupal_add_js(path_to_theme().'/theme-settings.js', 'theme');
+  drupal_add_js(drupal_get_path('theme', 'zen') .'/theme-settings.js', 'theme');
 
   // The default values for the theme variables
   $defaults = array(
