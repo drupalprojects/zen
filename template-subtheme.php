@@ -53,31 +53,6 @@ function path_to_subtheme() {
   return $theme_path;
 }
 
-/*
- * These next functions allow sub-themes to have their own page.tpl.php,
- * node.tpl.php, node-type.tpl.php, etc.
- */
-function _phptemplate_node($vars, $suggestions) {
-  return _zen_default('node', $vars, $suggestions);
-}
-
-function _phptemplate_comment($vars, $suggestions) {
-  return _zen_default('comment', $vars, $suggestions);
-}
-
-function _phptemplate_page($vars, $suggestions) {
-  return _zen_default('page', $vars, $suggestions);
-}
-
-function _phptemplate_block($vars, $suggestions) {
-  return _zen_default('block', $vars, $suggestions);
-}
-
-function _phptemplate_box($vars, $suggestions) {
-  return _zen_default('box', $vars, $suggestions);
-}
-
-
 /**
  * Allow sub-themes to have their own .tpl.php template files.
  *
@@ -131,4 +106,29 @@ function _zen_default($hook, $variables, $suggestions = array(), $extension = '.
   if (isset($file)) {
     return call_user_func('_'. $theme_engine .'_render', $file, $variables);
   }
+}
+
+/*
+ * Rather than let _phptemplate_variables() dynamically, and slowly, define
+ * override functions for functions we will definitely need, we define them
+ * explicitly here.
+ */
+function _phptemplate_page($vars, $suggestions) {
+  return _zen_default('page', $vars, $suggestions);
+}
+
+function _phptemplate_node($vars, $suggestions) {
+  return _zen_default('node', $vars, $suggestions);
+}
+
+function _phptemplate_comment($vars, $suggestions) {
+  return _zen_default('comment', $vars, $suggestions);
+}
+
+function _phptemplate_block($vars, $suggestions) {
+  return _zen_default('block', $vars, $suggestions);
+}
+
+function _phptemplate_box($vars, $suggestions) {
+  return _zen_default('box', $vars, $suggestions);
 }

@@ -321,6 +321,26 @@ function _phptemplate_variables($hook, $vars = array()) {
       break;
   }
 
+  /* To override _phptemplate_default(), we need to dynamically define a
+   * _phptemplate_HOOK() function.
+   */
+  if (!function_exists("_phptemplate_$hook")) {
+  	// Only create a function if $hook contains letters and underscores.
+  	if (!preg_match('/\W/', $hook)) {
+      $declaration = <<<EOD
+        function _phptemplate_$hook(\$vars, \$suggestions = array()) {
+          return _zen_default('$hook', \$vars, \$suggestions);
+        }
+EOD;
+      eval($declaration);
+    }
+    else {
+      // Since we can't create an override function, we simply add a template
+      // suggestion that contains the sub-theme directory.
+  	  $vars['template_file'] = "$theme_key/$hook";
+  	}
+  }
+
   // The following is a deprecated function included for backwards compatibility
   // with Zen 5.x-0.8 and earlier. New sub-themes should not use this function.
   if (function_exists('zen_variables')) {

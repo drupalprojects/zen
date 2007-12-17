@@ -1,4 +1,5 @@
 Zen 5.x-1.x-dev
+  #196181: _phptemplate_callback doesn't look in sub-theme folder for .tpl.php files
   * Added SUBTHEME directory as a starter sub-theme for developers
   #199036 by joachim: Make padding on #squeeze conditional
   #199578: Fatal error on Zen Classic theme settings when using admin theme
