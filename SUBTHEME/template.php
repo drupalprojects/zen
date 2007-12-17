@@ -20,9 +20,9 @@
  * theme would define a zen_classic_regions() function.
  *
  * For a sub-theme to add its own variables, use these functions
- *   SUBTHEME_preprocess_page(&$vars)
- *   SUBTHEME_preprocess_node(&$vars)
- *   SUBTHEME_preprocess_comment(&$vars)
+ *   phptemplate_preprocess_page(&$vars)
+ *   phptemplate_preprocess_node(&$vars)
+ *   phptemplate_preprocess_comment(&$vars)
  */
 
 
@@ -88,7 +88,7 @@ function SUBTHEME_regions() {
  *   A sequential array of variables to pass to the theme template.
  */
 /* -- Delete this line if you want to use this function
-function SUBTHEME_preprocess_page(&$vars) {
+function phptemplate_preprocess_page(&$vars) {
   $vars['sample_variable'] = t('Lorem ipsum.');
 }
 // */
@@ -100,7 +100,7 @@ function SUBTHEME_preprocess_page(&$vars) {
  *   A sequential array of variables to pass to the theme template.
  */
 /* -- Delete this line if you want to use this function
-function SUBTHEME_preprocess_node(&$vars) {
+function phptemplate_preprocess_node(&$vars) {
   $vars['sample_variable'] = t('Lorem ipsum.');
 }
 // */
@@ -112,7 +112,7 @@ function SUBTHEME_preprocess_node(&$vars) {
  *   A sequential array of variables to pass to the theme template.
  */
 /* -- Delete this line if you want to use this function
-function SUBTHEME_preprocess_comment(&$vars) {
+function phptemplate_preprocess_comment(&$vars) {
   $vars['sample_variable'] = t('Lorem ipsum.');
 }
 // */
@@ -122,7 +122,7 @@ function SUBTHEME_preprocess_comment(&$vars) {
  * Override the Drupal search form using the search-theme-form.tpl.php file.
  */
 /* -- Delete this line if you want to use this function
-function SUBTHEME_search_theme_form($form) {
+function phptemplate_search_theme_form($form) {
   return _phptemplate_callback('search-theme-form', array('form' => $form));
 }
 // */
