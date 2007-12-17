@@ -58,12 +58,10 @@ function path_to_subtheme() {
  * node.tpl.php, node-type.tpl.php, etc.
  */
 function _phptemplate_node($vars, $suggestions) {
-  array_unshift($suggestions, 'node'); // Not sure why I need to do this.
   return _zen_default('node', $vars, $suggestions);
 }
 
 function _phptemplate_comment($vars, $suggestions) {
-  array_unshift($suggestions, 'comment'); // Not sure why I need to do this.
   return _zen_default('comment', $vars, $suggestions);
 }
 
@@ -99,19 +97,24 @@ function _zen_default($hook, $variables, $suggestions = array(), $extension = '.
   // Loop through any suggestions in FIFO order.
   $suggestions = array_reverse($suggestions);
   foreach ($suggestions as $suggestion) {
-    if (!empty($suggestion) && file_exists($theme_path .'/'. $suggestion . $extension)) {
-      $file = $theme_path .'/'. $suggestion . $extension;
-      break;
-    }
-    elseif (isset($parent_theme_path) && !empty($suggestion) && file_exists($parent_theme_path .'/'. $suggestion . $extension)) {
-      $file = $parent_theme_path .'/'. $suggestion . $extension;
-      break;
+    if (!empty($suggestion)) {
+      if (file_exists($theme_path .'/'. $suggestion . $extension)) {
+        $file = $theme_path .'/'. $suggestion . $extension;
+        break;
+      }
+      elseif (!empty($parent_theme_path) && file_exists($parent_theme_path .'/'. $suggestion . $extension)) {
+        $file = $parent_theme_path .'/'. $suggestion . $extension;
+        break;
+      }
     }
   }
 
   if (!isset($file)) {
     if (file_exists($theme_path ."/$hook$extension")) {
       $file = $theme_path ."/$hook$extension";
+    }
+    elseif (!empty($parent_theme_path) && file_exists($parent_theme_path ."/$hook$extension")) {
+      $file = $parent_theme_path ."/$hook$extension";
     }
     else {
       if (in_array($hook, array('node', 'block', 'box', 'comment'))) {
