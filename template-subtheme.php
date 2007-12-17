@@ -1,6 +1,17 @@
 <?php
 // $Id$
 
+/*
+ * Allow the sub-theme to have its own template.php.
+ */
+if (path_to_subtheme()) {
+  // Be careful not to create variables in the global scope
+  if (file_exists(path_to_subtheme() .'/template.php')) {
+    include_once path_to_subtheme() .'/template.php';
+  }
+}
+
+
 /**
  * Return the path to the sub-theme directory or FALSE if there is no sub-theme.
  *
@@ -12,6 +23,7 @@ function path_to_subtheme() {
 
   global $theme, $theme_key;
   static $theme_path;
+
   if (!isset($theme_path)) {
     if ($theme_key == $base_theme) {
       // This is not a sub-theme.
@@ -42,16 +54,6 @@ function path_to_subtheme() {
 }
 
 /*
- * This bit allows the sub-theme to have its own template.php.
- */
-if (path_to_subtheme()) {
-  // I'm being careful not to create variables in the global scope
-  if (file_exists(path_to_subtheme() .'/template.php')) {
-    include_once path_to_subtheme() .'/template.php';
-  }
-}
-
-/*
  * These next functions allow sub-themes to have their own page.tpl.php,
  * node.tpl.php, node-type.tpl.php, etc.
  */
@@ -79,13 +81,13 @@ function _phptemplate_box($vars, $suggestions) {
 
 
 /**
+ * Allow sub-themes to have their own .tpl.php template files.
+ *
  * This is an exact copy of _phptemplate_default() with the addition of the
  * $theme_path and $parent_theme_path
  */
 function _zen_default($hook, $variables, $suggestions = array(), $extension = '.tpl.php') {
   global $theme_engine;
-  global $theme;
-  global $theme_key;
 
   if ($theme_path = path_to_subtheme()) {
     $parent_theme_path = path_to_theme();
@@ -113,15 +115,16 @@ function _zen_default($hook, $variables, $suggestions = array(), $extension = '.
     }
     else {
       if (in_array($hook, array('node', 'block', 'box', 'comment'))) {
-        $file = "themes/engines/$theme_engine/$hook$extension";
+        $file = path_to_engine() .'/'. $hook . $extension;
       }
       else {
         $variables['hook'] = $hook;
         watchdog('error', t('%engine.engine was instructed to override the %name theme function, but no valid template file was found.', array('%engine' => $theme_engine, '%name' => $hook)));
-        $file = "themes/engines/$theme_engine/default$extension";
+        $file = path_to_engine() .'/default'. $extension;
       }
     }
   }
+
   if (isset($file)) {
     return call_user_func('_'. $theme_engine .'_render', $file, $variables);
   }
