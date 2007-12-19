@@ -19,7 +19,10 @@ function zen_settings($saved_settings, $subtheme_defaults = array()) {
   // Add javascript to show/hide optional settings
   drupal_add_js(drupal_get_path('theme', 'zen') .'/theme-settings.js', 'theme');
 
-  // The default values for the theme variables
+  /*
+   * The default values for the theme variables. Make sure $defaults exactly
+   * matches the $defaults in the theme-settings-init.php file.
+   */
   $defaults = array(
     'zen_breadcrumb' => 'yes',
     'zen_breadcrumb_separator' => ' › ',
@@ -34,7 +37,6 @@ function zen_settings($saved_settings, $subtheme_defaults = array()) {
   /*
    * Create the form using Form API
    */
-
   $form['zen-div-opening'] = array(
     '#value'         => '<div id="zen-settings">',
   );

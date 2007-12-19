@@ -9,8 +9,6 @@ if (is_null(theme_get_setting('zen_wireframes'))) {
    * different defaults than the main Zen theme. Make sure $defaults exactly
    * matches the $defaults in the theme-settings.php file.
    */
-
-  // Save default theme settings
   $defaults = array(
     'zen_breadcrumb' => 'yes',
     'zen_breadcrumb_separator' => ' › ',
@@ -19,6 +17,7 @@ if (is_null(theme_get_setting('zen_wireframes'))) {
     'zen_wireframes' => 0,
   );
 
+  // Save default theme settings
   variable_set(
     str_replace('/', '_', 'theme_'. $theme_key .'_settings'),
     array_merge($defaults, theme_get_settings($theme_key))
