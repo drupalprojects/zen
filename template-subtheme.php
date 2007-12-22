@@ -108,10 +108,32 @@ function _zen_default($hook, $variables, $suggestions = array(), $extension = '.
   }
 }
 
+/**
+ * To allow themes to have their own template files, we have to override
+ * _phptemplate_default() by dynamically defining _phptemplate_HOOK().
+ */
+function _zen_hook($hook) {
+  if (!function_exists("_phptemplate_$hook")) {
+  	// Only create a function if $hook contains letters and underscores.
+  	if (!preg_match('/\W/', $hook)) {
+      $declaration = <<<EOD
+        function _phptemplate_$hook(\$vars, \$suggestions = array()) {
+          return _zen_default('$hook', \$vars, \$suggestions);
+        }
+EOD;
+      eval($declaration);
+    }
+    else {
+      // Since we can't create an override function, we simply add a template
+      // suggestion that contains the sub-theme directory.
+  	  $vars['template_file'] = "$theme_key/$hook";
+  	}
+  }
+}
+
 /*
- * Rather than let _phptemplate_variables() dynamically, and slowly, define
- * override functions for functions we will definitely need, we define them
- * explicitly here.
+ * Rather than let _zen_hook() dynamically, and slowly, define override
+ * functions for functions we will definitely need, we define them explicitly.
  */
 function _phptemplate_page($vars, $suggestions) {
   return _zen_default('page', $vars, $suggestions);
