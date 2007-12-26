@@ -258,6 +258,10 @@ function _phptemplate_variables($hook, $vars = array()) {
         // Node is authored by current user
         $node_classes[] = 'node-mine';
       }
+      if ($vars['teaser']) {
+        // Node is displayed as teaser
+        $node_classes[] = 'node-teaser';
+      }
       // Class for node type: "node-type-page", "node-type-story", "node-type-my-custom-type", etc.
       $node_classes[] = 'node-type-'. $vars['node']->type;
       $vars['node_classes'] = implode(' ', $node_classes); // implode with spaces
