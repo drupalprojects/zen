@@ -87,8 +87,8 @@ function zen_settings($saved_settings, $subtheme_defaults = array()) {
     '#type'          => 'radios',
     '#title'         => t('Layout method'),
     '#options'       => array(
-                          'slurpy-liquid' => t('Liquid layout') .' <small>(layout-liquid.css)</small>',
-                          'slurpy-fixed' => t('Fixed layout') .' <small>(layout-fixed.css)</small>',
+                          'border-politics-liquid' => t('Liquid layout') .' <small>(layout-liquid.css)</small>',
+                          'border-politics-fixed' => t('Fixed layout') .' <small>(layout-fixed.css)</small>',
                         ),
     '#default_value' => $settings['zen_layout'],
   );

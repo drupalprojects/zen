@@ -13,7 +13,7 @@ if (is_null(theme_get_setting('zen_wireframes'))) {
     'zen_breadcrumb_separator' => ' › ',
     'zen_breadcrumb_home' => 1,
     'zen_breadcrumb_trailing' => 1,
-    'zen_layout' => 'slurpy-liquid',
+    'zen_layout' => 'border-politics-liquid',
     'zen_wireframes' => 0,
   );
 

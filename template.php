@@ -170,7 +170,7 @@ function _phptemplate_variables($hook, $vars = array()) {
       // the $css and $styles variables available to your page template
       if ($theme == $theme_key) { // If we're in the main theme
         // Load the stylesheet for a liquid layout
-        if (theme_get_setting('zen_layout') == 'slurpy-liquid') {
+        if (theme_get_setting('zen_layout') == 'border-politics-liquid') {
           drupal_add_css($vars['directory'] .'/layout-liquid.css', 'theme', 'all');
         }
         // Or load the stylesheet for a fixed width layout
