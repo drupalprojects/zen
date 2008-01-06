@@ -36,6 +36,13 @@
     width: 960px;
   }
 
+  #navigation-top,
+  #navigation
+  {
+    position: absolute; /* Take the named anchors out of the doc flow    */
+    left: -10000px;     /* and prevent any anchor styles from appearing. */
+  }
+
   #skip-to-nav
   {
     float: right;
@@ -221,8 +228,7 @@
     padding: 0 10px 0 0;
   }
 
-
-/** prevent overflowing content **/
+/** Prevent overflowing content **/
   #header,
   #content,
   #navbar,

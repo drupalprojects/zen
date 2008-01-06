@@ -28,6 +28,13 @@
   {
   }
 
+  #navigation-top,
+  #navigation
+  {
+    position: absolute; /* Take the named anchors out of the doc flow    */
+    left: -10000px;     /* and prevent any anchor styles from appearing. */
+  }
+
   #skip-to-nav
   {
     float: right;
@@ -133,7 +140,7 @@
     float: left;
     width: 200px;
     margin-left: 0;
-    margin-right: -200px; /* Negative value of #sidebar-left's width. */
+    margin-right: -200px; /* Negative value of #sidebar-left's width + left margin. */
     padding: 0; /* DO NOT CHANGE. Add padding or margin to #sidebar-left-inner. */
   }
 
@@ -209,8 +216,7 @@
     padding: 0 10px 0 0;
   }
 
-
-/** prevent overflowing content **/
+/** Prevent overflowing content **/
   #header,
   #content,
   #navbar,

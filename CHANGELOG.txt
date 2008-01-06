@@ -1,4 +1,5 @@
 Zen 5.x-1.x-dev
+  * Removed named anchors from doc flow to prevent any styles from appearing
   #203213 by kdebaas: Add node-teaser class to nodes displayed as teasers
   #203112 by kdebaas: Un-localizable string in search-theme-form.tpl.php
   #201793: Fixed fatal error when no settings are added to a sub-theme's settings
