@@ -1,5 +1,7 @@
-Zen 5.x-1.0-beta1
+Zen 5.x-1.x-dev
   #206060: changed inline styling method for navbar links from inline to float
+
+Zen 5.x-1.0-beta1
   * Removed named anchors from doc flow to prevent any styles from appearing
   #203213 by kdebaas: Add node-teaser class to nodes displayed as teasers
   #203112 by kdebaas: Un-localizable string in search-theme-form.tpl.php
