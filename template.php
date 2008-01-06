@@ -190,6 +190,9 @@ function _phptemplate_variables($hook, $vars = array()) {
       $vars['css'] = drupal_add_css();
       $vars['styles'] = drupal_get_css();
 
+      // Allow sub-themes to have an ie.css file
+      $vars['subtheme_directory'] = path_to_subtheme();
+
       // Send a new variable, $logged_in, to page.tpl.php to tell us if the
       // current user is logged in or out. An anonymous user has a user id of 0.
       $vars['logged_in'] = ($user->uid > 0) ? TRUE : FALSE;
