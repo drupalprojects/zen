@@ -27,8 +27,9 @@ function zen_classic_settings($saved_settings) {
   $settings = array_merge($defaults, $saved_settings);
 
   /*
-   * Create the form using Form API
+   * Create the form using Forms API: http://api.drupal.org/api/5
    */
+  $form = array();
   $form['zen_classic_fixed'] = array(
     '#type'          => 'checkbox',
     '#title'         => t('Use fixed width for theme'),
@@ -42,6 +43,7 @@ function zen_classic_settings($saved_settings) {
 
   // Remove some of the base theme's settings.
   unset($form['themedev']);
+  //unset($form['themedev']['zen_layout']); // We don't need to select the base stylesheet.
 
   // Return the form
   return $form;

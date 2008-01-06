@@ -52,7 +52,8 @@ include_once './'. drupal_get_path('theme', 'zen') .'/template.php';
 drupal_add_css(path_to_theme() .'/tabs.css', 'theme', 'all');
 
 // Then add styles for this sub-theme.
-drupal_add_css(path_to_subtheme() .'/layout.css', 'theme', 'all');
+drupal_add_css(path_to_subtheme() .'/html-elements.css', 'theme', 'all');
+drupal_add_css(path_to_subtheme() .'/layout-garland.css', 'theme', 'all');
 drupal_add_css(path_to_subtheme() .'/icons.css', 'theme', 'all');
 drupal_add_css(path_to_subtheme() .'/zen-classic.css', 'theme', 'all');
 // Optionally add the fixed width CSS file.
@@ -78,6 +79,7 @@ function zen_classic_regions() {
     'content_bottom' => t('content bottom'),
     'header' => t('header'),
     'footer' => t('footer'),
+    'closure_region' => t('closure'),
   );
 }
 
@@ -89,7 +91,7 @@ function zen_classic_regions() {
  *   A sequential array of variables to pass to the theme template.
  */
 /* -- Delete this line if you want to use this function
-function SUBTHEME_preprocess_page(&$vars) {
+function zen_classic_preprocess_page(&$vars) {
   $vars['sample_variable'] = t('Lorem ipsum.');
 }
 // */
@@ -101,7 +103,7 @@ function SUBTHEME_preprocess_page(&$vars) {
  *   A sequential array of variables to pass to the theme template.
  */
 /* -- Delete this line if you want to use this function
-function SUBTHEME_preprocess_node(&$vars) {
+function zen_classic_preprocess_node(&$vars) {
   $vars['sample_variable'] = t('Lorem ipsum.');
 }
 // */
@@ -113,7 +115,7 @@ function SUBTHEME_preprocess_node(&$vars) {
  *   A sequential array of variables to pass to the theme template.
  */
 /* -- Delete this line if you want to use this function
-function SUBTHEME_preprocess_comment(&$vars) {
+function zen_classic_preprocess_comment(&$vars) {
   $vars['sample_variable'] = t('Lorem ipsum.');
 }
 // */

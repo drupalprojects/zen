@@ -5,7 +5,8 @@ if (is_null(theme_get_setting('zen_classic_fixed'))) {
   global $theme_key;
 
   /*
-   * The default values for the theme variables. Make sure $defaults exactly
+   * Modify the values in $defaults below if you want the subtheme to have
+   * different defaults than the main Zen theme. Make sure $defaults exactly
    * matches the $defaults in the theme-settings.php file.
    */
   $defaults = array(
