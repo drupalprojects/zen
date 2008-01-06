@@ -210,11 +210,21 @@
     text-align: left;
   }
 
+  #navbar li /* A simple method to get navbar links to appear in one line. */
+  {
+    float: left;
+    padding: 0 10px 0 0;
+  }
+
+  /* There are many methods to get navbar links to appear in one line.
+   * Here's an alternate method: */
+  /*
   #navbar li
   {
     display: inline;
     padding: 0 10px 0 0;
   }
+  */
 
 /** Prevent overflowing content **/
   #header,
