@@ -246,8 +246,6 @@ function _phptemplate_variables($hook, $vars = array()) {
         phptemplate_preprocess_page($vars);
       }
 
-      $vars['subtheme_directory'] = path_to_subtheme();
-
       break;
 
     case 'node':
