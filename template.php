@@ -245,6 +245,8 @@ function _phptemplate_variables($hook, $vars = array()) {
       elseif (function_exists('phptemplate_preprocess_page')) {
         phptemplate_preprocess_page($vars);
       }
+      
+      $vars['subtheme_directory'] = path_to_subtheme();
 
       break;
 
