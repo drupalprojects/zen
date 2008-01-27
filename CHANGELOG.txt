@@ -1,4 +1,5 @@
 Zen 5.x-1.x-dev
+  #206707: tr.even/odd border-bottom is missing in IE
   #207743 by jjeff: Added translatable "Unpublished" text as background
   #207743 by jjeff: Added block editing links on hover
   * Added extended block classes (zebra class by jjeff)

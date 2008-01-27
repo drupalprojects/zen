@@ -7,6 +7,7 @@
  *
  * Properties starting with an underscore _ are for IE 5 and 6 only.
  * Properties starting with head:first-child+body are for IE7 only.
+ * Properties with a child selector (>) or sibling selector (+) are for IE7 only.
  *
  */
 
@@ -89,9 +90,19 @@
     _background: url(images/tab-right-ie6.png) no-repeat right 0;
   }
 
-  head:first-child+body .node-unpublished .node-inner>*
+/** Drupal nodes **/
+  .node-unpublished .node-inner>*
   {
     position: relative; /* Otherwise these elements will appear below the "Unpublished" text. */
+  }
+
+/** Drupal admin tables **/
+  .section-admin #content tr.even th,
+  .section-admin #content tr.even td,
+  .section-admin #content tr.odd th,
+  .section-admin #content tr.odd td
+  {
+    border-bottom: 1px solid #ccc; /* IE doesn't display borders on table rows */
   }
 
 /*
