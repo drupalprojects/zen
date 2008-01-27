@@ -12,4 +12,5 @@ SUPPORT
   with it.
 
   However, since most developers dislike using it as a starting point for theme
-  development, support for the theme is minimal.
+  development, fewer people will be available to help with themeing issues you
+  may encounter.
