@@ -323,7 +323,6 @@ function _phptemplate_variables($hook, $vars = array()) {
       // Special classes for blocks
       $block_classes = array();
       $block_classes[] = zen_id_safe('block-'. $block->module);
-      $block_classes[] = zen_id_safe('block-'. $block->region);
       $block_classes[] = 'region-'. $vars['block_zebra'];
       $block_classes[] = $vars['zebra'];
       $block_classes[] = 'region-count-'. $vars['block_id'];
