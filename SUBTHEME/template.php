@@ -117,6 +117,18 @@ function SUBTHEME_preprocess_comment(&$vars) {
 }
 // */
 
+/**
+ * Override or insert PHPTemplate variables into the block templates.
+ *
+ * @param $vars
+ *   A sequential array of variables to pass to the theme template.
+ */
+/* -- Delete this line if you want to use this function
+function SUBTHEME_preprocess_block(&$vars) {
+  $vars['sample_variable'] = t('Lorem ipsum.');
+}
+// */
+
 
 /**
  * Override the Drupal search form using the search-theme-form.tpl.php file.

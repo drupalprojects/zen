@@ -316,6 +316,18 @@ function _phptemplate_variables($hook, $vars = array()) {
       }
 
       break;
+
+    case 'block':
+      // Allow a sub-theme to add/alter variables
+      if (function_exists($theme_key .'_preprocess_block')) {
+        $function = $theme_key .'_preprocess_block';
+        $function($vars);
+      }
+      elseif (function_exists('phptemplate_preprocess_block')) {
+        phptemplate_preprocess_block($vars);
+      }
+
+      break;
   }
 
   // The following is a deprecated function included for backwards compatibility
