@@ -280,6 +280,21 @@
     /* background-color: #fff4f4; */ /* Drupal core uses a #fff4f4 background */
   }
 
+  .node-unpublished div.unpublished, /* The word "Unpublished" displayed beneath the content. */
+  .comment-unpublished div.unpublished
+  {
+    height: 0;
+    overflow: visible;
+    color: #d8d8d8;
+    font-size: 75px;
+    line-height: 1;
+    font-family: Impact, "Arial Narrow", Helvetica, sans-serif;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: center;
+    word-wrap: break-word; /* A very nice CSS3 property */
+  }
+
   .node-mine /* A node created by the current user */
   {
   }
@@ -311,6 +326,12 @@
 
   .node .picture /* The picture of the node author */
   {
+  }
+
+  .node.node-unpublished .picture,
+  .comment.comment-unpublished .picture
+  {
+    position: relative; /* Otherwise floated pictures will appear below the "Unpublished" text. */
   }
 
   .node .submitted /* The "posted by" information */
@@ -378,6 +399,10 @@
   .comment-unpublished /* Unpublished comments */
   {
     /* background-color: #fff4f4; */ /* Drupal core uses a #fff4f4 background */
+  }
+
+  .comment-unpublished div.unpublished /* The word "Unpublished" displayed beneath the content. See also the div.unpublished declaration in the node section above. */
+  {
   }
 
   .comment-by-author /* A comment created by the node's author */

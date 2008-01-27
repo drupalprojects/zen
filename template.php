@@ -250,6 +250,10 @@ function _phptemplate_variables($hook, $vars = array()) {
       }
       if (!$vars['node']->status) {
         $node_classes[] = 'node-unpublished';
+        $vars['unpublished'] = TRUE;
+      }
+      else {
+        $vars['unpublished'] = FALSE;
       }
       if ($vars['node']->uid && $vars['node']->uid == $user->uid) {
         // Node is authored by current user
@@ -290,6 +294,10 @@ function _phptemplate_variables($hook, $vars = array()) {
 
       if ($vars['comment']->status == COMMENT_NOT_PUBLISHED) {
         $comment_classes[] = 'comment-unpublished';
+        $vars['unpublished'] = TRUE;
+      }
+      else {
+        $vars['unpublished'] = FALSE;
       }
       if ($vars['author_comment']) {
         // Comment is by the node author

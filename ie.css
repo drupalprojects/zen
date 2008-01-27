@@ -5,7 +5,8 @@
  *
  * CSS targeted specifically for Internet Explorer for Windows.
  *
- * Properties staring with an underscore _ are for IE 5 and 6 only.
+ * Properties starting with an underscore _ are for IE 5 and 6 only.
+ * Properties starting with head:first-child+body are for IE7 only.
  *
  */
 
@@ -86,6 +87,11 @@
   ul.primary li.active a:hover .tab
   {
     _background: url(images/tab-right-ie6.png) no-repeat right 0;
+  }
+
+  head:first-child+body .node-unpublished .node-inner>*
+  {
+    position: relative; /* Otherwise these elements will appear below the "Unpublished" text. */
   }
 
 /*
