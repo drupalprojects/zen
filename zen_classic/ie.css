@@ -9,7 +9,7 @@
  *
  */
 
-  #page #container #main
+  #main
   {
     /* Reduce amount of damage done by extremely wide content */
     _overflow: hidden;
