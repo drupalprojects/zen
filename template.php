@@ -187,6 +187,10 @@ function _phptemplate_variables($hook, $vars = array()) {
         // Avoid IE5 bug that always loads @import print stylesheets
         $vars['head'] = zen_add_print_css($vars['directory'] .'/print.css');
       }
+      // Optionally add the block editing styles.
+      if (theme_get_setting('zen_block_editing')) {
+        drupal_add_css($vars['directory'] .'/block-editing.css');
+      }
       // Optionally add the wireframes style.
       if (theme_get_setting('zen_wireframes')) {
         drupal_add_css($vars['directory'] .'/wireframes.css', 'theme', 'all');
@@ -328,6 +332,28 @@ function _phptemplate_variables($hook, $vars = array()) {
       $block_classes[] = 'region-count-'. $vars['block_id'];
       $block_classes[] = 'count-'. $vars['id'];
       $vars['block_classes'] = implode(' ', $block_classes);
+
+      if (theme_get_setting('zen_block_editing') && user_access('administer blocks')) {
+        // Display 'edit block' for custom blocks
+        if ($block->module == 'block') {
+          $edit_links[] = l('<span>'. t('edit block') .'</span>', 'admin/build/block/configure/'. $block->module .'/'. $block->delta, array('title' => t('edit the content of this block'), 'class' => 'block-edit'), drupal_get_destination(), NULL, FALSE, TRUE);
+        }
+        // Display 'configure' for other blocks
+        else {
+          $edit_links[] = l('<span>'. t('configure') .'</span>', 'admin/build/block/configure/'. $block->module .'/'. $block->delta, array('title' => t('configure this block'), 'class' => 'block-config'), drupal_get_destination(), NULL, FALSE, TRUE);
+        }
+
+        // Display 'administer views' for views blocks
+        if ($block->module == 'views' && user_access('administer views')) {
+          $edit_links[] = l('<span>'. t('edit view') .'</span>', 'admin/build/views/'. $block->delta .'/edit', array('title' => t('edit the view that defines this block'), 'class' => 'block-edit-view'), drupal_get_destination(), 'edit-block', FALSE, TRUE);
+        }
+        // Display 'edit menu' for menu blocks
+        elseif (($block->module == 'menu' || ($block->module == 'user' && $block->delta == 1)) && user_access('administer menu')) {
+          $edit_links[] = l('<span>'. t('edit menu') .'</span>', 'admin/build/menu', array('title' => t('edit the menu that defines this block'), 'class' => 'block-edit-menu'), drupal_get_destination(), NULL, FALSE, TRUE);
+        }
+        $vars['edit_links_array'] = $edit_links;
+        $vars['edit_links'] = '<div class="edit">'. implode(' ', $edit_links) .'</div>';
+      }
 
       // Allow a sub-theme to add/alter variables
       if (function_exists($theme_key .'_preprocess_block')) {

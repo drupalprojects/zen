@@ -8,4 +8,6 @@
     <?php print $block->content; ?>
   </div>
 
+  <?php print $edit_links; ?>
+
 </div></div> <!-- /block-inner, /block -->
