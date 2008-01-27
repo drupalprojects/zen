@@ -162,6 +162,10 @@ function _phptemplate_variables($hook, $vars = array()) {
   // variable is available to all templates.
   $vars['is_admin'] = in_array('admin', $user->roles);
 
+  // Send a new variable, $logged_in, to tell us if the current user is
+  // logged in or out. An anonymous user has a user id of 0.
+  $vars['logged_in'] = ($user->uid > 0) ? TRUE : FALSE;
+
   switch ($hook) {
     case 'page':
       global $theme;
@@ -192,10 +196,6 @@ function _phptemplate_variables($hook, $vars = array()) {
 
       // Allow sub-themes to have an ie.css file
       $vars['subtheme_directory'] = path_to_subtheme();
-
-      // Send a new variable, $logged_in, to page.tpl.php to tell us if the
-      // current user is logged in or out. An anonymous user has a user id of 0.
-      $vars['logged_in'] = ($user->uid > 0) ? TRUE : FALSE;
 
       // Classes for body element. Allows advanced theming based on context
       // (home page, node of certain type, etc.)
@@ -318,6 +318,18 @@ function _phptemplate_variables($hook, $vars = array()) {
       break;
 
     case 'block':
+      $block = $vars['block'];
+
+      // Special classes for blocks
+      $block_classes = array();
+      $block_classes[] = zen_id_safe('block-'. $block->module);
+      $block_classes[] = zen_id_safe('block-'. $block->region);
+      $block_classes[] = 'region-'. $vars['block_zebra'];
+      $block_classes[] = $vars['zebra'];
+      $block_classes[] = 'region-count-'. $vars['block_id'];
+      $block_classes[] = 'count-'. $vars['id'];
+      $vars['block_classes'] = implode(' ', $block_classes);
+
       // Allow a sub-theme to add/alter variables
       if (function_exists($theme_key .'_preprocess_block')) {
         $function = $theme_key .'_preprocess_block';
