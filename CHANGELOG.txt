@@ -1,4 +1,5 @@
 Zen 5.x-1.x-dev
+  #110897: oversize content causes IE6 layout breakage (now fixed in Zen Classic)
   #211156 by jjeff: $subtheme_directory variable in page.tpl.php never gets populated
   #206060: changed inline styling method for navbar links from inline to float
 
