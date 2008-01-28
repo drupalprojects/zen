@@ -36,6 +36,10 @@
     width: 960px;
   }
 
+  #page-inner
+  {
+  }
+
   #navigation-top,
   #navigation
   {
@@ -83,6 +87,18 @@
   */
 
 /** header **/
+  #header
+  {
+  }
+
+  #header-inner
+  {
+  }
+
+  #logo-title
+  {
+  }
+
   #logo
   {
     margin: 0 10px 0 0;
@@ -97,6 +113,10 @@
     line-height: 1.3em;
   }
 
+  #site-slogan
+  {
+  }
+
   #header-blocks
   {
     clear: both; /* Clear the logo */
@@ -106,6 +126,10 @@
   #main
   {
     position: relative;
+  }
+
+  #main-inner
+  {
   }
 
 /** content **/
@@ -164,6 +188,10 @@
   .with-navbar #sidebar-right
   {
     margin-top: 3.6em; /* Set this to the same value as the navbar height above. */
+  }
+
+  #navbar-inner
+  {
   }
 
   #search-box
@@ -236,6 +264,19 @@
   {
     margin: 0 0 0 20px;
     padding: 0;
+  }
+
+/** footer **/
+  #footer
+  {
+  }
+
+  #footer-inner
+  {
+  }
+
+  #closure-blocks
+  {
   }
 
 /** Prevent overflowing content **/
