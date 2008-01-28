@@ -135,6 +135,6 @@ function SUBTHEME_preprocess_block(&$vars) {
  */
 /* -- Delete this line if you want to use this function
 function phptemplate_search_theme_form($form) {
-  return _phptemplate_callback('search-theme-form', array('form' => $form));
+  return _phptemplate_callback('search_theme_form', array('form' => $form), array('search-theme-form'));
 }
 // */
