@@ -146,45 +146,13 @@
     padding: 0;
   }
 
-/** sidebar-left **/
-  #sidebar-left
-  {
-    float: left;
-    width: 200px;
-    margin-left: 0;
-    margin-right: -200px; /* Negative value of #sidebar-left's width + left margin. */
-    padding: 0; /* DO NOT CHANGE. Add padding or margin to #sidebar-left-inner. */
-  }
-
-  #sidebar-left-inner
-  {
-    margin: 0 20px 0 0;
-    padding: 0;
-  }
-
-/** sidebar-right **/
-  #sidebar-right
-  {
-    float: left;
-    width: 200px;
-    margin-left: 760px; /* Width of content + sidebar-left. */
-    margin-right: -960px; /* Negative value of #sidebar-right's width + left margin. */
-    padding: 0; /* DO NOT CHANGE. Add padding or margin to #sidebar-right-inner. */
-  }
-
-  #sidebar-right-inner
-  {
-    margin: 0 0 0 20px;
-    padding: 0;
-  }
-
 /** navbar **/
   #navbar
   {
     float: left;
     width: 100%;
     margin-left: 0;
-    margin-right: -100%; /* Negative value of #navbar's width. */
+    margin-right: -100%; /* Negative value of #navbar's width + left margin. */
     padding: 0; /* DO NOT CHANGE. Add padding or margin to #navbar-inner. */
     height: 3.6em; /* The navbar can have any arbritrary height. We picked one
                       that is twice the line-height pluse 1em: 2 x 1.3 + 1 = 3.6
@@ -237,6 +205,38 @@
     padding: 0 10px 0 0;
   }
   */
+
+/** sidebar-left **/
+  #sidebar-left
+  {
+    float: left;
+    width: 200px;
+    margin-left: 0;
+    margin-right: -200px; /* Negative value of #sidebar-left's width + left margin. */
+    padding: 0; /* DO NOT CHANGE. Add padding or margin to #sidebar-left-inner. */
+  }
+
+  #sidebar-left-inner
+  {
+    margin: 0 20px 0 0;
+    padding: 0;
+  }
+
+/** sidebar-right **/
+  #sidebar-right
+  {
+    float: left;
+    width: 200px;
+    margin-left: 760px; /* Width of content + sidebar-left. */
+    margin-right: -960px; /* Negative value of #sidebar-right's width + left margin. */
+    padding: 0; /* DO NOT CHANGE. Add padding or margin to #sidebar-right-inner. */
+  }
+
+  #sidebar-right-inner
+  {
+    margin: 0 0 0 20px;
+    padding: 0;
+  }
 
 /** Prevent overflowing content **/
   #header,
