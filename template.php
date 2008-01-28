@@ -390,7 +390,7 @@ function _phptemplate_variables($hook, $vars = array()) {
  * Converts a string to a suitable html ID attribute.
  *
  * - Preceeds initial numeric with 'n' character.
- * - Replaces space and underscore with dash.
+ * - Replaces any character except A-Z, numbers, and underscores with dashes.
  * - Converts entire string to lowercase.
  * - Works for classes too!
  *
@@ -404,7 +404,7 @@ function zen_id_safe($string) {
     // If the first character is numeric, add 'n' in front
     $string = 'n'. $string;
   }
-  return strtolower(preg_replace('/[^a-zA-Z0-9-]+/', '-', $string));
+  return strtolower(preg_replace('/[^a-zA-Z0-9_-]+/', '-', $string));
 }
 
 /**
