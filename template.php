@@ -13,6 +13,13 @@
  * available to your theme, and create custom PHP logic. For more information,
  * please visit the Theme Developer's Guide on Drupal.org:
  * http://drupal.org/theme-guide
+ *
+ * NOTE ABOUT ZEN'S TEMPLATE.PHP FILE
+ *
+ * The base Zen theme is designed to be easily extended by its sub-themes. You
+ * shouldn't modify this or any of the CSS or PHP files in the root zen/ folder.
+ * See the online documentation for more information:
+ *   http://drupal.org/node/193318
  */
 
 
@@ -52,7 +59,7 @@ include_once 'template-menus.php';
  *   variable_name => t('human readable name')
  */
 function zen_regions() {
-  // Allow a sub-theme to add/alter variables
+  // Allow a sub-theme to define its own regions.
   global $theme_key;
   if ($theme_key != 'zen') {
     $function = str_replace('-', '_', $theme_key) .'_regions';
@@ -72,25 +79,6 @@ function zen_regions() {
     'closure_region' => t('closure'),
   );
 }
-
-
-/*
- * OVERRIDING THEME FUNCTIONS
- *
- * The Drupal theme system uses special theme functions to generate HTML output
- * automatically. Often we wish to customize this HTML output. To do this, we
- * have to override the theme function. You have to first find the theme
- * function that generates the output, and then "catch" it and modify it here.
- * The easiest way to do it is to copy the original function in its entirety and
- * paste it here, changing the prefix from theme_ to phptemplate_ or zen_. For
- * example:
- *
- *   original: theme_breadcrumb()
- *   theme override: zen_breadcrumb()
- *
- * See the following example. In this function, we want to change all of the
- * breadcrumb separator characters from >> to a custom string.
- */
 
 
 /**
@@ -381,7 +369,7 @@ function _phptemplate_variables($hook, $vars = array()) {
     $vars = zen_variables($hook, $vars);
   }
 
-  _zen_hook($hook); // Add support for sub-theme template files
+  _zen_hook($hook); // Add support for sub-theme template files.
 
   return $vars;
 }
@@ -394,7 +382,7 @@ function _phptemplate_variables($hook, $vars = array()) {
  * - Converts entire string to lowercase.
  * - Works for classes too!
  *
- * @param string $string
+ * @param $string
  *   The string
  * @return
  *   The converted string
@@ -414,7 +402,7 @@ function zen_id_safe($string) {
  * stylesheets for screen display when using an @import method, Drupal's default
  * method when using drupal_add_css().
  *
- * @param string $url
+ * @param $url
  *   The URL of the print stylesheet
  * @return
  *   All the rendered links for the $head variable

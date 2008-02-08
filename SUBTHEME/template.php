@@ -4,25 +4,45 @@
 /**
  * @file
  *
+ * OVERRIDING THEME FUNCTIONS
+ *
+ * The Drupal theme system uses special theme functions to generate HTML output
+ * automatically. Often we wish to customize this HTML output. To do this, we
+ * have to override the theme function. You have to first find the theme
+ * function that generates the output, and then "catch" it and modify it here.
+ * The easiest way to do it is to copy the original function in its entirety and
+ * paste it here, changing the prefix from theme_ to phptemplate_ or zen_. For
+ * example:
+ *
+ *   original: theme_breadcrumb()
+ *   theme override: zen_breadcrumb()
+ *
+ * DIFFERENCES BETWEEN ZEN SUB-THEMES AND NORMAL DRUPAL SUB-THEMES
+ *
  * The Zen theme allows its sub-themes to have their own template.php files. The
  * only restriction with these files is that they cannot redefine any of the
  * functions that are already defined in Zen's main template files:
- * template.php, template-menus.php, and template-subtheme.php.
+ *   template.php, template-menus.php, and template-subtheme.php.
+ * Any theme override function used in those files is documented below.
  *
- * Also remember that the "main" theme is still Zen, so your theme override
- * functions should be named as such:
+ * Also remember that the "main" theme is still Zen, so your theme theme
+ * override functions should be named as such:
  *  theme_block()      becomes  zen_block()
  *  theme_feed_icon()  becomes  zen_feed_icon()  as well
  *
- * For a sub-theme to define its own regions, use the function name
+ * Normally, for a theme to define its own regions, you would use the
+ * THEME_regions() fuction. But for a Zen sub-theme to define its own regions,
+ * use the function name
  *   SUBTHEME_regions()
  * where SUBTHEME is the name of your sub-theme. For example, the zen_classic
  * theme would define a zen_classic_regions() function.
  *
- * For a sub-theme to add its own variables, use these functions
+ * For a sub-theme to add its own variables, instead of _phptemplate_variables,
+ * use these functions:
  *   SUBTHEME_preprocess_page(&$vars)
  *   SUBTHEME_preprocess_node(&$vars)
  *   SUBTHEME_preprocess_comment(&$vars)
+ *   SUBTHEME_preprocess_block(&$vars)
  */
 
 
