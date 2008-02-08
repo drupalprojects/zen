@@ -219,15 +219,6 @@ function _phptemplate_variables($hook, $vars = array()) {
       }
       $vars['body_classes'] = implode(' ', $body_classes); // implode with spaces
 
-      // Allow a sub-theme to add/alter variables
-      if (function_exists($theme_key .'_preprocess_page')) {
-        $function = $theme_key .'_preprocess_page';
-        $function($vars);
-      }
-      elseif (function_exists('phptemplate_preprocess_page')) {
-        phptemplate_preprocess_page($vars);
-      }
-
       break;
 
     case 'node':
@@ -254,15 +245,6 @@ function _phptemplate_variables($hook, $vars = array()) {
       // Class for node type: "node-type-page", "node-type-story", "node-type-my-custom-type", etc.
       $node_classes[] = 'node-type-'. $vars['node']->type;
       $vars['node_classes'] = implode(' ', $node_classes); // implode with spaces
-
-      // Allow a sub-theme to add/alter variables
-      if (function_exists($theme_key .'_preprocess_node')) {
-        $function = $theme_key .'_preprocess_node';
-        $function($vars);
-      }
-      elseif (function_exists('phptemplate_preprocess_node')) {
-        phptemplate_preprocess_node($vars);
-      }
 
       break;
 
@@ -306,15 +288,6 @@ function _phptemplate_variables($hook, $vars = array()) {
         $vars['title'] = '';
       }
 
-      // Allow a sub-theme to add/alter variables
-      if (function_exists($theme_key .'_preprocess_comment')) {
-        $function = $theme_key .'_preprocess_comment';
-        $function($vars);
-      }
-      elseif (function_exists('phptemplate_preprocess_comment')) {
-        phptemplate_preprocess_comment($vars);
-      }
-
       break;
 
     case 'block':
@@ -351,16 +324,19 @@ function _phptemplate_variables($hook, $vars = array()) {
         $vars['edit_links'] = '<div class="edit">'. implode(' ', $edit_links) .'</div>';
       }
 
-      // Allow a sub-theme to add/alter variables
-      if (function_exists($theme_key .'_preprocess_block')) {
-        $function = $theme_key .'_preprocess_block';
-        $function($vars);
-      }
-      elseif (function_exists('phptemplate_preprocess_block')) {
-        phptemplate_preprocess_block($vars);
-      }
-
       break;
+  }
+
+  // Allow a sub-theme to add or alter variables.
+  $function = $theme_key .'_preprocess_'. $hook;
+  if (function_exists($function)) {
+    $function($vars);
+  }
+  else {
+    $function = 'phptemplate_preprocess_'. $hook;
+    if (function_exists($function)) {
+      $function($vars);
+    }
   }
 
   // The following is a deprecated function included for backwards compatibility
