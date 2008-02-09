@@ -100,5 +100,7 @@ Build your own sub-theme:
 
   10. FURTHER EXTENSIONS OF YOUR SUB-THEME:
      Discover further ways to extend your sub-theme by reading Zen's
-     documentation and Drupal's Theme Developer's Guide online at:
+     documentation online at:
+       http://drupal.org/node/193318
+     and Drupal's Theme Developer's Guide online at:
        http://drupal.org/handbooks
