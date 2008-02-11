@@ -221,8 +221,22 @@ function _phptemplate_variables($hook, $vars = array()) {
         list($section,) = explode('/', $path, 2);
         $body_classes[] = zen_id_safe('page-'. $path);
         $body_classes[] = zen_id_safe('section-'. $section);
+        if (arg(0) == 'node') {
+          if (arg(1) == 'add') {
+            if ($section == 'node') {
+              array_pop($body_classes); // Remove 'section-node'
+            }
+            $body_classes[] = 'section-node-add'; // Add 'section-node-add'
+          }
+          elseif (is_numeric(arg(1)) && (arg(2) == 'edit' || arg(2) == 'delete')) {
+            if ($section == 'node') {
+              array_pop($body_classes); // Remove 'section-node'
+            }
+            $body_classes[] = 'section-node-'. arg(2); // Add 'section-node-edit' or 'section-node-delete'
+          }
+        }
       }
-      $vars['body_classes'] = implode(' ', $body_classes); // implode with spaces
+      $vars['body_classes'] = implode(' ', $body_classes); // Concatenate with spaces
 
       break;
 
@@ -249,7 +263,7 @@ function _phptemplate_variables($hook, $vars = array()) {
       }
       // Class for node type: "node-type-page", "node-type-story", "node-type-my-custom-type", etc.
       $node_classes[] = 'node-type-'. $vars['node']->type;
-      $vars['node_classes'] = implode(' ', $node_classes); // implode with spaces
+      $vars['node_classes'] = implode(' ', $node_classes); // Concatenate with spaces
 
       break;
 
