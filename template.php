@@ -189,6 +189,11 @@ function _phptemplate_variables($hook, $vars = array()) {
       // Allow sub-themes to have an ie.css file
       $vars['subtheme_directory'] = path_to_subtheme();
 
+      // Don't display empty help from node_help().
+      if ($vars['help'] == "<div class=\"help\"><p></p>\n</div>") {
+        $vars['help'] = '';
+      }
+
       // Classes for body element. Allows advanced theming based on context
       // (home page, node of certain type, etc.)
       $body_classes = array();

@@ -1,4 +1,5 @@
 Zen 5.x-1.0-rc1
+  * Prevented display of empty help from node_help()
   #219401: Add theme override examples for all functions used in Zen core
 
 Zen 5.x-1.0-beta2
