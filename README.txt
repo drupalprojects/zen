@@ -65,7 +65,7 @@ Build your own sub-theme:
 
   5. Edit the template.php and theme-settings.php files in your sub-theme's
      folder; replace ALL occurances of "STARTERKIT" with the name of your
-     sub-theme. However, do not replace occurances of "subtheme".
+     sub-theme.
 
      For example, edit zen/foo/template.php and zen/foo/theme-settings.php and
      replace "STARTERKIT" with "foo".
