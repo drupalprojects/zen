@@ -23,26 +23,30 @@
  * only restriction with these files is that they cannot redefine any of the
  * functions that are already defined in Zen's main template files:
  *   template.php, template-menus.php, and template-subtheme.php.
- * Any theme override function used in those files is documented below.
+ * Every theme override function used in those files is documented below in this
+ * file.
  *
- * Also remember that the "main" theme is still Zen, so your theme theme
- * override functions should be named as such:
+ * Also remember that the "main" theme is still Zen, so your theme override
+ * functions should be named as such:
  *  theme_block()      becomes  zen_block()
  *  theme_feed_icon()  becomes  zen_feed_icon()  as well
+ *
+ * However, there are two exceptions to the "theme override functions should use
+ * 'zen' and not 'mytheme'" rule. They are as follows:
  *
  * Normally, for a theme to define its own regions, you would use the
  * THEME_regions() fuction. But for a Zen sub-theme to define its own regions,
  * use the function name
- *   SUBTHEME_regions()
- * where SUBTHEME is the name of your sub-theme. For example, the zen_classic
+ *   STARTERKIT_regions()
+ * where STARTERKIT is the name of your sub-theme. For example, the zen_classic
  * theme would define a zen_classic_regions() function.
  *
  * For a sub-theme to add its own variables, instead of _phptemplate_variables,
  * use these functions:
- *   SUBTHEME_preprocess_page(&$vars)
- *   SUBTHEME_preprocess_node(&$vars)
- *   SUBTHEME_preprocess_comment(&$vars)
- *   SUBTHEME_preprocess_block(&$vars)
+ *   STARTERKIT_preprocess_page(&$vars)     to add variables to the page.tpl.php
+ *   STARTERKIT_preprocess_node(&$vars)     to add variables to the node.tpl.php
+ *   STARTERKIT_preprocess_comment(&$vars)  to add variables to the comment.tpl.php
+ *   STARTERKIT_preprocess_block(&$vars)    to add variables to the block.tpl.php
  */
 
 
@@ -217,6 +221,60 @@ function zen_menu_local_tasks() {
   }
   if ($secondary = menu_secondary_local_tasks()) {
     $output .= '<ul class="tabs secondary clear-block">'. $secondary .'</ul>';
+  }
+
+  return $output;
+}
+// */
+
+/**
+ * Overriding theme_comment_wrapper to add CSS id around all comments
+ * and add "Comments" title above
+ */
+/* -- Delete this line if you want to use this function
+function zen_comment_wrapper($content) {
+  return '<div id="comments"><h2 id="comments-title" class="title">'. t('Comments') .'</h2>'. $content .'</div>';
+}
+// */
+
+/**
+ * Duplicate of theme_username() with rel=nofollow added for commentators.
+ */
+/* -- Delete this line if you want to use this function
+function zen_username($object) {
+
+  if ($object->uid && $object->name) {
+    // Shorten the name when it is too long or it will break many tables.
+    if (drupal_strlen($object->name) > 20) {
+      $name = drupal_substr($object->name, 0, 15) .'...';
+    }
+    else {
+      $name = $object->name;
+    }
+
+    if (user_access('access user profiles')) {
+      $output = l($name, 'user/'. $object->uid, array('title' => t('View user profile.')));
+    }
+    else {
+      $output = check_plain($name);
+    }
+  }
+  else if ($object->name) {
+    // Sometimes modules display content composed by people who are
+    // not registered members of the site (e.g. mailing list or news
+    // aggregator modules). This clause enables modules to display
+    // the true author of the content.
+    if ($object->homepage) {
+      $output = l($object->name, $object->homepage, array('rel' => 'nofollow'));
+    }
+    else {
+      $output = check_plain($object->name);
+    }
+
+    $output .= ' ('. t('not verified') .')';
+  }
+  else {
+    $output = variable_get('anonymous', t('Anonymous'));
   }
 
   return $output;
