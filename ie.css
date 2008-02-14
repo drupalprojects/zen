@@ -26,6 +26,12 @@
     _text-align: left; /* 2nd part of IE5/IE6quirks centering hack */
   }
 
+/** main (container for everything else) **/
+  #main
+  {
+    _zoom: 1; /* Otherwise with a liquid layout, sidebars disappear when resizing the windows in IE6 */
+  }
+
 /** floating divs **/
   #content,
   #navbar,
