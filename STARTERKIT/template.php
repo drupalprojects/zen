@@ -23,26 +23,30 @@
  * only restriction with these files is that they cannot redefine any of the
  * functions that are already defined in Zen's main template files:
  *   template.php, template-menus.php, and template-subtheme.php.
- * Any theme override function used in those files is documented below.
+ * Every theme override function used in those files is documented below in this
+ * file.
  *
- * Also remember that the "main" theme is still Zen, so your theme theme
- * override functions should be named as such:
+ * Also remember that the "main" theme is still Zen, so your theme override
+ * functions should be named as such:
  *  theme_block()      becomes  zen_block()
  *  theme_feed_icon()  becomes  zen_feed_icon()  as well
+ *
+ * However, there are two exceptions to the "theme override functions should use
+ * 'zen' and not 'mytheme'" rule. They are as follows:
  *
  * Normally, for a theme to define its own regions, you would use the
  * THEME_regions() fuction. But for a Zen sub-theme to define its own regions,
  * use the function name
- *   SUBTHEME_regions()
- * where SUBTHEME is the name of your sub-theme. For example, the zen_classic
+ *   STARTERKIT_regions()
+ * where STARTERKIT is the name of your sub-theme. For example, the zen_classic
  * theme would define a zen_classic_regions() function.
  *
  * For a sub-theme to add its own variables, instead of _phptemplate_variables,
  * use these functions:
- *   SUBTHEME_preprocess_page(&$vars)
- *   SUBTHEME_preprocess_node(&$vars)
- *   SUBTHEME_preprocess_comment(&$vars)
- *   SUBTHEME_preprocess_block(&$vars)
+ *   STARTERKIT_preprocess_page(&$vars)     to add variables to the page.tpl.php
+ *   STARTERKIT_preprocess_node(&$vars)     to add variables to the node.tpl.php
+ *   STARTERKIT_preprocess_comment(&$vars)  to add variables to the comment.tpl.php
+ *   STARTERKIT_preprocess_block(&$vars)    to add variables to the block.tpl.php
  */
 
 
@@ -73,7 +77,7 @@ drupal_add_css(path_to_theme() .'/tabs.css', 'theme', 'all');
 
 // Then add styles for this sub-theme.
 drupal_add_css(path_to_subtheme() .'/layout.css', 'theme', 'all');
-drupal_add_css(path_to_subtheme() .'/SUBTHEME.css', 'theme', 'all');
+drupal_add_css(path_to_subtheme() .'/STARTERKIT.css', 'theme', 'all');
 
 // Avoid IE5 bug that always loads @import print stylesheets
 zen_add_print_css(path_to_subtheme() .'/print.css');
@@ -86,7 +90,7 @@ zen_add_print_css(path_to_subtheme() .'/print.css');
  *   An array of regions.
  */
 /* -- Delete this line if you want to use this function
-function SUBTHEME_regions() {
+function STARTERKIT_regions() {
   return array(
     'left' => t('left sidebar'),
     'right' => t('right sidebar'),
@@ -123,7 +127,7 @@ function zen_breadcrumb($breadcrumb) {
  *   A sequential array of variables to pass to the theme template.
  */
 /* -- Delete this line if you want to use this function
-function SUBTHEME_preprocess_page(&$vars) {
+function STARTERKIT_preprocess_page(&$vars) {
   $vars['sample_variable'] = t('Lorem ipsum.');
 }
 // */
@@ -135,7 +139,7 @@ function SUBTHEME_preprocess_page(&$vars) {
  *   A sequential array of variables to pass to the theme template.
  */
 /* -- Delete this line if you want to use this function
-function SUBTHEME_preprocess_node(&$vars) {
+function STARTERKIT_preprocess_node(&$vars) {
   $vars['sample_variable'] = t('Lorem ipsum.');
 }
 // */
@@ -147,7 +151,7 @@ function SUBTHEME_preprocess_node(&$vars) {
  *   A sequential array of variables to pass to the theme template.
  */
 /* -- Delete this line if you want to use this function
-function SUBTHEME_preprocess_comment(&$vars) {
+function STARTERKIT_preprocess_comment(&$vars) {
   $vars['sample_variable'] = t('Lorem ipsum.');
 }
 // */
@@ -159,7 +163,7 @@ function SUBTHEME_preprocess_comment(&$vars) {
  *   A sequential array of variables to pass to the theme template.
  */
 /* -- Delete this line if you want to use this function
-function SUBTHEME_preprocess_block(&$vars) {
+function STARTERKIT_preprocess_block(&$vars) {
   $vars['sample_variable'] = t('Lorem ipsum.');
 }
 // */
