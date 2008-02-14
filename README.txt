@@ -40,8 +40,8 @@ Build your own sub-theme:
   of the root zen/ folder.  For example, the zen_classic sub-folder contains the
   files for the Zen Classic sub-theme.
 
-  1. Copy the STARTERKIT folder and rename it to be your new sub-theme. IMPORTANT:
-     Only lowercase letters and underscores should be used.
+  1. Copy the STARTERKIT folder and rename it to be your new sub-theme.
+     IMPORTANT: Only lowercase letters and underscores should be used.
 
      For example, copy the zen/STARTERKIT folder and rename it as zen/foo.
 
