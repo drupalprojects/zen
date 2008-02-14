@@ -225,7 +225,7 @@ function zen_menu_local_tasks() {
  * and add "Comments" title above
  */
 /* -- Delete this line if you want to use this function
-function SUBTHEME_comment_wrapper($content) {
+function zen_comment_wrapper($content) {
   return '<div id="comments"><h2 id="comments-title" class="title">'. t('Comments') .'</h2>'. $content .'</div>';
 }
 // */
@@ -234,7 +234,7 @@ function SUBTHEME_comment_wrapper($content) {
  * Duplicate of theme_username() with rel=nofollow added for commentators.
  */
 /* -- Delete this line if you want to use this function
-function SUBTHEME_username($object) {
+function zen_username($object) {
 
   if ($object->uid && $object->name) {
     // Shorten the name when it is too long or it will break many tables.
