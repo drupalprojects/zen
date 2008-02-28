@@ -1,4 +1,5 @@
 Zen 5.x-1.x-dev
+  * Made block-editing.css a "theme"-type CSS file
   * Added Photoshop file for tabs
   #222299: Block editing link in Zen Classic footer is white on white
 
