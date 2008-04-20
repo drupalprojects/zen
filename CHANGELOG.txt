@@ -1,4 +1,5 @@
 Zen 5.x-1.x-dev
+  #248780: admin table styles override update_status styling
   #246110 by jjeff: zen.css breaks .container-inline
   * Prevented "notice: Undefined variable: edit_links" for anonymous users
   * Made block-editing.css a "theme"-type CSS file
