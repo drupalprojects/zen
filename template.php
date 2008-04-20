@@ -134,15 +134,55 @@ function phptemplate_breadcrumb($breadcrumb) {
  * Intercept template variables
  *
  * @param $hook
- *   The name of the theme function being executed (name of the .tpl.php file)
+ *   The name of the theme function being called (name of the .tpl.php file.)
  * @param $vars
  *   A copy of the array containing the variables for the hook.
  * @return
  *   The array containing additional variables to merge with $vars.
  */
 function _phptemplate_variables($hook, $vars = array()) {
+
+  // Allow the Zen base theme to add or alter variables.
+  zen_preprocess($vars, $hook);
+  $function = 'zen_preprocess_'. $hook;
+  if (function_exists($function)) {
+    $function($vars, $hook);
+  }
+
+  // Allow a sub-theme to add or alter variables.
+  $function = $theme_key .'_preprocess_'. $hook;
+  if (function_exists($function)) {
+    $function($vars, $hook);
+  }
+  else {
+    $function = 'phptemplate_preprocess_'. $hook;
+    if (function_exists($function)) {
+      $function($vars, $hook);
+    }
+  }
+
+  // The following is a deprecated function included for backwards compatibility
+  // with Zen 5.x-0.8 and earlier. New sub-themes should not use this function.
+  if (function_exists('zen_variables')) {
+    $vars = zen_variables($hook, $vars);
+  }
+
+  _zen_hook($hook); // Add support for sub-theme template files.
+
+  return $vars;
+}
+
+/**
+ * Override or insert PHPTemplate variables into all templates.
+ *
+ * @param $vars
+ *   A sequential array of variables to pass to the theme template.
+ * @param $hook
+ *   The name of the theme function being called (name of the .tpl.php file.)
+ */
+function zen_preprocess(&$vars, $hook) {
   // Get the currently logged in user
-  global $user, $theme_key;
+  global $user;
 
   // Set a new $is_admin variable. This is determined by looking at the
   // currently logged in user and seeing if they are in the role 'admin'. The
@@ -153,10 +193,16 @@ function _phptemplate_variables($hook, $vars = array()) {
   // Send a new variable, $logged_in, to tell us if the current user is
   // logged in or out. An anonymous user has a user id of 0.
   $vars['logged_in'] = ($user->uid > 0) ? TRUE : FALSE;
+}
 
-  switch ($hook) {
-    case 'page':
-      global $theme;
+/**
+ * Override or insert PHPTemplate variables into the page templates.
+ *
+ * @param $vars
+ *   A sequential array of variables to pass to the theme template.
+ */
+function zen_preprocess_page(&$vars) {
+  global $theme, $theme_key;
 
       // These next lines add additional CSS files and redefine
       // the $css and $styles variables available to your page template
@@ -237,10 +283,17 @@ function _phptemplate_variables($hook, $vars = array()) {
         }
       }
       $vars['body_classes'] = implode(' ', $body_classes); // Concatenate with spaces
+}
 
-      break;
+/**
+ * Override or insert PHPTemplate variables into the node templates.
+ *
+ * @param $vars
+ *   A sequential array of variables to pass to the theme template.
+ */
+function zen_preprocess_node(&$vars) {
+  global $user;
 
-    case 'node':
       // Special classes for nodes
       $node_classes = array();
       if ($vars['sticky']) {
@@ -264,10 +317,17 @@ function _phptemplate_variables($hook, $vars = array()) {
       // Class for node type: "node-type-page", "node-type-story", "node-type-my-custom-type", etc.
       $node_classes[] = 'node-type-'. $vars['node']->type;
       $vars['node_classes'] = implode(' ', $node_classes); // Concatenate with spaces
+}
 
-      break;
+/**
+ * Override or insert PHPTemplate variables into the comment templates.
+ *
+ * @param $vars
+ *   A sequential array of variables to pass to the theme template.
+ */
+function zen_preprocess_comment(&$vars) {
+  global $user;
 
-    case 'comment':
       // We load the node object that the current comment is attached to
       $node = node_load($vars['comment']->nid);
       // If the author of this comment is equal to the author of the node, we
@@ -306,10 +366,15 @@ function _phptemplate_variables($hook, $vars = array()) {
       if (variable_get('comment_subject_field', 1) == 0) {
         $vars['title'] = '';
       }
+}
 
-      break;
-
-    case 'block':
+/**
+ * Override or insert PHPTemplate variables into the block templates.
+ *
+ * @param $vars
+ *   A sequential array of variables to pass to the theme template.
+ */
+function zen_preprocess_block(&$vars) {
       $block = $vars['block'];
 
       // Special classes for blocks
@@ -343,31 +408,6 @@ function _phptemplate_variables($hook, $vars = array()) {
         $vars['edit_links_array'] = $edit_links;
         $vars['edit_links'] = '<div class="edit">'. implode(' ', $edit_links) .'</div>';
       }
-
-      break;
-  }
-
-  // Allow a sub-theme to add or alter variables.
-  $function = $theme_key .'_preprocess_'. $hook;
-  if (function_exists($function)) {
-    $function($vars);
-  }
-  else {
-    $function = 'phptemplate_preprocess_'. $hook;
-    if (function_exists($function)) {
-      $function($vars);
-    }
-  }
-
-  // The following is a deprecated function included for backwards compatibility
-  // with Zen 5.x-0.8 and earlier. New sub-themes should not use this function.
-  if (function_exists('zen_variables')) {
-    $vars = zen_variables($hook, $vars);
-  }
-
-  _zen_hook($hook); // Add support for sub-theme template files.
-
-  return $vars;
 }
 
 /**
