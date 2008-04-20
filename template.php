@@ -151,6 +151,16 @@ function _phptemplate_variables($hook, $vars = array()) {
   }
 
   // Allow a sub-theme to add or alter variables.
+  $function = $theme_key .'_preprocess';
+  if (function_exists($function)) {
+    $function($vars, $hook);
+  }
+  else {
+    $function = 'phptemplate_preprocess';
+    if (function_exists($function)) {
+      $function($vars, $hook);
+    }
+  }
   $function = $theme_key .'_preprocess_'. $hook;
   if (function_exists($function)) {
     $function($vars, $hook);

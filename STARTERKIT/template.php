@@ -121,6 +121,20 @@ function zen_breadcrumb($breadcrumb) {
 
 
 /**
+ * Override or insert PHPTemplate variables into all templates.
+ *
+ * @param $vars
+ *   A sequential array of variables to pass to the theme template.
+ * @param $hook
+ *   The name of the theme function being called (name of the .tpl.php file.)
+ */
+/* -- Delete this line if you want to use this function
+function STARTERKIT_preprocess(&$vars, $hook) {
+  $vars['sample_variable'] = t('Lorem ipsum.');
+}
+// */
+
+/**
  * Override or insert PHPTemplate variables into the page templates.
  *
  * @param $vars
