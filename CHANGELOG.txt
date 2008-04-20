@@ -1,4 +1,5 @@
 Zen 5.x-1.x-dev
+  #222339: Blocks in Zen Classic header and closure lack padding
   #248720 by matt@antinomia: Only UPDATE {system} table WHERE type = 'theme'
   #248780: admin table styles override update_status styling
   #246110 by jjeff: zen.css breaks .container-inline
