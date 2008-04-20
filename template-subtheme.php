@@ -40,7 +40,7 @@ function path_to_subtheme() {
         // Update database
         $parent_path = $themes[$base_theme]->filename;
         $subtheme_path = str_replace('page.tpl.php', 'style.css', $themes[$theme]->filename);
-        db_query("UPDATE {system} SET description='%s', filename='%s' WHERE name='%s'", $parent_path, $subtheme_path, $theme);
+        db_query("UPDATE {system} SET description='%s', filename='%s' WHERE name='%s' AND type='theme'", $parent_path, $subtheme_path, $theme);
 
         // Refresh Drupal internals.
         $theme = $base_theme;
