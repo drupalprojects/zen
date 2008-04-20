@@ -141,6 +141,7 @@ function phptemplate_breadcrumb($breadcrumb) {
  *   The array containing additional variables to merge with $vars.
  */
 function _phptemplate_variables($hook, $vars = array()) {
+  global $theme_key;
 
   // Allow the Zen base theme to add or alter variables.
   zen_preprocess($vars, $hook);
