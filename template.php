@@ -204,85 +204,85 @@ function zen_preprocess(&$vars, $hook) {
 function zen_preprocess_page(&$vars) {
   global $theme, $theme_key;
 
-      // These next lines add additional CSS files and redefine
-      // the $css and $styles variables available to your page template
-      if ($theme == $theme_key) { // If we're in the main theme
-        // Load the stylesheet for a liquid layout
-        if (theme_get_setting('zen_layout') == 'border-politics-liquid') {
-          drupal_add_css($vars['directory'] .'/layout-liquid.css', 'theme', 'all');
-        }
-        // Or load the stylesheet for a fixed width layout
-        else {
-          drupal_add_css($vars['directory'] .'/layout-fixed.css', 'theme', 'all');
-        }
-        drupal_add_css($vars['directory'] .'/html-elements.css', 'theme', 'all');
-        drupal_add_css($vars['directory'] .'/tabs.css', 'theme', 'all');
-        drupal_add_css($vars['directory'] .'/zen.css', 'theme', 'all');
-        // Avoid IE5 bug that always loads @import print stylesheets
-        $vars['head'] = zen_add_print_css($vars['directory'] .'/print.css');
-      }
-      // Optionally add the block editing styles.
-      if (theme_get_setting('zen_block_editing')) {
-        drupal_add_css($vars['directory'] .'/block-editing.css', 'theme', 'all');
-      }
-      // Optionally add the wireframes style.
-      if (theme_get_setting('zen_wireframes')) {
-        drupal_add_css($vars['directory'] .'/wireframes.css', 'theme', 'all');
-      }
-      $vars['css'] = drupal_add_css();
-      $vars['styles'] = drupal_get_css();
+  // These next lines add additional CSS files and redefine
+  // the $css and $styles variables available to your page template
+  if ($theme == $theme_key) { // If we're in the main theme
+    // Load the stylesheet for a liquid layout
+    if (theme_get_setting('zen_layout') == 'border-politics-liquid') {
+      drupal_add_css($vars['directory'] .'/layout-liquid.css', 'theme', 'all');
+    }
+    // Or load the stylesheet for a fixed width layout
+    else {
+      drupal_add_css($vars['directory'] .'/layout-fixed.css', 'theme', 'all');
+    }
+    drupal_add_css($vars['directory'] .'/html-elements.css', 'theme', 'all');
+    drupal_add_css($vars['directory'] .'/tabs.css', 'theme', 'all');
+    drupal_add_css($vars['directory'] .'/zen.css', 'theme', 'all');
+    // Avoid IE5 bug that always loads @import print stylesheets
+    $vars['head'] = zen_add_print_css($vars['directory'] .'/print.css');
+  }
+  // Optionally add the block editing styles.
+  if (theme_get_setting('zen_block_editing')) {
+    drupal_add_css($vars['directory'] .'/block-editing.css', 'theme', 'all');
+  }
+  // Optionally add the wireframes style.
+  if (theme_get_setting('zen_wireframes')) {
+    drupal_add_css($vars['directory'] .'/wireframes.css', 'theme', 'all');
+  }
+  $vars['css'] = drupal_add_css();
+  $vars['styles'] = drupal_get_css();
 
-      // Allow sub-themes to have an ie.css file
-      $vars['subtheme_directory'] = path_to_subtheme();
+  // Allow sub-themes to have an ie.css file
+  $vars['subtheme_directory'] = path_to_subtheme();
 
-      // Don't display empty help from node_help().
-      if ($vars['help'] == "<div class=\"help\"><p></p>\n</div>") {
-        $vars['help'] = '';
-      }
+  // Don't display empty help from node_help().
+  if ($vars['help'] == "<div class=\"help\"><p></p>\n</div>") {
+    $vars['help'] = '';
+  }
 
-      // Classes for body element. Allows advanced theming based on context
-      // (home page, node of certain type, etc.)
-      $body_classes = array();
-      $body_classes[] = ($vars['is_front']) ? 'front' : 'not-front';
-      $body_classes[] = ($vars['logged_in']) ? 'logged-in' : 'not-logged-in';
-      if ($vars['node']->type) {
-        // If on an individual node page, put the node type in the body classes
-        $body_classes[] = 'node-type-'. $vars['node']->type;
-      }
-      if ($vars['sidebar_left'] && $vars['sidebar_right']) {
-        $body_classes[] = 'two-sidebars';
-      }
-      elseif ($vars['sidebar_left']) {
-        $body_classes[] = 'one-sidebar sidebar-left';
-      }
-      elseif ($vars['sidebar_right']) {
-        $body_classes[] = 'one-sidebar sidebar-right';
-      }
-      else {
-        $body_classes[] = 'no-sidebars';
-      }
-      if (!$vars['is_front']) {
-        // Add unique classes for each page and website section
-        $path = drupal_get_path_alias($_GET['q']);
-        list($section,) = explode('/', $path, 2);
-        $body_classes[] = zen_id_safe('page-'. $path);
-        $body_classes[] = zen_id_safe('section-'. $section);
-        if (arg(0) == 'node') {
-          if (arg(1) == 'add') {
-            if ($section == 'node') {
-              array_pop($body_classes); // Remove 'section-node'
-            }
-            $body_classes[] = 'section-node-add'; // Add 'section-node-add'
-          }
-          elseif (is_numeric(arg(1)) && (arg(2) == 'edit' || arg(2) == 'delete')) {
-            if ($section == 'node') {
-              array_pop($body_classes); // Remove 'section-node'
-            }
-            $body_classes[] = 'section-node-'. arg(2); // Add 'section-node-edit' or 'section-node-delete'
-          }
+  // Classes for body element. Allows advanced theming based on context
+  // (home page, node of certain type, etc.)
+  $body_classes = array();
+  $body_classes[] = ($vars['is_front']) ? 'front' : 'not-front';
+  $body_classes[] = ($vars['logged_in']) ? 'logged-in' : 'not-logged-in';
+  if ($vars['node']->type) {
+    // If on an individual node page, put the node type in the body classes
+    $body_classes[] = 'node-type-'. $vars['node']->type;
+  }
+  if ($vars['sidebar_left'] && $vars['sidebar_right']) {
+    $body_classes[] = 'two-sidebars';
+  }
+  elseif ($vars['sidebar_left']) {
+    $body_classes[] = 'one-sidebar sidebar-left';
+  }
+  elseif ($vars['sidebar_right']) {
+    $body_classes[] = 'one-sidebar sidebar-right';
+  }
+  else {
+    $body_classes[] = 'no-sidebars';
+  }
+  if (!$vars['is_front']) {
+    // Add unique classes for each page and website section
+    $path = drupal_get_path_alias($_GET['q']);
+    list($section,) = explode('/', $path, 2);
+    $body_classes[] = zen_id_safe('page-'. $path);
+    $body_classes[] = zen_id_safe('section-'. $section);
+    if (arg(0) == 'node') {
+      if (arg(1) == 'add') {
+        if ($section == 'node') {
+          array_pop($body_classes); // Remove 'section-node'
         }
+        $body_classes[] = 'section-node-add'; // Add 'section-node-add'
       }
-      $vars['body_classes'] = implode(' ', $body_classes); // Concatenate with spaces
+      elseif (is_numeric(arg(1)) && (arg(2) == 'edit' || arg(2) == 'delete')) {
+        if ($section == 'node') {
+          array_pop($body_classes); // Remove 'section-node'
+        }
+        $body_classes[] = 'section-node-'. arg(2); // Add 'section-node-edit' or 'section-node-delete'
+      }
+    }
+  }
+  $vars['body_classes'] = implode(' ', $body_classes); // Concatenate with spaces
 }
 
 /**
@@ -294,29 +294,29 @@ function zen_preprocess_page(&$vars) {
 function zen_preprocess_node(&$vars) {
   global $user;
 
-      // Special classes for nodes
-      $node_classes = array();
-      if ($vars['sticky']) {
-        $node_classes[] = 'sticky';
-      }
-      if (!$vars['node']->status) {
-        $node_classes[] = 'node-unpublished';
-        $vars['unpublished'] = TRUE;
-      }
-      else {
-        $vars['unpublished'] = FALSE;
-      }
-      if ($vars['node']->uid && $vars['node']->uid == $user->uid) {
-        // Node is authored by current user
-        $node_classes[] = 'node-mine';
-      }
-      if ($vars['teaser']) {
-        // Node is displayed as teaser
-        $node_classes[] = 'node-teaser';
-      }
-      // Class for node type: "node-type-page", "node-type-story", "node-type-my-custom-type", etc.
-      $node_classes[] = 'node-type-'. $vars['node']->type;
-      $vars['node_classes'] = implode(' ', $node_classes); // Concatenate with spaces
+  // Special classes for nodes
+  $node_classes = array();
+  if ($vars['sticky']) {
+    $node_classes[] = 'sticky';
+  }
+  if (!$vars['node']->status) {
+    $node_classes[] = 'node-unpublished';
+    $vars['unpublished'] = TRUE;
+  }
+  else {
+    $vars['unpublished'] = FALSE;
+  }
+  if ($vars['node']->uid && $vars['node']->uid == $user->uid) {
+    // Node is authored by current user
+    $node_classes[] = 'node-mine';
+  }
+  if ($vars['teaser']) {
+    // Node is displayed as teaser
+    $node_classes[] = 'node-teaser';
+  }
+  // Class for node type: "node-type-page", "node-type-story", "node-type-my-custom-type", etc.
+  $node_classes[] = 'node-type-'. $vars['node']->type;
+  $vars['node_classes'] = implode(' ', $node_classes); // Concatenate with spaces
 }
 
 /**
@@ -328,44 +328,44 @@ function zen_preprocess_node(&$vars) {
 function zen_preprocess_comment(&$vars) {
   global $user;
 
-      // We load the node object that the current comment is attached to
-      $node = node_load($vars['comment']->nid);
-      // If the author of this comment is equal to the author of the node, we
-      // set a variable so we can theme this comment uniquely.
-      $vars['author_comment'] = $vars['comment']->uid == $node->uid ? TRUE : FALSE;
+  // We load the node object that the current comment is attached to
+  $node = node_load($vars['comment']->nid);
+  // If the author of this comment is equal to the author of the node, we
+  // set a variable so we can theme this comment uniquely.
+  $vars['author_comment'] = $vars['comment']->uid == $node->uid ? TRUE : FALSE;
 
-      $comment_classes = array();
+  $comment_classes = array();
 
-      // Odd/even handling
-      static $comment_odd = TRUE;
-      $comment_classes[] = $comment_odd ? 'odd' : 'even';
-      $comment_odd = !$comment_odd;
+  // Odd/even handling
+  static $comment_odd = TRUE;
+  $comment_classes[] = $comment_odd ? 'odd' : 'even';
+  $comment_odd = !$comment_odd;
 
-      if ($vars['comment']->status == COMMENT_NOT_PUBLISHED) {
-        $comment_classes[] = 'comment-unpublished';
-        $vars['unpublished'] = TRUE;
-      }
-      else {
-        $vars['unpublished'] = FALSE;
-      }
-      if ($vars['author_comment']) {
-        // Comment is by the node author
-        $comment_classes[] = 'comment-by-author';
-      }
-      if ($vars['comment']->uid == 0) {
-        // Comment is by an anonymous user
-        $comment_classes[] = 'comment-by-anon';
-      }
-      if ($user->uid && $vars['comment']->uid == $user->uid) {
-        // Comment was posted by current user
-        $comment_classes[] = 'comment-mine';
-      }
-      $vars['comment_classes'] = implode(' ', $comment_classes);
+  if ($vars['comment']->status == COMMENT_NOT_PUBLISHED) {
+    $comment_classes[] = 'comment-unpublished';
+    $vars['unpublished'] = TRUE;
+  }
+  else {
+    $vars['unpublished'] = FALSE;
+  }
+  if ($vars['author_comment']) {
+    // Comment is by the node author
+    $comment_classes[] = 'comment-by-author';
+  }
+  if ($vars['comment']->uid == 0) {
+    // Comment is by an anonymous user
+    $comment_classes[] = 'comment-by-anon';
+  }
+  if ($user->uid && $vars['comment']->uid == $user->uid) {
+    // Comment was posted by current user
+    $comment_classes[] = 'comment-mine';
+  }
+  $vars['comment_classes'] = implode(' ', $comment_classes);
 
-      // If comment subjects are disabled, don't display 'em
-      if (variable_get('comment_subject_field', 1) == 0) {
-        $vars['title'] = '';
-      }
+  // If comment subjects are disabled, don't display 'em
+  if (variable_get('comment_subject_field', 1) == 0) {
+    $vars['title'] = '';
+  }
 }
 
 /**
@@ -375,39 +375,39 @@ function zen_preprocess_comment(&$vars) {
  *   A sequential array of variables to pass to the theme template.
  */
 function zen_preprocess_block(&$vars) {
-      $block = $vars['block'];
+  $block = $vars['block'];
 
-      // Special classes for blocks
-      $block_classes = array();
-      $block_classes[] = 'block-'. $block->module;
-      $block_classes[] = 'region-'. $vars['block_zebra'];
-      $block_classes[] = $vars['zebra'];
-      $block_classes[] = 'region-count-'. $vars['block_id'];
-      $block_classes[] = 'count-'. $vars['id'];
-      $vars['block_classes'] = implode(' ', $block_classes);
+  // Special classes for blocks
+  $block_classes = array();
+  $block_classes[] = 'block-'. $block->module;
+  $block_classes[] = 'region-'. $vars['block_zebra'];
+  $block_classes[] = $vars['zebra'];
+  $block_classes[] = 'region-count-'. $vars['block_id'];
+  $block_classes[] = 'count-'. $vars['id'];
+  $vars['block_classes'] = implode(' ', $block_classes);
 
-      $vars['edit_links'] = '';
-      if (theme_get_setting('zen_block_editing') && user_access('administer blocks')) {
-        // Display 'edit block' for custom blocks
-        if ($block->module == 'block') {
-          $edit_links[] = l('<span>'. t('edit block') .'</span>', 'admin/build/block/configure/'. $block->module .'/'. $block->delta, array('title' => t('edit the content of this block'), 'class' => 'block-edit'), drupal_get_destination(), NULL, FALSE, TRUE);
-        }
-        // Display 'configure' for other blocks
-        else {
-          $edit_links[] = l('<span>'. t('configure') .'</span>', 'admin/build/block/configure/'. $block->module .'/'. $block->delta, array('title' => t('configure this block'), 'class' => 'block-config'), drupal_get_destination(), NULL, FALSE, TRUE);
-        }
+  $vars['edit_links'] = '';
+  if (theme_get_setting('zen_block_editing') && user_access('administer blocks')) {
+    // Display 'edit block' for custom blocks
+    if ($block->module == 'block') {
+      $edit_links[] = l('<span>'. t('edit block') .'</span>', 'admin/build/block/configure/'. $block->module .'/'. $block->delta, array('title' => t('edit the content of this block'), 'class' => 'block-edit'), drupal_get_destination(), NULL, FALSE, TRUE);
+    }
+    // Display 'configure' for other blocks
+    else {
+      $edit_links[] = l('<span>'. t('configure') .'</span>', 'admin/build/block/configure/'. $block->module .'/'. $block->delta, array('title' => t('configure this block'), 'class' => 'block-config'), drupal_get_destination(), NULL, FALSE, TRUE);
+    }
 
-        // Display 'administer views' for views blocks
-        if ($block->module == 'views' && user_access('administer views')) {
-          $edit_links[] = l('<span>'. t('edit view') .'</span>', 'admin/build/views/'. $block->delta .'/edit', array('title' => t('edit the view that defines this block'), 'class' => 'block-edit-view'), drupal_get_destination(), 'edit-block', FALSE, TRUE);
-        }
-        // Display 'edit menu' for menu blocks
-        elseif (($block->module == 'menu' || ($block->module == 'user' && $block->delta == 1)) && user_access('administer menu')) {
-          $edit_links[] = l('<span>'. t('edit menu') .'</span>', 'admin/build/menu', array('title' => t('edit the menu that defines this block'), 'class' => 'block-edit-menu'), drupal_get_destination(), NULL, FALSE, TRUE);
-        }
-        $vars['edit_links_array'] = $edit_links;
-        $vars['edit_links'] = '<div class="edit">'. implode(' ', $edit_links) .'</div>';
-      }
+    // Display 'administer views' for views blocks
+    if ($block->module == 'views' && user_access('administer views')) {
+      $edit_links[] = l('<span>'. t('edit view') .'</span>', 'admin/build/views/'. $block->delta .'/edit', array('title' => t('edit the view that defines this block'), 'class' => 'block-edit-view'), drupal_get_destination(), 'edit-block', FALSE, TRUE);
+    }
+    // Display 'edit menu' for menu blocks
+    elseif (($block->module == 'menu' || ($block->module == 'user' && $block->delta == 1)) && user_access('administer menu')) {
+      $edit_links[] = l('<span>'. t('edit menu') .'</span>', 'admin/build/menu', array('title' => t('edit the menu that defines this block'), 'class' => 'block-edit-menu'), drupal_get_destination(), NULL, FALSE, TRUE);
+    }
+    $vars['edit_links_array'] = $edit_links;
+    $vars['edit_links'] = '<div class="edit">'. implode(' ', $edit_links) .'</div>';
+  }
 }
 
 /**
