@@ -1,4 +1,5 @@
 Zen 5.x-1.x-dev
+  #199682: 'Submitted by' text is shown for content even if setting is disabled
   #247960: Add THEME_preprocess() hook to Zen
   #222339: Blocks in Zen Classic header and closure lack padding
   #248720 by matt@antinomia: Only UPDATE {system} table WHERE type = 'theme'
