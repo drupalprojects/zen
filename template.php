@@ -143,6 +143,21 @@ function phptemplate_breadcrumb($breadcrumb) {
 function _phptemplate_variables($hook, $vars = array()) {
   global $theme_key;
 
+  // Allow modules to add or alter variables.
+  // This construct ensures that we can keep a reference through
+  // call_user_func_array.
+  $args = array(&$vars, $hook);
+  foreach (module_implements('preprocess') as $module) {
+    if ($module != 'search') { // Don't call search_preprocess().
+      $function = $module .'_preprocess';
+      call_user_func_array($function, $args);
+    }
+  }
+  foreach (module_implements('preprocess_'. $hook) as $module) {
+    $function = $module .'_preprocess_'. $hook;
+    call_user_func_array($function, $args);
+  }
+
   // Allow the Zen base theme to add or alter variables.
   zen_preprocess($vars, $hook);
   $function = 'zen_preprocess_'. $hook;
