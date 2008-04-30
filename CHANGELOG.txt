@@ -1,3 +1,6 @@
+Zen 5.x-1.x
+  #253249: zen_id_safe fails when first character is extended latin
+
 Zen 5.x-1.1
   #246109: Add MODULE_preprocess_HOOK functions to Zen
   #199682: 'Submitted by' text is shown for content even if setting is disabled
