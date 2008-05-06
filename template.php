@@ -93,7 +93,7 @@ function phptemplate_breadcrumb($breadcrumb) {
   $show_breadcrumb = theme_get_setting('zen_breadcrumb');
   $show_breadcrumb_home = theme_get_setting('zen_breadcrumb_home');
   $breadcrumb_separator = theme_get_setting('zen_breadcrumb_separator');
-  $trailing_separator = theme_get_setting('zen_breadcrumb_trailing') ? $breadcrumb_separator : '';
+  $trailing_separator = (theme_get_setting('zen_breadcrumb_trailing') || theme_get_setting('zen_breadcrumb_title')) ? $breadcrumb_separator : '';
 
   // Determine if we are to display the breadcrumb
   if ($show_breadcrumb == 'yes' || $show_breadcrumb == 'admin' && arg(0) == 'admin') {
@@ -262,6 +262,11 @@ function zen_preprocess_page(&$vars) {
 
   // Allow sub-themes to have an ie.css file
   $vars['subtheme_directory'] = path_to_subtheme();
+
+  // Add an optional title to the end of the breadcrumb.
+  if (theme_get_setting('zen_breadcrumb_title') && $vars['breadcrumb']) {
+    $vars['breadcrumb'] = substr($vars['breadcrumb'], 0, -6) . $vars['title'] .'</div>';
+  }
 
   // Don't display empty help from node_help().
   if ($vars['help'] == "<div class=\"help\"><p></p>\n</div>") {
