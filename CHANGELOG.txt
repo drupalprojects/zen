@@ -1,4 +1,5 @@
 Zen 5.x-1.x
+  #255263: Don't call preprocess functions twice when Zen is active theme
   #253249: zen_id_safe fails when first character is extended latin
 
 Zen 5.x-1.1

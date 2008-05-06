@@ -159,10 +159,12 @@ function _phptemplate_variables($hook, $vars = array()) {
   }
 
   // Allow the Zen base theme to add or alter variables.
-  zen_preprocess($vars, $hook);
-  $function = 'zen_preprocess_'. $hook;
-  if (function_exists($function)) {
-    $function($vars, $hook);
+  if ($theme_key != 'zen') {
+    zen_preprocess($vars, $hook);
+    $function = 'zen_preprocess_'. $hook;
+    if (function_exists($function)) {
+      $function($vars, $hook);
+    }
   }
 
   // Allow a sub-theme to add or alter variables.
