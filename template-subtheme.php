@@ -126,6 +126,7 @@ EOD;
     else {
       // Since we can't create an override function, we simply add a template
       // suggestion that contains the sub-theme directory.
+      global $theme_key;
   	  $vars['template_file'] = "$theme_key/$hook";
   	}
   }

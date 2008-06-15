@@ -1,4 +1,5 @@
-Zen 5.x-1.x
+Zen 5.x-1.x-dev
+  * Fixed _zen_hook() to look in sub-theme directory when $hook is not valid PHP function name.
   #223518: Option to show page title in breadcrumbs
   #255263: Don't call preprocess functions twice when Zen is active theme
   #253249: zen_id_safe fails when first character is extended latin
