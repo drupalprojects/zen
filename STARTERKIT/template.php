@@ -184,11 +184,25 @@ function STARTERKIT_preprocess_block(&$vars) {
 
 
 /**
- * Override the Drupal search form using the search-theme-form.tpl.php file.
+ * Override the theme's search form using the search-theme-form.tpl.php file.
+ *
+ * This is the form that appears when toggling the checkbox for "Enable or
+ * disable the display of... Search Box" on the theme settings page.
  */
 /* -- Delete this line if you want to use this function
 function phptemplate_search_theme_form($form) {
   return _phptemplate_callback('search_theme_form', array('form' => $form), array('search-theme-form'));
+}
+// */
+
+/**
+ * Override the search block's form using the search-block-form.tpl.php file.
+ *
+ * This is the form that appears when enabling the "Search form" block.
+ */
+/* -- Delete this line if you want to use this function
+function phptemplate_search_block_form($form) {
+  return _phptemplate_callback('search_block_form', array('form' => $form), array('search-block-form'));
 }
 // */
 
