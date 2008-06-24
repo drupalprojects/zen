@@ -68,7 +68,7 @@ include_once './'. drupal_get_path('theme', 'zen') .'/template.php';
  * Add the stylesheets you will need for this sub-theme.
  *
  * To add stylesheets that are in the main Zen folder, use path_to_theme().
- * To add stylesheets thar are in your sub-theme's folder, use path_to_subtheme().
+ * To add stylesheets that are in your sub-theme's folder, use path_to_subtheme().
  */
 
 // Add any stylesheets you would like from the main Zen theme.
