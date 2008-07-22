@@ -232,6 +232,9 @@ function zen_preprocess(&$vars, $hook) {
 function zen_preprocess_page(&$vars) {
   global $theme, $theme_key;
 
+  // Allow sub-themes to have an ie.css or wireframes.css file.
+  $vars['subtheme_directory'] = path_to_subtheme();
+
   // These next lines add additional CSS files and redefine
   // the $css and $styles variables available to your page template
   if ($theme == $theme_key) { // If we're in the main theme
@@ -255,13 +258,15 @@ function zen_preprocess_page(&$vars) {
   }
   // Optionally add the wireframes style.
   if (theme_get_setting('zen_wireframes')) {
-    drupal_add_css($vars['directory'] .'/wireframes.css', 'theme', 'all');
+    if ($vars['subtheme_directory'] && file_exists($vars['subtheme_directory'] .'/wireframes.css')) {
+      drupal_add_css($vars['subtheme_directory'] .'/wireframes.css', 'theme', 'all');
+    }
+    else {
+      drupal_add_css($vars['directory'] .'/wireframes.css', 'theme', 'all');
+    }
   }
   $vars['css'] = drupal_add_css();
   $vars['styles'] = drupal_get_css();
-
-  // Allow sub-themes to have an ie.css file
-  $vars['subtheme_directory'] = path_to_subtheme();
 
   // Add an optional title to the end of the breadcrumb.
   if (theme_get_setting('zen_breadcrumb_title') && $vars['breadcrumb']) {
