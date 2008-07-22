@@ -96,7 +96,7 @@ Build your own sub-theme:
   9. THEMEING DRUPAL'S SEARCH FORM:
      Copy the search-theme-form.tpl.php template file from the zen folder and
      place it in your sub-theme's folder. In your sub-theme's template.php file,
-     un-comment the STARTERKIT_search_theme_form() function.
+     un-comment the phptemplate_search_theme_form() function.
 
   10. FURTHER EXTENSIONS OF YOUR SUB-THEME:
      Discover further ways to extend your sub-theme by reading Zen's
