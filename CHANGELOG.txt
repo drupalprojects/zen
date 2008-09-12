@@ -1,4 +1,5 @@
 Zen 5.x-1.x-dev
+  #255265 by kmonty: Don't "skip to nav" if there's no nav
   #263228: Allow sub-themes to override wireframes.css
   * Added sample override template file for search block's form
   * Fixed _zen_hook() to look in sub-theme directory when $hook is not valid PHP function name.
