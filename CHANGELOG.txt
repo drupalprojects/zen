@@ -1,4 +1,6 @@
 Zen 5.x-1.x-dev
+  #279896: Help prevent double H1 tags on homepage that is not /node
+  #279896: Moved styles to zen.css that should never have been in layout.css
   #255265 by kmonty: Don't "skip to nav" if there's no nav
   #263228: Allow sub-themes to override wireframes.css
   * Added sample override template file for search block's form
