@@ -31,6 +31,8 @@ function zen_settings($saved_settings, $subtheme_defaults = array()) {
     'zen_breadcrumb_trailing' => 1,
     'zen_breadcrumb_title' => 0,
     'zen_layout' => 'border-politics-liquid',
+    'zen_primary_links' => 1,
+    'zen_secondary_links' => 1,
     'zen_wireframes' => 0,
   );
   $defaults = array_merge($defaults, $subtheme_defaults);
@@ -41,15 +43,33 @@ function zen_settings($saved_settings, $subtheme_defaults = array()) {
   /*
    * Create the form using Form API
    */
-  $form['zen-div-opening'] = array(
-    '#value'         => '<div id="zen-settings">',
+  $form['toggle'] = array(
+    '#type'          => 'fieldset',
+    '#title'         => t('Toggle display'),
+    '#attributes'    => array('id' => 'zen-toggle'),
+    '#description'   => t('Enable or disable the display of certain page elements.'),
+  );
+  $form['toggle']['zen_primary_links'] = array(
+    '#type'          => 'checkbox',
+    '#title'         => t('Primary links'),
+    '#default_value' => $settings['zen_primary_links'],
   );
 
-  $form['zen_block_editing'] = array(
+  $form['toggle']['zen_secondary_links'] = array(
     '#type'          => 'checkbox',
-    '#title'         => t('Show block editing on hover'),
-    '#description'   => t('When hovering over a block, privileged users will see block editing links.'),
+    '#title'         => t('Secondary links'),
+    '#default_value' => $settings['zen_secondary_links'],
+  );
+
+  $form['toggle']['zen_block_editing'] = array(
+    '#type'          => 'checkbox',
+    '#title'         => t('Block editing links'),
+    '#description'   => t('Privileged users will see these when hovering over a block.'),
     '#default_value' => $settings['zen_block_editing'],
+  );
+
+  $form['zen-div-opening'] = array(
+    '#value'         => '<div id="zen-settings">',
   );
 
   $form['breadcrumb'] = array(

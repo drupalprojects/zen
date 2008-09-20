@@ -278,6 +278,14 @@ function zen_preprocess_page(&$vars) {
     $vars['help'] = '';
   }
 
+  // Optionally disabled the primary and secondary links.
+  if (!theme_get_setting('zen_primary_links')) {
+    $vars['primary_links'] = '';
+  }
+  if (!theme_get_setting('zen_secondary_links')) {
+    $vars['secondary_links'] = '';
+  }
+
   // Classes for body element. Allows advanced theming based on context
   // (home page, node of certain type, etc.)
   $body_classes = array();
@@ -466,7 +474,7 @@ function zen_preprocess_block(&$vars) {
 function zen_id_safe($string) {
   // Replace with dashes anything that isn't A-Z, numbers, dashes, or underscores.
   $string = strtolower(preg_replace('/[^a-zA-Z0-9_-]+/', '-', $string));
-  // If the first character is not a-z, add 'n' in front.
+  // If the first character is not a-z, add 'id' in front.
   if (!ctype_lower($string{0})) { // Don't use ctype_alpha since its locale aware.
     $string = 'id' . $string;
   }

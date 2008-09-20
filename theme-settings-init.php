@@ -1,7 +1,7 @@
 <?php
 // $Id$
 
-if (is_null(theme_get_setting('zen_breadcrumb_title'))) {
+if (is_null(theme_get_setting('zen_primary_links'))) {
   global $theme_key;
 
   /*
@@ -16,6 +16,8 @@ if (is_null(theme_get_setting('zen_breadcrumb_title'))) {
     'zen_breadcrumb_trailing' => 1,
     'zen_breadcrumb_title' => 0,
     'zen_layout' => 'border-politics-liquid',
+    'zen_primary_links' => 1,
+    'zen_secondary_links' => 1,
     'zen_wireframes' => 0,
   );
 
