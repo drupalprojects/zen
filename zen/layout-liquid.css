@@ -22,8 +22,10 @@
   {
   }
 
-  #page
+  #page,
+  #closure-blocks
   {
+    min-width: 960px; /* Don't allow the browser to make the site unreadable. */
   }
 
   #page-inner
@@ -258,7 +260,7 @@
   }
 
 /** closure **/
-  #closure-blocks
+  #closure-blocks /* See also the #page declaration above that this div shares. */
   {
   }
 

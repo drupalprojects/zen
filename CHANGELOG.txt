@@ -1,4 +1,5 @@
 Zen 6.x-1.x-dev
+  #290657: Liquid layout does not have min-width enforced
   #329769 by kmonty: Update zen_id_safe to remove underscores
   #275832: hook_theme implementation breaks maintenance page when database is down
   #362104: layout breaks on Zen-themed maintenance page
