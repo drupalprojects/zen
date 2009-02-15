@@ -1,4 +1,5 @@
 Zen 5.x-1.x-dev
+  #346706 by jsaints: Content clipped after page one when printing in Firefox
   * Added $body_classes_array variable to page template
   * Simplified body class generation code
   * Fixed theme settings CSS for IE6 users

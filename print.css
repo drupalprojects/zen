@@ -51,3 +51,10 @@
     visibility: hidden;
     display: none;
   }
+
+/* If you un-comment the "page { overflow-y: hidden; }" ruleset, Firefox clips
+   the content after the first page. */
+  #page
+  {
+    overflow-y: visible;
+  }
