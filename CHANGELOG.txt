@@ -1,4 +1,4 @@
-Zen 5.x-1.x-dev
+Zen 5.x-1.2
   #342004 by Amitaibu: Add css hint to prevent cramped-looking tables
   #290657: Liquid layout does not have min-width enforced
   #279896 by lutegrass: Help prevent double H1 tags on homepage that is not /node
