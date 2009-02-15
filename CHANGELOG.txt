@@ -1,4 +1,5 @@
 Zen 5.x-1.x-dev
+  * Simplified body class generation code
   * Fixed theme settings CSS for IE6 users
   #288213 by budda: Tabs in IE have a text select cursor rather than hand pointer
   #249823: Add options to toggle display of primary and secondary links

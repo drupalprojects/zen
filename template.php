@@ -288,47 +288,42 @@ function zen_preprocess_page(&$vars) {
 
   // Classes for body element. Allows advanced theming based on context
   // (home page, node of certain type, etc.)
-  $body_classes = array();
-  $body_classes[] = ($vars['is_front']) ? 'front' : 'not-front';
-  $body_classes[] = ($vars['logged_in']) ? 'logged-in' : 'not-logged-in';
+  $classes = array();
+  $classes[] = ($vars['is_front']) ? 'front' : 'not-front';
+  $classes[] = ($vars['logged_in']) ? 'logged-in' : 'not-logged-in';
   if ($vars['node']->type) {
     // If on an individual node page, put the node type in the body classes
-    $body_classes[] = 'node-type-'. $vars['node']->type;
+    $classes[] = 'node-type-'. $vars['node']->type;
   }
   if ($vars['sidebar_left'] && $vars['sidebar_right']) {
-    $body_classes[] = 'two-sidebars';
+    $classes[] = 'two-sidebars';
   }
   elseif ($vars['sidebar_left']) {
-    $body_classes[] = 'one-sidebar sidebar-left';
+    $classes[] = 'one-sidebar sidebar-left';
   }
   elseif ($vars['sidebar_right']) {
-    $body_classes[] = 'one-sidebar sidebar-right';
+    $classes[] = 'one-sidebar sidebar-right';
   }
   else {
-    $body_classes[] = 'no-sidebars';
+    $classes[] = 'no-sidebars';
   }
   if (!$vars['is_front']) {
-    // Add unique classes for each page and website section
+    // Add unique class for each page.
     $path = drupal_get_path_alias($_GET['q']);
-    list($section,) = explode('/', $path, 2);
-    $body_classes[] = zen_id_safe('page-'. $path);
-    $body_classes[] = zen_id_safe('section-'. $section);
+    $classes[] = zen_id_safe('page-'. $path);
+    // Add unique class for each website section.
+    list($section, ) = explode('/', $path, 2);
     if (arg(0) == 'node') {
       if (arg(1) == 'add') {
-        if ($section == 'node') {
-          array_pop($body_classes); // Remove 'section-node'
-        }
-        $body_classes[] = 'section-node-add'; // Add 'section-node-add'
+        $section = 'node-add';
       }
       elseif (is_numeric(arg(1)) && (arg(2) == 'edit' || arg(2) == 'delete')) {
-        if ($section == 'node') {
-          array_pop($body_classes); // Remove 'section-node'
-        }
-        $body_classes[] = 'section-node-'. arg(2); // Add 'section-node-edit' or 'section-node-delete'
+        $section = 'node-'. arg(2);
       }
     }
+    $classes[] = zen_id_safe('section-'. $section);
   }
-  $vars['body_classes'] = implode(' ', $body_classes); // Concatenate with spaces
+  $vars['body_classes'] = implode(' ', $classes); // Concatenate with spaces.
 }
 
 /**
