@@ -323,6 +323,7 @@ function zen_preprocess_page(&$vars) {
     }
     $classes[] = zen_id_safe('section-'. $section);
   }
+  $vars['body_classes_array'] = $classes;
   $vars['body_classes'] = implode(' ', $classes); // Concatenate with spaces.
 }
 
