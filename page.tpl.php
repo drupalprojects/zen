@@ -32,23 +32,23 @@
           <?php endif; ?>
 
           <?php if ($site_name): ?>
-            <?php if ($is_front): ?>
-              <h1 id="site-name">
-                <a href="<?php print $base_path; ?>" title="<?php print t('Home'); ?>" rel="home">
-                <?php print $site_name; ?>
-                </a>
-              </h1>
-            <?php else: ?>
+            <?php if ($title): ?>
               <div id="site-name"><strong>
                 <a href="<?php print $base_path; ?>" title="<?php print t('Home'); ?>" rel="home">
                 <?php print $site_name; ?>
                 </a>
               </strong></div>
+            <?php else: ?>
+              <h1 id="site-name">
+                <a href="<?php print $base_path; ?>" title="<?php print t('Home'); ?>" rel="home">
+                <?php print $site_name; ?>
+                </a>
+              </h1>
             <?php endif; ?>
           <?php endif; ?>
 
           <?php if ($site_slogan): ?>
-            <div id='site-slogan'><?php print $site_slogan; ?></div>
+            <div id="site-slogan"><?php print $site_slogan; ?></div>
           <?php endif; ?>
 
         </div> <!-- /#logo-title -->

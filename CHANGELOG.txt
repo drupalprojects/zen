@@ -1,4 +1,5 @@
 Zen 5.x-1.x-dev
+  #279896 by lutegrass: Help prevent double H1 tags on homepage that is not /node
   #346706 by jsaints: Content clipped after page one when printing in Firefox
   * Added $body_classes_array variable to page template
   * Simplified body class generation code
