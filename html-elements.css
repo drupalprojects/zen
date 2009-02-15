@@ -1,8 +1,11 @@
 /* $Id$ */
 
-/****
- **** HTML ELEMENT STYLING
- ****/
+/*
+ * HTML ELEMENT STYLING
+ *
+ * This is the "reset" style sheet. It standardizes the properties of the HTML
+ * elements across browsers.
+ */
 
 
 /** fonts **/
@@ -210,6 +213,7 @@
   table
   {
     border-collapse: collapse;
+    /* width: 100%; */ /* Prevent cramped-looking tables */
   }
 
   th,
