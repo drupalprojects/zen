@@ -1,3 +1,6 @@
+Zen 6.x-1.x-dev
+  #445562: q0rban and JohnAlbin: Allow modules to declare their own block edit links
+
 Zen 6.x-1.0
   #342004 by Amitaibu: Add css hint to prevent cramped-looking tables
   #290657: Liquid layout does not have min-width enforced
