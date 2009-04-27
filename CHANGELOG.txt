@@ -1,3 +1,6 @@
+Zen 5.x-1.x-dev
+  #426750: Removed Zen Classic sub theme
+
 Zen 5.x-1.2
   #342004 by Amitaibu: Add css hint to prevent cramped-looking tables
   #290657: Liquid layout does not have min-width enforced
