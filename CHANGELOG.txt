@@ -1,4 +1,5 @@
 Zen 6.x-1.x-dev
+  #426750: Removed Zen Classic sub theme
   #445562: q0rban and JohnAlbin: Allow modules to declare their own block edit links
 
 Zen 6.x-1.0
