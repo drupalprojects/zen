@@ -171,6 +171,25 @@
   {
   }
 
+  ul.links /* List of links */
+  {
+    margin: 1em 0;
+    padding: 0;
+  }
+
+  ul.links.inline
+  {
+    margin: 0;
+    display: inline;
+  }
+
+  ul.links li
+  {
+    display: inline;
+    list-style-type: none;
+    padding: 0 0.5em;
+  }
+
   .pager /* A list of page numbers when more than 1 page of content is available */
   {
     clear: both;
@@ -343,27 +362,8 @@
   {
   }
 
-  .node div.links /* Wrapper for node links */
+  .node ul.links /* Node links. See also the ul.links declaration above. */
   {
-    margin: 1em 0;
-  }
-
-  ul.links /* Taxonomy links, node links, comment links */
-  {
-    margin: 0;
-    padding: 0;
-  }
-
-  ul.links.inline
-  {
-    display: inline;
-  }
-
-  ul.links li
-  {
-    display: inline;
-    list-style-type: none;
-    padding: 0 0.5em;
   }
 
   .preview .node /* Preview of the content before submitting new or updated content */
@@ -463,7 +463,7 @@
   {
   }
 
-  .comment div.links /* Wrapper for comment links. See also the ul.links declaration in the node section above. */
+  .comment ul.links /* Comment links. See also the ul.links declaration above. */
   {
     margin: 1em 0;
   }
