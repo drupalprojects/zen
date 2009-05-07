@@ -1,4 +1,5 @@
 Zen 6.x-1.x-dev
+  #254821: Sub-theme's .info file triggers incorrect "out of date" flag in update module
   #327455 by grendzy and erifneerg: name and id mismatch in named anchor causing validation error
   #382598: .node div.links ruleset doesn't match html in node template
   #382480 by Ognyan Kulev: #block-menu-2 should be #block-menu-primary-links
