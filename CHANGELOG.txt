@@ -1,4 +1,5 @@
 Zen 6.x-1.x-dev
+  * Changed "or" back to "||" in node.tpl.php since themers do need to learn a little PHP
   #254821: Sub-theme's .info file triggers incorrect "out of date" flag in update module
   #327455 by grendzy and erifneerg: name and id mismatch in named anchor causing validation error
   #382598: .node div.links ruleset doesn't match html in node template
