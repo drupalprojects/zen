@@ -1,3 +1,5 @@
+// $Id$
+
 Zen 6.x-1.x-dev, xxxx-xx-xx (development release)
 ------------------------
 - Updated screenshot.png to use Zen logo since an actual screenshot is boring
