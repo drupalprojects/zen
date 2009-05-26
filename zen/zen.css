@@ -726,16 +726,16 @@
   {
     margin-top: 1em;
     margin-left: -20px; /* Un-do some of the padding on the ul list. */
-  	padding-left: 20px;
-  	background-position: left center;
   }
 
-  #user-login-form li.user-link, /* The "Cancel OpenID login" links. */
-  #user-login li.user-link
+  #user-login-form li.user-link /* The "Cancel OpenID login" links. */
   {
     margin-top: 1em;
-  	list-style-type: disc;
-  	list-style-position: outside;
+  }
+
+  #user-login ul
+  {
+    margin: 1em 0;
   }
 
   #user-login li.openid-link, /* The OpenID links on the /user form. */

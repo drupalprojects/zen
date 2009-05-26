@@ -2,6 +2,7 @@
 
 Zen 6.x-1.x-dev, xxxx-xx-xx (development release)
 ------------------------
+- #472694: Drupal 6.11 broke Zen's OpenID overrides
 - Updated screenshot.png to use Zen logo since an actual screenshot is boring
 - Changed "or" back to "||" in node.tpl.php since themers do need to learn a little PHP
 - #254821: Sub-theme's .info file triggers incorrect "out of date" flag in update module
