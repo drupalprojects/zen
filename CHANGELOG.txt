@@ -2,6 +2,7 @@
 
 Zen 6.x-1.x-dev, xxxx-xx-xx (development release)
 ------------------------
+- #600758 by mattyoung: Secondary links run together in one line with primary links
 - #600344 by mgifford: Use of absolute font size in block editing links breaks WCAG 2.0
 - #546904 by Jennifer_M: List $node as available variable in page.tpl.php
 - #583716 by droidenator: Empty title can cause breadcrumbs to display incorrectly

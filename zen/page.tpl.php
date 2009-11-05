@@ -193,7 +193,7 @@
           <?php endif; ?>
 
           <?php if ($primary_links): ?>
-            <div id="primary">
+            <div id="primary" class="clear-block">
               <?php print theme('links', $primary_links); ?>
             </div> <!-- /#primary -->
           <?php endif; ?>
