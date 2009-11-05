@@ -2,6 +2,7 @@
 
 Zen 6.x-1.x-dev, xxxx-xx-xx (development release)
 ------------------------
+- #583716 by droidenator: Empty title can cause breadcrumbs to display incorrectly
 - #600920 by kto.3decb: Fix incorrect comment block class name
 - #297084: Remove ctype_lower() from zen_id_safe() to prevent WSOD/Fatal error on some systems
 - #317417 by JohnAlbin and quicksketch: Fix off-line maintenance page since drupal_get_path('theme', 'zen') won't work
