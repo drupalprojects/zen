@@ -199,7 +199,7 @@
           <?php endif; ?>
 
           <?php if ($secondary_links): ?>
-            <div id="secondary">
+            <div id="secondary" class="clear-block">
               <?php print theme('links', $secondary_links); ?>
             </div> <!-- /#secondary -->
           <?php endif; ?>
