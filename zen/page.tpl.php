@@ -33,6 +33,8 @@
  *   path, whether the user is logged in, and so on.
  * - $body_classes_array: An array of the body classes. This is easier to
  *   manipulate then the string in $body_classes.
+ * - $node: Full node object. Contains data that may not be safe. This is only
+ *   available if the current page is on the node's primary url.
  *
  * Site identity:
  * - $front_page: The URL of the front page. Use this instead of $base_path,
