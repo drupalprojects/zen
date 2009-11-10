@@ -1,5 +1,9 @@
 // $Id$
 
+Zen 6.x-1.x-dev, xxxx-xx-xx (development release)
+-----------------------
+-
+
 Zen 6.x-1.1, 2009-11-10
 -----------------------
 - #478134 by mithrill: Improve docs about sites/all/themes and sites/default/themes folders
