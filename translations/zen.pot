@@ -19,112 +19,113 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Zen 6.x-2.x\n"
 "POT-Creation-Date: 2009-11-11 15:57+0800\n"
-"PO-Revision-Date: 2009-11-10 09:42+0000\n"
-"Language-Team: Hungarian\n"
+"PO-Revision-Date: YYYY-mm-DD HH:MM+ZZZZ\n"
+"Last-Translator: NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n!=1);\n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 
 #: theme-settings.php:44
 msgid "Show block editing on hover"
-msgstr "Blokkszerkesztés megjelenítése ha az egér a blokk fölött van"
+msgstr ""
 
 #: theme-settings.php:45
 msgid "When hovering over a block, privileged users will see block editing links."
-msgstr "Ha az egér a blokk fölé kerül, a jogosult felhasználóknak megjelenik egy blokkszerkesztő hivatkozás."
+msgstr ""
 
 #: theme-settings.php:51
 msgid "Breadcrumb settings"
-msgstr "Morzsa beállításai"
+msgstr ""
 
 #: theme-settings.php:56
 msgid "Display breadcrumb"
-msgstr "Morzsa megjelenítése"
+msgstr ""
 
 #: theme-settings.php:59
 msgid "Yes"
-msgstr "Igen"
+msgstr ""
 
 #: theme-settings.php:60
 msgid "Only in admin section"
-msgstr "Csak az admin részeknél"
+msgstr ""
 
 #: theme-settings.php:61
 msgid "No"
-msgstr "Nem"
+msgstr ""
 
 #: theme-settings.php:66
 msgid "Breadcrumb separator"
-msgstr "Morzsák közti elválasztó jel"
+msgstr ""
 
 #: theme-settings.php:67
 msgid "Text only. Don’t forget to include spaces."
-msgstr "Csak szöveg. A szöközök fontosak."
+msgstr ""
 
 #: theme-settings.php:75
 msgid "Show home page link in breadcrumb"
-msgstr "Címlapra való hivatkozás megjelenítése a morzsában"
+msgstr ""
 
 #: theme-settings.php:80
 msgid "Append a separator to the end of the breadcrumb"
-msgstr "Elválasztó hozzáadása a morzsa végéhez"
+msgstr ""
 
 #: theme-settings.php:82
 msgid "Useful when the breadcrumb is placed just before the title."
-msgstr "Hasznos, ha a morzsa pont a cím előtt van."
+msgstr ""
 
 #: theme-settings.php:86
 msgid "Append the content title to the end of the breadcrumb"
-msgstr "Tartalom címének beillesztése a morzsa végére"
+msgstr ""
 
 #: theme-settings.php:88
 msgid "Useful when the breadcrumb is not placed just before the title."
-msgstr "Hasznos, ha a morzsa nem pont a cím előtt van."
+msgstr ""
 
 #: theme-settings.php:94
 msgid "Theme development settings"
-msgstr "Sminkfejlesztés beállításai"
+msgstr ""
 
 #: theme-settings.php:99
 msgid "Rebuild theme registry on every page."
-msgstr "Smink gyorstár ürítése minden oldalletöltés esetén."
+msgstr ""
 
 #: theme-settings.php:101
 msgid "During theme development, it can be very useful to continuously <a href=\"!link\">rebuild the theme registry</a>. WARNING: this is a huge performance penalty and must be turned off on production websites."
-msgstr "A smink fejlesztése során hasznos folyamatosan <a href=\"!link\">újraépíteni a smink gyorstárat</a>. FIGYELMEZTETÉS: erős teljesítményromlást eredményez, éles webhelyen ki kell kapcsolni."
+msgstr ""
 
 #: theme-settings.php:102
 msgid "Theme registry:"
-msgstr "Smink gyorstár:"
+msgstr ""
 
 #: theme-settings.php:107
 msgid "Layout method"
-msgstr "Felépítési mód"
+msgstr ""
 
 #: theme-settings.php:109
 msgid "Liquid layout"
-msgstr "Rugalmas felépítés"
+msgstr ""
 
 #: theme-settings.php:110
 msgid "Fixed layout"
-msgstr "Rögzített felépítés"
+msgstr ""
 
 #: theme-settings.php:116
 msgid "Display borders around main layout elements"
-msgstr "Szegélyek megjelenítése a fő szerkezeti elemek körül"
+msgstr ""
 
 #: theme-settings.php:118
 msgid "<a href=\"!link\">Wireframes</a> are useful when prototyping a website."
-msgstr "A <a href=\"!link\">drótvázak</a> prototípus oldalak létrehozásánál lehetnek hasznosak."
+msgstr ""
 
 #: theme-settings.php:119
 msgid "Wireframes:"
-msgstr "Drótvázak"
+msgstr ""
 
 #: zen.info:0
 msgid "Zen"
-msgstr "Zen"
+msgstr ""
 
 #: zen.info:0
 msgid "Zen sub-themes are the ultimate starting themes for Drupal 6. Read the <a href=\"http://drupal.org/node/226507\">online docs</a> or the included README-FIRST.txt on how to create a sub-theme."
@@ -132,39 +133,39 @@ msgstr ""
 
 #: zen.info:0 STARTERKIT/STARTERKIT.info:0
 msgid "First sidebar"
-msgstr "Első oldalsáv"
+msgstr ""
 
 #: zen.info:0 STARTERKIT/STARTERKIT.info:0
 msgid "Second sidebar"
-msgstr "Második oldalsáv"
+msgstr ""
 
 #: zen.info:0 STARTERKIT/STARTERKIT.info:0
 msgid "Navigation bar"
-msgstr "Navigáció"
+msgstr ""
 
 #: zen.info:0 STARTERKIT/STARTERKIT.info:0
 msgid "Highlighted content"
-msgstr "Kiemelt tartalom"
+msgstr ""
 
 #: zen.info:0 STARTERKIT/STARTERKIT.info:0
 msgid "Content top"
-msgstr "Tartalom teteje"
+msgstr ""
 
 #: zen.info:0 STARTERKIT/STARTERKIT.info:0
 msgid "Content bottom"
-msgstr "Tartalom alja"
+msgstr ""
 
 #: zen.info:0 STARTERKIT/STARTERKIT.info:0
 msgid "Header"
-msgstr "Fejléc"
+msgstr ""
 
 #: zen.info:0 STARTERKIT/STARTERKIT.info:0
 msgid "Footer"
-msgstr "Lábléc"
+msgstr ""
 
 #: zen.info:0 STARTERKIT/STARTERKIT.info:0
 msgid "Page closure"
-msgstr "Oldal vége"
+msgstr ""
 
 #: STARTERKIT/STARTERKIT.info:0
 msgid "Zen Sub-theme Starter Kit"
@@ -176,61 +177,61 @@ msgstr ""
 
 #: templates/comment-wrapper.tpl.php:43
 msgid "Comments"
-msgstr "Hozzászólások"
+msgstr ""
 
 #: templates/comment.tpl.php:72 templates/node.tpl.php:84
 msgid "Unpublished"
-msgstr "Rejtett"
+msgstr ""
 
 #: templates/comment.tpl.php:77
 msgid "Submitted by !username on !datetime."
-msgstr "!username küldte be !datetime időpontban."
+msgstr ""
 
 #: templates/maintenance-page.tpl.php:33;33;40 templates/page.tpl.php:126;126;134;138
 msgid "Home"
-msgstr "Címlap"
+msgstr ""
 
 #: templates/node.tpl.php:92
 msgid "Submitted by !username on !datetime"
-msgstr "!username küldte be !datetime időpontban"
+msgstr ""
 
 #: templates/page.tpl.php:118
 msgid "Jump to Navigation"
-msgstr "Ugrás a Navigációra"
+msgstr ""
 
 #: zen-internals/template.block-editing.inc:22
 msgid "edit block"
-msgstr "blokk szerkesztése"
+msgstr ""
 
 #: zen-internals/template.block-editing.inc:25
 msgid "edit the content of this block"
-msgstr "a blokk tartalmának szerkesztése"
+msgstr ""
 
 #: zen-internals/template.block-editing.inc:35
 msgid "configure"
-msgstr "beállítás"
+msgstr ""
 
 #: zen-internals/template.block-editing.inc:38
 msgid "configure this block"
-msgstr "blokk beállítása"
+msgstr ""
 
 #: zen-internals/template.block-editing.inc:50
 msgid "edit view"
-msgstr "nézet szerkesztése"
+msgstr ""
 
 #: zen-internals/template.block-editing.inc:53
 msgid "edit the view that defines this block"
-msgstr "a blokkot létrehozó nézet szerkesztése"
+msgstr ""
 
 #: zen-internals/template.block-editing.inc:65;79
 msgid "edit menu"
-msgstr "menü szerkesztése"
+msgstr ""
 
 #: zen-internals/template.block-editing.inc:68;82
 msgid "edit the menu that defines this block"
-msgstr "a blokkot létrehozó menü szerkesztése"
+msgstr ""
 
 #: zen-internals/template.theme-registry.inc:33
 msgid "For easier theme development, the theme registry is being rebuilt on every page request. It is <em>extremely</em> important to <a href=\"!link\">turn off this feature</a> on production websites."
-msgstr "A könnyebb sminkfejlesztés érdekében a smink gyorsítótár minden oldal betöltésekor újra lesz építve. A nagymértékű teljesítményromlás elkerülésének érdekében <em>rendkívül</em> fontos ezt éles webhelyen <a href=\"!link\">kikapcsolni</a>."
+msgstr ""
 
