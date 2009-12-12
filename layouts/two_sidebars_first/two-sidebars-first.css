@@ -10,17 +10,17 @@
  * sidebar, sidebar, content.
  */
 
-.panel-zenfirstsecondcontent { 
+.zen-two-sidebars-first { 
 /*  overflow: hidden;  */
   position: relative;
   margin-top: 0;
   padding-top: 0;
 }
 
-.panel-zenfirstsecondcontent .panel-sidebar-first {
+.zen-two-sidebars-first .panel-sidebar-first {
 }
 
-.panel-zenfirstsecondcontent .panel-content {
+.zen-two-sidebars-first .panel-content {
   float: left; /* LTR */
   width: 460px;
   margin-left: 500px; /* LTR */
@@ -28,7 +28,7 @@
   padding: 0; /* DO NOT CHANGE. Add padding or margin to #content-inner. */
 }
 
-.panel-zenfirstsecondcontent .panel-sidebar-first {
+.zen-two-sidebars-first .panel-sidebar-first {
   float: left; /* LTR */
   width: 250px;
   margin-left: 0px; /* LTR */ /* Width of #content. */
@@ -36,11 +36,11 @@
   padding: 0; /* DO NOT CHANGE. Add padding or margin to #sidebar-first-inner. */
 }
 
-.panel-zenfirstsecondcontent .panel-sidebar-first .panel-sidebar-first-inner {
+.zen-two-sidebars-first .panel-sidebar-first .panel-sidebar-first-inner {
   margin-right: 20px;
 }
 
-.panel-zenfirstsecondcontent .panel-sidebar-second {
+.zen-two-sidebars-first .panel-sidebar-second {
   float: left; /* LTR */
   width: 250px;
   margin-left: 250px; /* LTR */ /* Width of #content. */
@@ -48,6 +48,6 @@
   padding: 0; /* DO NOT CHANGE. Add padding or margin to #sidebar-first-inner. */
 }
 
-.panel-zenfirstsecondcontent .panel-sidebar-second .panel-sidebar-second-inner {
+.zen-two-sidebars-first .panel-sidebar-second .panel-sidebar-second-inner {
   margin-right: 20px;
 }

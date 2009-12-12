@@ -10,14 +10,14 @@
  * content.
  */
 
-.panel-zenfirstcontent { 
+.zen-one-sidebar-first { 
 /*  overflow: hidden;  */
   position: relative;
   margin-top: 0;
   padding-top: 0;
 }
 
-.panel-zenfirstcontent .panel-content {
+.zen-one-sidebar-first .panel-content {
   float: left; /* LTR */
   width: 640px;
   margin-left: 320px; /* LTR */
@@ -25,7 +25,7 @@
   padding: 0; /* DO NOT CHANGE. Add padding or margin to #content-inner. */
 }
 
-.panel-zenfirstcontent .panel-sidebar-first {
+.zen-one-sidebar-first .panel-sidebar-first {
   float: left; /* LTR */
   width: 320px;
   margin-left: 0px; /* LTR */ /* Width of #content. */
@@ -33,6 +33,6 @@
   padding: 0; /* DO NOT CHANGE. Add padding or margin to #sidebar-first-inner. */
 }
 
-.panel-zenfirstcontent .panel-sidebar-first .panel-sidebar-first-inner {
+.zen-one-sidebar-first .panel-sidebar-first .panel-sidebar-first-inner {
   margin-right: 20px;
 }

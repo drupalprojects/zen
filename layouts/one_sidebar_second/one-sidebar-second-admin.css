@@ -8,12 +8,12 @@
  * admin can work nicely in different admin themes.
  */
 
-#page-manager-edit .panel-zencontentfirst .panel-header {
+#page-manager-edit .zen-one-sidebar-second .panel-header {
   height: auto;
   margin-bottom: 10px;
 }
 
-#page-manager-edit .panel-zencontentfirst .panel-content {
+#page-manager-edit .zen-one-sidebar-second .panel-content {
   float: left; /* LTR */
   width: 66%;
   margin-left: 0; /* LTR */
@@ -22,16 +22,16 @@
   margin-top: 0px;
 }
 
-#page-manager-edit .panel-zencontentfirst .panel-content .inside {
+#page-manager-edit .zen-one-sidebar-second .panel-content .inside {
   margin-right: 10px;
 }
 
-#page-manager-edit .panel-zencontentfirst .with-panel-header .panel-content,
-#page-manager-edit .panel-zencontentfirst .with-panel-header .panel-sidebar-first {
+#page-manager-edit .zen-one-sidebar-second .with-panel-header .panel-content,
+#page-manager-edit .zen-one-sidebar-second .with-panel-header .panel-sidebar-first {
   margin-top: 0; /* Set this to the same value as the navbar height above. */
 }
 
-#page-manager-edit .panel-zencontentfirst .panel-sidebar-first {
+#page-manager-edit .zen-one-sidebar-second .panel-sidebar-first {
   float: left; /* LTR */
   width: 34%;
   margin-left: 66%; /* LTR */ /* Width of #content. */
@@ -39,6 +39,6 @@
   padding: 0; /* DO NOT CHANGE. Add padding or margin to #sidebar-first-inner. */
 }
 
-.panel-zencontentfirst .panel-sidebar-first .panel-sidebar-first-inner {
+.zen-one-sidebar-second .panel-sidebar-first .panel-sidebar-first-inner {
   margin: 0 0 0 0;
 }

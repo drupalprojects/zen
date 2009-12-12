@@ -8,14 +8,14 @@
  * layout.  Markup has been reordered for Accessibility and SEO optimizations.
  */
 
-.panel-zencontentfirst { 
+.zen-one-sidebar-second { 
 /*  overflow: hidden;  */
   position: relative;
   margin-top: 0;
   padding-top: 0;
 }
 
-.panel-zencontentfirst .panel-navbar { 
+.zen-one-sidebar-second .panel-navbar { 
   width: 100%; 
   float: left; /* LTR */
   margin-left: 0; /* LTR */
@@ -26,12 +26,12 @@
                     Set this to the same value as the margin-top below. */
 }
 
-.panel-zencontentfirst .with-panel-header .panel-content,
-.panel-zencontentfirst .with-panel-header .panel-sidebar-first {
+.zen-one-sidebar-second .with-panel-header .panel-content,
+.zen-one-sidebar-second .with-panel-header .panel-sidebar-first {
   margin-top: 8.3em; /* Set this to the same value as the navbar height above. */
 }
 
-.panel-zencontentfirst .panel-content {
+.zen-one-sidebar-second .panel-content {
   float: left; /* LTR */
   width: 640px;
   margin-left: 0; /* LTR */
@@ -39,7 +39,7 @@
   padding: 0; /* DO NOT CHANGE. Add padding or margin to #content-inner. */
 }
 
-.panel-zencontentfirst .panel-sidebar-first {
+.zen-one-sidebar-second .panel-sidebar-first {
   float: left; /* LTR */
   width: 320px;
   margin-left: 640px; /* LTR */ /* Width of #content. */
@@ -47,6 +47,6 @@
   padding: 0; /* DO NOT CHANGE. Add padding or margin to #sidebar-first-inner. */
 }
 
-.panel-zencontentfirst .panel-sidebar-first .panel-sidebar-first-inner {
+.zen-one-sidebar-second .panel-sidebar-first .panel-sidebar-first-inner {
   margin-left: 20px;
 }
