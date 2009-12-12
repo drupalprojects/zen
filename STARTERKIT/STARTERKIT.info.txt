@@ -35,6 +35,7 @@ stylesheets[all][]   = css/pages.css
 stylesheets[all][]   = css/block-editing.css
 stylesheets[all][]   = css/blocks.css
 stylesheets[all][]   = css/navigation.css
+stylesheets[all][]   = css/panels-styles.css
 stylesheets[all][]   = css/views-styles.css
 stylesheets[all][]   = css/nodes.css
 stylesheets[all][]   = css/comments.css
