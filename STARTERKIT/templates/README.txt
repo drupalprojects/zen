@@ -19,6 +19,7 @@ Located in zen/templates:
   block.tpl.php
   comment-wrapper.tpl.php
   comment.tpl.php
+  views-view.tpl.php
 
 Located in /modules/aggregator:
   aggregator-feed-source.tpl.php
