@@ -48,7 +48,7 @@ function _zen_theme(&$existing, $type, $theme, $path) {
       if (function_exists($theme . '_preprocess_' . $hook)) {
         $existing[$hook]['preprocess functions'][] = $theme . '_preprocess_' . $hook;
       }
-      // Now add the process functions.
+      // Add base theme process functions.
       foreach ($base_themes as $base_theme) {
         if (function_exists($base_theme . '_process')) {
           $existing[$hook]['preprocess functions'][] = $base_theme . '_process';
@@ -56,6 +56,13 @@ function _zen_theme(&$existing, $type, $theme, $path) {
         if (function_exists($base_theme . '_process_' . $hook)) {
           $existing[$hook]['preprocess functions'][] = $base_theme . '_process_' . $hook;
         }
+      }
+      // Add the theme process functions.
+      if (function_exists($theme . '_process')) {
+        $existing[$hook]['preprocess functions'][] = $theme . '_process';
+      }
+      if (function_exists($theme . '_process_' . $hook)) {
+        $existing[$hook]['preprocess functions'][] = $theme . '_process_' . $hook;
       }
     }
   }
