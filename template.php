@@ -67,6 +67,102 @@ function zen_breadcrumb($breadcrumb) {
 }
 
 /**
+ * Return a themed set of links.
+ *
+ * @param $links
+ *   A keyed array of links to be themed.
+ * @param $attributes
+ *   A keyed array of attributes
+ * @param $heading
+ *   An optional keyed array or a string for a heading to precede the links.
+ *   When using an array the following keys can be used:
+ *     - text: the heading text
+ *     - level: the heading level (e.g. 'h2', 'h3')
+ *     - class: (optional) a string of the CSS classes for the heading
+ *   When using a string it will be used as the text of the heading and the
+ *   level will default to 'h2'.
+ *   Headings should be used on navigation menus and any list of links that
+ *   consistently appears on multiple pages. To make the heading invisible
+ *   use the 'element-invisible' CSS class. Do not use 'display:none', which
+ *   removes it from screen-readers and assistive technology. Headings allow
+ *   screen-reader and keyboard only users to navigate to or skip the links.
+ *   See http://juicystudio.com/article/screen-readers-display-none.php
+ *   and http://www.w3.org/TR/WCAG-TECHS/H42.html for more information.
+ * @return
+ *   A string containing an unordered list of links.
+ */
+function zen_links($links, $attributes = array('class' => 'links'), $heading = '') {
+  global $language;
+  $output = '';
+
+  if (count($links) > 0) {
+    // Treat the heading first if it is present to prepend it to the
+    // list of links.
+    if (!empty($heading)) {
+      if (is_string($heading)) {
+        // Prepare the array that will be used when the passed heading
+        // is a string.
+        $heading = array(
+          'text' => $heading,
+          // Set the default level of the heading.
+          'level' => 'h2',
+        );
+      }
+      $output .= '<' . $heading['level'];
+      if (!empty($heading['class'])) {
+        $output .= drupal_attributes(array('class' => $heading['class']));
+      }
+      $output .= '>' . check_plain($heading['text']) . '</' . $heading['level'] . '>';
+    }
+
+    $output .= '<ul'. drupal_attributes($attributes) .'>';
+
+    $num_links = count($links);
+    $i = 1;
+
+    foreach ($links as $key => $link) {
+      $class = $key;
+
+      // Add first, last and active classes to the list of links to help out themers.
+      if ($i == 1) {
+        $class .= ' first';
+      }
+      if ($i == $num_links) {
+        $class .= ' last';
+      }
+      if (isset($link['href']) && ($link['href'] == $_GET['q'] || ($link['href'] == '<front>' && drupal_is_front_page()))
+          && (empty($link['language']) || $link['language']->language == $language->language)) {
+        $class .= ' active';
+      }
+      $output .= '<li'. drupal_attributes(array('class' => $class)) .'>';
+
+      if (isset($link['href'])) {
+        // Pass in $link as $options, they share the same keys.
+        $output .= l($link['title'], $link['href'], $link);
+      }
+      else if (!empty($link['title'])) {
+        // Some links are actually not links, but we wrap these in <span> for adding title and class attributes
+        if (empty($link['html'])) {
+          $link['title'] = check_plain($link['title']);
+        }
+        $span_attributes = '';
+        if (isset($link['attributes'])) {
+          $span_attributes = drupal_attributes($link['attributes']);
+        }
+        $output .= '<span'. $span_attributes .'>'. $link['title'] .'</span>';
+      }
+
+      $i++;
+      $output .= "</li>\n";
+    }
+
+    $output .= '</ul>';
+  }
+
+  return $output;
+}
+
+/**
  * Implements theme_menu_item_link()
  */
 function zen_menu_item_link($link) {

@@ -2,6 +2,7 @@
 
 Zen 6.x-2.x-dev, xxxx-xx-xx (development release)
 ------------------------
+- #691426: Add D7-style named implementations of theme_links in page.tpl
 - #683904: SUBTHEME_process functions do not work
 - #552156: broken clearfix class causes overlapping containers in IE7
 - #593290 by sfyn and JohnAlbin: Chaos Tools/Panels edit tab not working with Zen
