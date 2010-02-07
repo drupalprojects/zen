@@ -2,6 +2,7 @@
 
 Zen 6.x-2.x-dev, xxxx-xx-xx (development release)
 ------------------------
+- #707410 by agentrickard and JohnAlbin: Add page-views and page-panels body classes
 - #691426: Add D7-style named implementations of theme_links in page.tpl
 - #683904: SUBTHEME_process functions do not work
 - #552156: broken clearfix class causes overlapping containers in IE7

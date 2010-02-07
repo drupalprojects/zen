@@ -39,6 +39,10 @@
  *   - node-type-[node type]: When viewing a single node, the type of that node.
  *     For example, if the node is a "Blog entry" it would result in "node-type-blog".
  *     Note that the machine name will often be in a short form of the human readable label.
+ *   - page-views: Page content is generated from Views. Note: a Views block
+ *     will not cause this class to appear.
+ *   - page-panels: Page content is generated from Panels. Note: a Panels block
+ *     will not cause this class to appear.
  *   The following only apply with the default 'sidebar_first' and 'sidebar_second' block regions:
  *     - two-sidebars: When both sidebars have content.
  *     - no-sidebars: When no sidebar content exists.
@@ -46,6 +50,8 @@
  *       two classes when only one of the two sidebars have content.
  * - $node: Full node object. Contains data that may not be safe. This is only
  *   available if the current page is on the node's primary url.
+ * - $menu_item: (array) A page's menu item. This is only available if the
+ *   current page is in the menu.
  *
  * Site identity:
  * - $front_page: The URL of the front page. Use this instead of $base_path,

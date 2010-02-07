@@ -366,6 +366,18 @@ function zen_preprocess_page(&$vars, $hook) {
       $vars['classes_array'][] = 'sidebar-' . $vars['layout'];
     }
   }
+  // Store the menu item since it has some useful information.
+  $vars['menu_item'] = menu_get_item();
+  switch ($vars['menu_item']['page_callback']) {
+    case 'views_page':
+      // Is this a Views page?
+      $vars['classes_array'][] = 'page-views';
+      break;
+    case 'page_manager_page_execute':
+      // Is this a Panels page?
+      $vars['classes_array'][] = 'page-panels';
+      break;
+  }
 }
 
 /**
