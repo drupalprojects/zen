@@ -187,6 +187,7 @@ function zen_menu_local_tasks() {
 
   // CTools requires a different set of local task functions.
   if (module_exists('ctools')) {
+    ctools_include('menu');
     $primary = ctools_menu_primary_local_tasks();
     $secondary = ctools_menu_secondary_local_tasks();
   }
