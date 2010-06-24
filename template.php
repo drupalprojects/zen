@@ -534,6 +534,9 @@ function zen_preprocess_block(&$vars, $hook) {
   $vars['classes_array'][] = 'region-count-' . $vars['block_id'];
   $vars['classes_array'][] = 'count-' . $vars['id'];
 
+  // Create the block ID.
+  $vars['block_html_id'] = 'block-' . $block->module . '-' . $block->delta;
+
   $vars['edit_links_array'] = array();
   if (theme_get_setting('zen_block_editing') && user_access('administer blocks')) {
     include_once './' . _zen_path() . '/zen-internals/template.block-editing.inc';

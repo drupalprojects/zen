@@ -44,6 +44,7 @@
  * - $is_front: Flags true when presented in the front page.
  * - $logged_in: Flags true when the current user is a logged-in member.
  * - $is_admin: Flags true when the current user is an administrator.
+ * - $block_html_id: A valid HTML ID and guaranteed unique.
  *
  * @see template_preprocess()
  * @see zen_preprocess()
@@ -52,7 +53,7 @@
  * @see zen_process()
  */
 ?>
-<div id="block-<?php print $block->module . '-' . $block->delta; ?>" class="<?php print $classes; ?>">
+<div id="<?php print $block_html_id; ?>" class="<?php print $classes; ?>">
   <?php if ($title): ?>
     <h2 class="title"><?php print $title; ?></h2>
   <?php endif; ?>
