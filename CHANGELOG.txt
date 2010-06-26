@@ -1,7 +1,7 @@
 // $Id$
 
-Zen 6.x-2.x-dev, xxxx-xx-xx (development release)
-------------------------
+Zen 6.x-2.0, 2010-06-26
+-----------------------
 - #791056 by meatsack and JohnAlbin: Zen clobbers Views 3 classes
 - #838338: element-invisible class doesn't fully hide elements
 - #723514 by kmonty: Link in STARTERKIT description incorrect
