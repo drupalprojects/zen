@@ -571,7 +571,8 @@ function zen_preprocess_views_view(&$vars, $hook) {
  *   The name of the template being rendered.
  */
 function zen_process(&$vars, $hook) {
-  if (array_key_exists('classes_array', $vars)) {
+  // Don't clobber Views 3 classes.
+  if (array_key_exists('classes_array', $vars) && !array_key_exists('classes', $vars)) {
     $vars['classes'] = implode(' ', $vars['classes_array']);
   }
 }
