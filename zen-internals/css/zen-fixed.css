@@ -752,7 +752,7 @@ div.messages ul {
   margin-top: 0;
   margin-bottom: 0;
 }
-/* Id: pages.css,v 1.18.2.2 2010/06/26 15:36:04 johnalbin Exp */
+/* Id: pages.css,v 1.18.2.3 2010/06/26 17:18:58 johnalbin Exp */
 
 /**
  * @file
@@ -1060,12 +1060,13 @@ ul.links li {
  * the site where visual display is undesirable. Information provided in this
  * manner should be kept concise, to avoid unnecessary burden on the user. Must
  * not be used for focusable elements (such as links and form elements) as this
- * causes issues for keyboard only or voice recognition users.
+ * causes issues for keyboard only or voice recognition users. "!important" is
+ * used to prevent unintentional overrides.
  */
 .element-invisible {
-  height: 0;
-  overflow: hidden;
-  position: absolute;
+  position: absolute !important;
+  clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+  clip: rect(1px, 1px, 1px, 1px);
 }
 /* Id: block-editing.css,v 1.3 2009/11/05 14:01:26 johnalbin Exp */
 
