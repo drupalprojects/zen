@@ -76,7 +76,7 @@ function _zen_theme(&$existing, $type, $theme, $path) {
     return array(
       'region' => array(
         'arguments' => array('elements' => NULL),
-        //'pattern' => 'region_',
+        'pattern' => 'region_',
         'path' => drupal_get_path('theme', 'zen') . '/templates',
         'template' => 'region',
         // We manually register the preprocess and process functions, since

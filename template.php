@@ -248,7 +248,13 @@ function zen_blocks($region, $show_blocks = NULL) {
     $elements['#children'] = $output;
     $elements['#region'] = $region;
 
-    return $output ? theme('region', $elements) : '';
+    // Set the theme hook suggestions.
+    $hook = array('region_' . $region);
+    if (strpos($region, 'sidebar_') === 0) {
+      $hook[] = 'region_sidebar';
+    }
+    $hook[] = 'region';
+    return $output ? theme($hook, $elements) : '';
   }
 }
 
