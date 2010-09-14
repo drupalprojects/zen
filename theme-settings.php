@@ -1,6 +1,4 @@
 <?php
-// $Id$
-
 // Include the definition of zen_theme_get_default_settings().
 include_once './' . drupal_get_path('theme', 'zen') . '/zen-internals/template.theme-registry.inc';
 

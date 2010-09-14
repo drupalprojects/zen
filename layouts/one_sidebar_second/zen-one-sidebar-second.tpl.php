@@ -1,6 +1,4 @@
 <?php
-// $Id$
-
 /**
  * @file
  * Template for a 1 row, 2 column Zen-based panel layout.

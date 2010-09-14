@@ -1,6 +1,4 @@
 <?php
-// $Id$
-
 /**
  * @file
  * Contains functions only needed if the user has block editing permissions.
