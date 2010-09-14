@@ -1,5 +1,3 @@
-; $Id$
-
 
   ; The name and description of the theme used on the admin/build/themes page.
 name        = Zen Sub-theme Starter Kit

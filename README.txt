@@ -1,5 +1,3 @@
-// $Id$
-
 Full documentation on the Zen theme can be found in Drupal's Handbook:
   http://drupal.org/node/193318
 
