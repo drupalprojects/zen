@@ -1,6 +1,4 @@
 <?php
-// $Id$
-
 /*
  * Allow the sub-theme to have its own template.php.
  */

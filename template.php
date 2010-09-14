@@ -1,6 +1,4 @@
 <?php
-// $Id$
-
 /**
  * @file
  * File which contains theme overrides for the Zen theme.

@@ -1,6 +1,4 @@
 <?php
-// $Id$
-
 /**
  * Generate the HTML representing a given menu item ID.
  *

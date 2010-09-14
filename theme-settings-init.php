@@ -1,6 +1,4 @@
 <?php
-// $Id$
-
 if (is_null(theme_get_setting('zen_primary_links'))) {
   global $theme_key;
 
