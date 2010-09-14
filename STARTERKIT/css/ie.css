@@ -17,7 +17,6 @@
 /*
  * Tabs
  */
-
 ul.primary li a,
 ul.primary li a .tab,
 ul.secondary li a,
@@ -28,7 +27,6 @@ ul.secondary li a .tab {
 /*
  * Drupal nodes
  */
-
 .node-unpublished .node-inner>* {
   position: relative; /* Otherwise these elements will appear below the "Unpublished" text. */
 }
