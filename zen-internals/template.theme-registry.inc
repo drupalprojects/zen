@@ -70,6 +70,9 @@ function _zen_theme(&$existing, $type, $theme, $path) {
     // Insert zen_show_blocks_discovery() before template_preprocess_page().
     $existing['page']['preprocess functions'] = array_merge(array('zen_show_blocks_discovery'), $existing['page']['preprocess functions']);
 
+    // Allow theme hook suggestions on theme_links.
+    $existing['links']['pattern'] = 'links__';
+
     // The base theme registers region.tpl.php.
     return array(
       'region' => array(

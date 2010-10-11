@@ -1,5 +1,6 @@
 Zen 6.x-2.x-dev, xxxx-xx-xx
 -----------------------
+- #932826: mytheme_links__system_main_menu() doesn't work as expected
 - Fix PHP warning on maintenance page
 - Convert region template suggestions into theme hook suggestions
 
