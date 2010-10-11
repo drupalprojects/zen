@@ -1,5 +1,6 @@
 Zen 6.x-2.x-dev, xxxx-xx-xx
 -----------------------
+- Fix PHP warning on maintenance page
 - Convert region template suggestions into theme hook suggestions
 
 Zen 6.x-2.0, 2010-06-26

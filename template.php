@@ -403,10 +403,6 @@ function zen_preprocess_maintenance_page(&$vars, $hook) {
   elseif (!module_exists('conditional_styles')) {
     $vars['styles'] .= $vars['conditional_styles'] = variable_get('conditional_styles_' . $GLOBALS['theme'], '');
   }
-
-  // Classes for body element. Allows advanced theming based on context
-  // (home page, node of certain type, etc.)
-  $vars['body_classes_array'] = explode(' ', $vars['body_classes']);
 }
 
 /**
