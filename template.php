@@ -233,10 +233,16 @@ function zen_blocks($region, $show_blocks = NULL) {
 
     // If $renders_sidebars is FALSE, don't render any region whose name begins
     // with "sidebar_".
-    if (($render_sidebars || (strpos($region, 'sidebar_') !== 0)) && ($list = block_list($region))) {
-      foreach ($list as $key => $block) {
-        // $key == module_delta
-        $output .= theme('block', $block);
+    if ($render_sidebars || (strpos($region, 'sidebar_') !== 0)) {
+      // Allow context module to set blocks.
+      if (function_exists('context_blocks')) {
+        $output = context_blocks($region);
+      }
+      else {
+        foreach (block_list($region) as $key => $block) {
+          // $key == module_delta
+          $output .= theme('block', $block);
+        }
       }
     }
 
