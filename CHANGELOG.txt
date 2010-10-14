@@ -1,5 +1,6 @@
 Zen 6.x-2.x-dev, xxxx-xx-xx
 -----------------------
+- #941714: Modules setting $classes in preprocess functions breaks expected Zen classes
 - #932826: mytheme_links__system_main_menu() doesn't work as expected
 - Fix PHP warning on maintenance page
 - #690026: Cannot override region.tpl.php

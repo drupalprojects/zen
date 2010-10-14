@@ -289,7 +289,7 @@ function zen_preprocess(&$vars, $hook) {
     // Views (and possibly other modules) have templates with a $classes
     // variable that isn't a string, so we leave those variables alone.
     if (is_string($vars[$key])) {
-      $vars['classes_array'] = explode(' ', $vars[$key]);
+      $vars['classes_array'] = explode(' ', $hook . ' ' . $vars[$key]);
       unset($vars[$key]);
     }
   }
