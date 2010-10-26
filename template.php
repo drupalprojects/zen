@@ -385,6 +385,8 @@ function zen_preprocess_page(&$vars, $hook) {
       $vars['classes_array'][] = 'page-views';
       break;
     case 'page_manager_page_execute':
+    case 'page_manager_node_view':
+    case 'page_manager_contact_site':
       // Is this a Panels page?
       $vars['classes_array'][] = 'page-panels';
       break;
