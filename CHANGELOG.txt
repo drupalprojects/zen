@@ -1,5 +1,5 @@
-Zen 6.x-2.x-dev, xxxx-xx-xx
------------------------
+Zen 6.x-2.x-dev, xxxx-xx-xx (development release)
+---------------------------
 - #707410 by AdrianB: improve detection of Panels pages
 - #634552 by JohnAlbin and tim.plunkett: Conflict with context module
 - #941714: Modules setting $classes in preprocess functions breaks expected Zen classes
