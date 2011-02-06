@@ -39,9 +39,9 @@ installed in sites/all/themes/, but any valid theme directory is acceptable
     the name of your new sub-theme and remove the ".txt" extension. Then edit
     the .info file by editing the name and description field.
 
-    For example, rename the foo/STARTERKIT.info file to foo/foo.info. Edit the
-    foo.info file and change "name = Zen Sub-theme Starter Kit" to "name = Foo"
-    and "description = Read..." to "description = A Zen sub-theme".
+    For example, rename the foo/STARTERKIT.info.txt file to foo/foo.info. Edit
+    the foo.info file and change "name = Zen Sub-theme Starter Kit" to
+    "name = Foo" and "description = Read..." to "description = A Zen sub-theme".
 
       Why? The .info file describes the basic things about your theme: its
       name, description, features, template regions, CSS files, and JavaScript
