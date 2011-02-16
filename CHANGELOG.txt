@@ -1,5 +1,6 @@
 Zen 6.x-2.x-dev, xxxx-xx-xx (development release)
 ---------------------------
+- #978640 by marcvangend: Whitespace before comment causes jQuery error
 - #1046394 by n8tron and JohnAlbin: Add first and last classes to blocks
 - #870080 by mverbaar: Correction to README.TXT for STARTERKIT
 - #707410 by AdrianB: improve detection of Panels pages
