@@ -531,6 +531,13 @@ function zen_preprocess_block(&$vars, $hook) {
 
   // Special classes for blocks.
   $vars['classes_array'][] = 'block-' . $block->module;
+  // Classes describing the position of the block within the region.
+  if ($vars['block_id'] == 1) {
+    $vars['classes_array'][] = 'first';
+  }
+  if (!function_exists('context_blocks') && count(block_list($vars['block']->region)) == $vars['block_id']) {
+    $vars['classes_array'][] = 'last';
+  }
   $vars['classes_array'][] = 'region-' . $vars['block_zebra'];
   $vars['classes_array'][] = $vars['zebra'];
   $vars['classes_array'][] = 'region-count-' . $vars['block_id'];
