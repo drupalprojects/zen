@@ -74,22 +74,30 @@ function _zen_theme(&$existing, $type, $theme, $path) {
     $existing['links']['pattern'] = 'links__';
 
     // The base theme registers region.tpl.php.
-    return array(
+    $templates = array(
       'region' => array(
         'arguments' => array('elements' => NULL),
         'pattern' => 'region_',
         'path' => drupal_get_path('theme', 'zen') . '/templates',
         'template' => 'region',
-        // We manually register the preprocess and process functions, since
-        // Drupal won't auto-register template_preprocess or process functions.
-        'preprocess functions' => array(
-          'template_preprocess',
-          'zen_preprocess',
-          'zen_preprocess_region',
-          'zen_process',
-        ),
+        // drupal_find_theme_templates() requires this, so manually add it.
+        'include files' => array(),
       ),
     );
+    // We have to manually find template suggestions since phptemplate_theme()
+    // is in charge of that, but runs before zen_theme().
+    $templates += drupal_find_theme_templates($templates, '.tpl.php', $path);
+    // We manually register the preprocess and process functions, since Drupal
+    // won't auto-register template_preprocess or process functions.
+    foreach (array_keys($templates) as $key) {
+      $templates[$key]['preprocess functions'] = array(
+        'template_preprocess',
+        'zen_preprocess',
+        'zen_preprocess_region',
+        'zen_process',
+      );
+    }
+    return $templates;
   }
 
   // Else return nothing.
