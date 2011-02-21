@@ -28,6 +28,7 @@ function _zen_preprocess_comment(&$vars, $hook) {
   // Add an "unpublished" flag.
   if ($vars['comment']->status == COMMENT_NOT_PUBLISHED) {
     $vars['unpublished'] = TRUE;
+    $vars['classes_array'][] = $vars['status'];
   }
   else {
     $vars['unpublished'] = FALSE;
