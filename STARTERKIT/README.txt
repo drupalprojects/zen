@@ -85,17 +85,27 @@ installed in sites/all/themes/, but any valid theme directory is acceptable
  5. Log in as an administrator on your Drupal site and go to Administer > Site
     building > Themes (admin/build/themes) and enable your new sub-theme.
 
+ 6. Internet explorer has a nasty bug that limits you to 31 stylsheets total. To
+    get around this limitation during theme development, download, install and
+    configure the "IE CSS Optimizer" module.
+
+    http://drupal.org/project/ie_css_optimizer
+
+    On a production server, you should enable full optimization of the "Optimize
+    CSS files" option on the Admin Performance page at
+    admin/settings/performance.
+
 
 Optional:
 
- 6. MODIFYING ZEN CORE TEMPLATE FILES:
+ 7. MODIFYING ZEN CORE TEMPLATE FILES:
     If you decide you want to modify any of the .tpl.php template files in the
     zen folder, copy them to your sub-theme's folder before making any changes.
     And then rebuild the theme registry.
 
     For example, copy zen/templates/page.tpl.php to foo/templates/page.tpl.php.
 
- 7. THEMEING DRUPAL'S SEARCH FORM:
+ 8. THEMEING DRUPAL'S SEARCH FORM:
     Copy the search-theme-form.tpl.php template file from the modules/search/
     folder and place it in your sub-theme's folder. And then rebuild the theme
     registry.
@@ -108,7 +118,7 @@ Optional:
       your sub-theme's directory and then rebuild the theme registry. See the
       Drupal 6 Theme Guide for more info: http://drupal.org/node/173880
 
- 8. FURTHER EXTENSIONS OF YOUR SUB-THEME:
+ 9. FURTHER EXTENSIONS OF YOUR SUB-THEME:
     Discover further ways to extend your sub-theme by reading Zen's
     documentation online at:
       http://drupal.org/node/193318

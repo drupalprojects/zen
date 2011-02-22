@@ -20,3 +20,16 @@ that you might want to override or augment are those for:
   Polls            See line 287 of drupal6-reference.css file
   Search           See line 320 of drupal6-reference.css file
   User Profiles    See line 945 of drupal6-reference.css file
+
+
+INTERNET EXLORER HATES YOU
+--------------------------
+
+All versions of IE limit you to 31 stylesheets total. What that means is that
+only the first 31 stylesheets will load, ignoring the others. So you'll have
+missing styles in IE7 and later and a broken layout in IE6.
+
+This is a known bug in IE: http://support.microsoft.com/kb/262161
+
+Please read http://john.albin.net/css/ie-stylesheets-not-loading for the gory
+details.
