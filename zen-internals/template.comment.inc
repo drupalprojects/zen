@@ -32,7 +32,6 @@ function _zen_preprocess_comment(&$vars, $hook) {
   }
   else {
     $vars['unpublished'] = FALSE;
-    $vars['classes_array'][] = $vars['status'];
   }
   // Zebra striping.
   if ($vars['id'] == 1) {
