@@ -116,7 +116,7 @@ function zen_theme_get_default_settings($theme) {
   // Get the default values from the .info file.
   $defaults = !empty($themes[$theme]->info['settings']) ? $themes[$theme]->info['settings'] : array();
 
-  if (!empty($defaults)) {
+  if (!module_exists('domain_theme') && !empty($defaults)) {
     // Merge the defaults with the theme settings saved in the database.
     $settings = array_merge($defaults, variable_get('theme_'. $theme .'_settings', array()));
     // Save the settings back to the database.
