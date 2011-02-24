@@ -1,5 +1,6 @@
 Zen 6.x-2.x-dev, xxxx-xx-xx (development release)
 ---------------------------
+- #1072268: Zen theme doesn't load RTL styles
 - #929630 by juan_g and akalata: URL for overriding stylesheets documentation has changed
 - #742208: Conflict with domain theme module
 - #1063226 by tacituseu, danillonunes and barraponto: Unpublished comment style is not applied

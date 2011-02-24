@@ -4,60 +4,77 @@
 # the base Zen theme from the stylesheets in the STARTERKIT.
 
 FIXED=( \
-  html-reset.css \
-  wireframes.css \
-  layout-fixed.css \
-  page-backgrounds.css \
-  tabs.css \
-  messages.css \
-  pages.css \
-  block-editing.css \
-  blocks.css \
-  navigation.css \
-  views-styles.css \
-  nodes.css \
-  comments.css \
-  forms.css \
-  fields.css \
+  html-reset \
+  wireframes \
+  layout-fixed \
+  page-backgrounds \
+  tabs \
+  messages \
+  pages \
+  block-editing \
+  blocks \
+  navigation \
+  views-styles \
+  nodes \
+  comments \
+  forms \
+  fields \
   );
 
 STYLESHEET='zen-fixed.css';
+RTL_STYLESHEET='zen-fixed-rtl.css';
 echo > $STYLESHEET;
+echo > $RTL_STYLESHEET;
 for FILENAME in ${FIXED[*]}; do
   echo >> $STYLESHEET;
-  echo "/* $FILENAME */" >> $STYLESHEET;
+  echo "/* $FILENAME.css */" >> $STYLESHEET;
   echo >> $STYLESHEET;
-  cat ../../STARTERKIT/css/$FILENAME >> $STYLESHEET;
+  cat ../../STARTERKIT/css/$FILENAME.css >> $STYLESHEET;
+  if [[ -e ../../STARTERKIT/css/$FILENAME-rtl.css ]]; then
+    echo >> $RTL_STYLESHEET;
+    echo "/* $FILENAME-rtl.css */" >> $RTL_STYLESHEET;
+    echo >> $RTL_STYLESHEET;
+    cat ../../STARTERKIT/css/$FILENAME-rtl.css >> $RTL_STYLESHEET;
+  fi
 done
 
 LIQUID=( \
-  html-reset.css \
-  wireframes.css \
-  layout-liquid.css \
-  page-backgrounds.css \
-  tabs.css \
-  messages.css \
-  pages.css \
-  block-editing.css \
-  blocks.css \
-  navigation.css \
-  views-styles.css \
-  nodes.css \
-  comments.css \
-  forms.css \
-  fields.css \
+  html-reset \
+  wireframes \
+  layout-liquid \
+  page-backgrounds \
+  tabs \
+  messages \
+  pages \
+  block-editing \
+  blocks \
+  navigation \
+  views-styles \
+  nodes \
+  comments \
+  forms \
+  fields \
   );
 
 STYLESHEET='zen-liquid.css';
+RTL_STYLESHEET='zen-liquid-rtl.css';
 echo > $STYLESHEET;
+echo > $RTL_STYLESHEET;
 for FILENAME in ${FIXED[*]}; do
   echo >> $STYLESHEET;
-  echo "/* $FILENAME */" >> $STYLESHEET;
+  echo "/* $FILENAME.css */" >> $STYLESHEET;
   echo >> $STYLESHEET;
-  cat ../../STARTERKIT/css/$FILENAME >> $STYLESHEET;
+  cat ../../STARTERKIT/css/$FILENAME.css >> $STYLESHEET;
+  if [[ -e ../../STARTERKIT/css/$FILENAME-rtl.css ]]; then
+    echo >> $RTL_STYLESHEET;
+    echo "/* $FILENAME-rtl.css */" >> $RTL_STYLESHEET;
+    echo >> $RTL_STYLESHEET;
+    cat ../../STARTERKIT/css/$FILENAME-rtl.css >> $RTL_STYLESHEET;
+  fi
 done
 
 cp ../../STARTERKIT/css/print.css .;
 
 cp ../../STARTERKIT/css/ie.css .;
 cp ../../STARTERKIT/css/ie6.css .;
+cp ../../STARTERKIT/css/ie6-rtl.css .;
