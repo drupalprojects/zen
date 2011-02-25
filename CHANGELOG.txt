@@ -1,3 +1,7 @@
+Zen 6.x-1.x-dev, xxxx-xx-xx (development release)
+---------------------------
+-
+
 Zen 6.x-1.2, 2011-02-26
 -----------------------
 - #593290 by sfyn and JohnAlbin: Chaos Tools/Panels edit tab not working with Zen
