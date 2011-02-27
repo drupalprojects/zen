@@ -60,7 +60,7 @@ STYLESHEET='zen-liquid.css';
 RTL_STYLESHEET='zen-liquid-rtl.css';
 echo > $STYLESHEET;
 echo > $RTL_STYLESHEET;
-for FILENAME in ${FIXED[*]}; do
+for FILENAME in ${LIQUID[*]}; do
   echo >> $STYLESHEET;
   echo "/* $FILENAME.css */" >> $STYLESHEET;
   echo >> $STYLESHEET;
