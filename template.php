@@ -428,6 +428,9 @@ function zen_preprocess_node(&$vars, $hook) {
       if ($vars['node']->build_mode === NODE_BUILD_NORMAL) {
         $vars['build_mode'] = $vars['teaser'] ? 'teaser' : 'full';
       }
+      else {
+        $vars['build_mode'] = $vars['node']->build_mode;
+      }
       break;
     case NODE_BUILD_PREVIEW:
       $vars['build_mode'] = 'preview';

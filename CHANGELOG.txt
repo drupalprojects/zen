@@ -1,6 +1,6 @@
 Zen 6.x-2.x-dev, xxxx-xx-xx (development release)
 ---------------------------
-- #774838 by bangpound and hefox: Add default case for build_mode
+- #774838 by bangpound, hefox and JohnAlbin: Add default case for build_mode
 - #919838 by saem, rgbivens and JohnAlbin: Theme description links to wrong docs
 - #992616 by JohnAlbin and adrinux: Comments in layout RTL stylesheets are incorrect
 - #822570 by JohnAlbin and AaronCollier: Add focus styling to tabs
