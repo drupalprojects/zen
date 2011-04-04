@@ -1,5 +1,6 @@
 Zen 6.x-2.x-dev, xxxx-xx-xx (development release)
 ---------------------------
+- #1017062 by adrinux: Block edit links span entire block on RTL pages
 - #774838 by bangpound, hefox and JohnAlbin: Add default case for build_mode
 - #919838 by saem, rgbivens and JohnAlbin: Theme description links to wrong docs
 - #992616 by JohnAlbin and adrinux: Comments in layout RTL stylesheets are incorrect

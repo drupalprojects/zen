@@ -6,4 +6,5 @@
 
 div.block.with-block-editing div.edit {
   left: 0;
+  right: auto;
 }
