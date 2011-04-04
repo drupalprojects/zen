@@ -13,6 +13,8 @@
  * - $node_url: Direct url of the current node.
  * - $terms: the themed list of taxonomy term links output from theme_links().
  * - $display_submitted: whether submission information should be displayed.
+ * - $submitted: Themed submission information output from
+ *   theme_node_submitted().
  * - $links: Themed links like "Read more", "Add new comment", etc. output
  *   from theme_links().
  * - $classes: String of classes that can be used to style contextually through
@@ -59,10 +61,8 @@
  * - $logged_in: Flags true when the current user is a logged-in member.
  * - $is_admin: Flags true when the current user is an administrator.
  *
- * The following variables are deprecated and will be removed in Drupal 7:
+ * The following variable is deprecated and will be removed in Drupal 7:
  * - $picture: This variable has been renamed $user_picture in Drupal 7.
- * - $submitted: Themed submission information output from
- *   theme_node_submitted().
  *
  * @see template_preprocess()
  * @see template_preprocess_node()
@@ -86,10 +86,7 @@
     <div class="meta">
       <?php if ($display_submitted): ?>
         <span class="submitted">
-          <?php
-            print t('Submitted by !username on !datetime',
-              array('!username' => $name, '!datetime' => $date));
-          ?>
+          <?php print $submitted; ?>
         </span>
       <?php endif; ?>
 

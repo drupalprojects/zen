@@ -1,5 +1,6 @@
 Zen 6.x-2.x-dev, xxxx-xx-xx (development release)
 ---------------------------
+- #1083700: Add $submitted variable back into node.tpl
 - #1086820 by tacituseu: Views classes redundant since Views 6.x-2.9
 - #1017062 by adrinux: Block edit links span entire block on RTL pages
 - #774838 by bangpound, hefox and JohnAlbin: Add default case for build_mode
