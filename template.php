@@ -563,23 +563,6 @@ function zen_preprocess_block(&$vars, $hook) {
 }
 
 /**
- * Override or insert variables into the views-view templates.
- *
- * @param $vars
- *   An array of variables to pass to the theme template.
- * @param $hook
- *   The name of the template being rendered ("views-view" in this case.)
- */
-function zen_preprocess_views_view(&$vars, $hook) {
-  // Add the default Views classes.
-  $vars['classes_array'][0] = 'view'; // Replace "views-view".
-  $vars['classes_array'][] = 'view-' . $vars['css_name'];
-  $vars['classes_array'][] = 'view-id-' . $vars['name'];
-  $vars['classes_array'][] = 'view-display-id-' . $vars['display_id'];
-  $vars['classes_array'][] = 'view-dom-id-' . $vars['dom_id'];
-}
-
-/**
  * Override or insert variables into templates after preprocess functions have run.
  *
  * @param $vars
