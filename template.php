@@ -425,7 +425,9 @@ function zen_preprocess_node(&$vars, $hook) {
   // Create the build_mode variable.
   switch ($vars['node']->build_mode) {
     case NODE_BUILD_NORMAL:
-      $vars['build_mode'] = $vars['teaser'] ? 'teaser' : 'full';
+      if ($vars['node']->build_mode === NODE_BUILD_NORMAL) {
+        $vars['build_mode'] = $vars['teaser'] ? 'teaser' : 'full';
+      }
       break;
     case NODE_BUILD_PREVIEW:
       $vars['build_mode'] = 'preview';
@@ -442,6 +444,8 @@ function zen_preprocess_node(&$vars, $hook) {
     case NODE_BUILD_PRINT:
       $vars['build_mode'] = 'print';
       break;
+    default:
+      $vars['build_mode'] = $vars['node']->build_mode;
   }
 
   // Create the user_picture variable.
@@ -475,6 +479,7 @@ function zen_preprocess_node(&$vars, $hook) {
   if (isset($vars['preview'])) {
     $vars['classes_array'][] = 'node-preview';
   }
+  $vars['classes_array'][] = 'build-mode-' . $vars['build_mode'] ;
 }
 
 /**
