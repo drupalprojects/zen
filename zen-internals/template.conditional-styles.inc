@@ -2,8 +2,8 @@
 // The code for conditional stylesheets started out as a patch for Zen. Now that
 // it has been spun out to its own separate module, It would be nice to prevent
 // code drift between the Zen implementation and the conditional_styles.module,
-// so Zen now includes an exact copy of conditonal_style module's:
-// conditional_styles.theme.inc,v 1.6 2009/08/24 08:57:32 johnalbin Exp
+// so Zen now includes an exact copy of conditonal_style module's
+// conditional_styles.theme.inc file.
 
 /**
  * @file
@@ -95,9 +95,14 @@ function _conditional_styles_theme($existing, $type, $theme, $path) {
       }
       // Save the stylesheets for later retrieval.
       if ($conditional_styles) {
-        variable_set('conditional_styles_' . $theme, $conditional_styles);
+        if (db_is_active()) {
+          variable_set('conditional_styles_' . $theme, $conditional_styles);
+        }
+        else {
+          $GLOBALS['conf']['conditional_styles_' . $theme] = $conditional_styles;
+        }
       }
-      else {
+      elseif (db_is_active()) {
         variable_del('conditional_styles_' . $theme);
       }
     }
