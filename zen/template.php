@@ -130,7 +130,8 @@ function zen_menu_local_tasks() {
 function zen_preprocess_page(&$vars, $hook) {
   // Add conditional stylesheets.
   if (!module_exists('conditional_styles')) {
-    $vars['styles'] .= $vars['conditional_styles'] = variable_get('conditional_styles_' . $GLOBALS['theme'], '');
+    $vars['conditional_styles'] = variable_get('conditional_styles_' . $GLOBALS['theme'], '');
+    $vars['styles'] .= $vars['conditional_styles'];
   }
 
   // Classes for body element. Allows advanced theming based on context
@@ -174,7 +175,8 @@ function zen_preprocess_page(&$vars, $hook) {
 function zen_preprocess_maintenance_page(&$vars, $hook) {
   // Add conditional stylesheets.
   if (!module_exists('conditional_styles')) {
-    $vars['styles'] .= $vars['conditional_styles'] = variable_get('conditional_styles_' . $GLOBALS['theme'], '');
+    $vars['conditional_styles'] = variable_get('conditional_styles_' . $GLOBALS['theme'], '');
+    $vars['styles'] .= $vars['conditional_styles'];
   }
 
   // Classes for body element. Allows advanced theming based on context
