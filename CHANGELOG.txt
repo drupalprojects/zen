@@ -1,3 +1,7 @@
+Zen 6.x-2.x-dev, xxxx-xx-xx (development release)
+---------------------------
+-
+
 Zen 6.x-2.1, 2011-04-05
 -----------------------
 - #774836 by hefox: Check if node $title is set before outputting
