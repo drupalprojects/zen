@@ -1,5 +1,6 @@
 Zen 6.x-1.x-dev, xxxx-xx-xx (development release)
 ---------------------------
+- #705264 by JohnAlbin, Jehu, mlncn and zenic: Allow Zen (and subthemes) to be used without a database
 - #742208: Conflict with domain theme module
 - #1046090 by daniels and JohnAlbin: $styles is destroyed by rare bug with APC
 
