@@ -1,5 +1,6 @@
 Zen 6.x-1.x-dev, xxxx-xx-xx (development release)
 ---------------------------
+- #742208: Conflict with domain theme module
 - #1046090 by daniels and JohnAlbin: $styles is destroyed by rare bug with APC
 
 Zen 6.x-1.2, 2011-02-26
