@@ -324,7 +324,8 @@ function zen_preprocess_page(&$vars, $hook) {
   }
   // Add conditional stylesheets.
   elseif (!module_exists('conditional_styles')) {
-    $vars['conditional_styles'] = variable_get('conditional_styles_' . $GLOBALS['theme'], '');
+    $language = $GLOBALS['language']->direction == LANGUAGE_RTL ? '_rtl' : '';
+    $vars['conditional_styles'] = variable_get('conditional_styles_' . $GLOBALS['theme'] . $language, '');
     $vars['styles'] .= $vars['conditional_styles'];
   }
 
@@ -410,7 +411,8 @@ function zen_preprocess_maintenance_page(&$vars, $hook) {
   }
   // Add conditional stylesheets.
   elseif (!module_exists('conditional_styles')) {
-    $vars['conditional_styles'] = variable_get('conditional_styles_' . $GLOBALS['theme'], '');
+    $language = $GLOBALS['language']->direction == LANGUAGE_RTL ? '_rtl' : '';
+    $vars['conditional_styles'] = variable_get('conditional_styles_' . $GLOBALS['theme'] . $language, '');
     $vars['styles'] .= $vars['conditional_styles'];
   }
 }
