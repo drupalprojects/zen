@@ -1,5 +1,6 @@
 Zen 6.x-2.x-dev, xxxx-xx-xx (development release)
 ---------------------------
+- #774836 by hefox: Check if node $title is set before outputting
 - #705264 by JohnAlbin, Jehu, mlncn and zenic: Allow Zen (and subthemes) to be used without a database
 - #1046090 by daniels and JohnAlbin: $styles is destroyed by rare bug with APC
 - #1083700: Add $submitted variable back into node.tpl

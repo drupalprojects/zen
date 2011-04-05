@@ -74,7 +74,7 @@
 <div id="node-<?php print $node->nid; ?>" class="<?php print $classes; ?> clearfix">
   <?php print $user_picture; ?>
 
-  <?php if (!$page): ?>
+  <?php if (!$page && $title): ?>
     <h2 class="title"><a href="<?php print $node_url; ?>"><?php print $title; ?></a></h2>
   <?php endif; ?>
 
