@@ -1,20 +1,15 @@
 <?php
-/**
- * Implements hook_panels_layouts().
- */
-function zen_one_sidebar_second_panels_layouts() {
-  $items['one_sidebar_second'] = array(
-    'title' => t('Zen Layout: one sidebar after content'),
-    'icon' => 'one-sidebar-second.png',
-    'theme' => 'zen_one_sidebar_second',
-    'admin theme' => 'zen_one_sidebar_second_admin',
-    'css' => 'one-sidebar-second.css',
-    'admin css' => 'one-sidebar-second-admin.css',    
-    'panels' => array(
-      'content' => t('Content'),
-      'sidebar_first' => t('First sidebar'),
-    ),
-  );
-
-  return $items;
-}
+// Plugin definition
+$plugin = array(
+  'title'       => t('One sidebar after content'),
+  'icon'        => 'zen-one-sidebar-second.png',
+  'category'    => t('Columns: 2'),
+  'theme'       => 'zen_one_sidebar_second',
+  'css'         => 'zen-one-sidebar-second.css',
+  'admin theme' => 'zen_one_sidebar_second_admin',
+  'admin css'   => 'zen-one-sidebar-second-admin.css',
+  'regions'     => array(
+    'content'       => t('Content'),
+    'sidebar_first' => t('Sidebar'),
+  ),
+);
