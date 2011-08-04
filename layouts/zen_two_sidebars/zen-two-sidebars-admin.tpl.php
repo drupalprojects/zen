@@ -16,7 +16,7 @@
  */
 ?>
 
-<div class="panel-display zen-two-sidebars clear-block"<?php if (!empty($css_id)) { print ' id="' . $css_id . '"'; } ?>>
+<div class="panel-display zen-two-sidebars clearfix"<?php if (!empty($css_id)) { print ' id="' . $css_id . '"'; } ?>>
 
   <div class="panel-content"><div class="panel-content-inner inside panel-panel">
     <?php print $content['content']; ?>

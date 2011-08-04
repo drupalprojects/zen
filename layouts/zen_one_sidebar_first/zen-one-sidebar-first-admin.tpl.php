@@ -15,7 +15,7 @@
  */
 ?>
 
-<div class="panel-display zen-one-sidebar-first clear-block" <?php if (!empty($css_id)) { print "id=\"$css_id\""; } ?>>
+<div class="panel-display zen-one-sidebar-first clearfix" <?php if (!empty($css_id)) { print "id=\"$css_id\""; } ?>>
 
   <div class="panel-content"><div class="panel-content-inner inside panel-panel">
     <?php print $content['content']; ?>
@@ -25,4 +25,4 @@
     <?php print $content['sidebar_first']; ?>
   </div></div><!-- /.panel-sidebar-first-inner, /.panel-sidebar-first -->
 
-</div><!-- /.panel-zencontentfirst-inner, /.panel-zencontentfirst -->
+</div><!-- /.zen-one-sidebar-first -->
