@@ -1,5 +1,6 @@
 Zen 7.x-3.x-dev, xxxx-xx-xx (development release)
 ---------------------------
+- #1245222: Field styling bleeds into node edit forms
 - #1134622: Add Sass versions of CSS files
 - #1138744: Port panels layouts to Drupal 7
 
