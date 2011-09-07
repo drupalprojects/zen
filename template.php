@@ -211,6 +211,7 @@ function zen_preprocess_html(&$variables, $hook) {
       break;
   }
   $variables['jump_link_target'] = theme_get_setting('zen_jump_link_target');
+  $variables['jump_link_text'] = theme_get_setting('zen_jump_link_text');
 }
 
 /**

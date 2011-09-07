@@ -88,10 +88,16 @@ function zen_form_system_theme_settings_alter(&$form, $form_state) {
   );
   $form['themedev']['zen_jump_link_target'] = array(
     '#type'          => 'textfield',
-    '#title'         => t('Anchor ID for “Jump to Navigation” link'),
+    '#title'         => t('Anchor ID for the “skip link”'),
     '#default_value' => theme_get_setting('zen_jump_link_target'),
     '#field_prefix'  => '#',
-    '#description'   => t('Specify the HTML ID of the main navigation menu; this will be used by the accessible-but-hidden “Jump to Navigation" link at the top of each page.'),
+    '#description'   => t('Specify the HTML ID of the element that the accessible-but-hidden “skip link” should link to. (<a href="!link">Read more about skip links</a>.)', array('!link' => 'http://drupal.org/node/467976')),
+  );
+  $form['themedev']['zen_jump_link_text'] = array(
+    '#type'          => 'textfield',
+    '#title'         => t('Text for the “skip link”'),
+    '#default_value' => theme_get_setting('zen_jump_link_text'),
+    '#description'   => t('For example: <em>Jump to navigation</em>, <em>Skip to content</em>'),
   );
   $form['themedev']['zen_wireframes'] = array(
     '#type'          => 'checkbox',
