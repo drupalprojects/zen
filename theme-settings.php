@@ -81,8 +81,8 @@ function zen_form_system_theme_settings_alter(&$form, $form_state) {
     '#type'          => 'radios',
     '#title'         => t('Layout method'),
     '#options'       => array(
-                          'zen-columns-liquid' => t('Liquid layout') . ' <small>(layout-liquid.css)</small>',
                           'zen-columns-fixed' => t('Fixed layout') . ' <small>(layout-fixed.css)</small>',
+                          'zen-columns-liquid' => t('Liquid layout') . ' <small>(layout-liquid.css)</small>',
                         ),
     '#default_value' => theme_get_setting('zen_layout'),
   );
