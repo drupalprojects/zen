@@ -317,9 +317,8 @@ function zen_preprocess_region(&$variables, $hook) {
   if (strpos($variables['region'], 'sidebar_') === 0) {
     $variables['classes_array'][] = 'column';
     $variables['classes_array'][] = 'sidebar';
-    $variables['theme_hook_suggestions'][] = 'region__sidebar';
     // Allow a region-specific template to override Zen's region--sidebar.
-    $variables['theme_hook_suggestions'][] = 'region__' . $variables['region'];
+    array_unshift($variables['theme_hook_suggestions'], 'region__sidebar');
   }
 }
 
