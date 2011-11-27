@@ -164,7 +164,9 @@ function zen_add_conditional_styles() {
  * @param $variables
  *   An array of variables to pass to the theme template.
  * @param $hook
- *   The name of the template being rendered ("html" in this case.)
+ *   The name of the template being rendered. This is usually "html", but can
+ *   also be "maintenance_page" since zen_preprocess_maintenance_page() calls
+ *   this function to have consistent variables.
  */
 function zen_preprocess_html(&$variables, $hook) {
   // If the user is silly and enables Zen as the theme, add some styles.
@@ -178,7 +180,7 @@ function zen_preprocess_html(&$variables, $hook) {
 
   // Classes for body element. Allows advanced theming based on context
   // (home page, node of certain type, etc.)
-  if (!$variables['is_front']) {
+  if (!$variables['is_front'] && $hook == 'html') {
     // Add unique class for each page.
     $path = drupal_get_path_alias($_GET['q']);
     // Add unique class for each website section.
@@ -197,18 +199,22 @@ function zen_preprocess_html(&$variables, $hook) {
     $variables['classes_array'][] = 'with-wireframes'; // Optionally add the wireframes style.
   }
   // Store the menu item since it has some useful information.
-  $variables['menu_item'] = menu_get_item();
-  switch ($variables['menu_item']['page_callback']) {
-    case 'views_page':
-      // Is this a Views page?
-      $variables['classes_array'][] = 'page-views';
-      break;
-    case 'page_manager_page_execute':
-    case 'page_manager_node_view':
-    case 'page_manager_contact_site':
-      // Is this a Panels page?
-      $variables['classes_array'][] = 'page-panels';
-      break;
+  if ($hook == 'html') {
+    $variables['menu_item'] = menu_get_item();
+    if ($variables['menu_item']) {
+      switch ($variables['menu_item']['page_callback']) {
+        case 'views_page':
+          // Is this a Views page?
+          $variables['classes_array'][] = 'page-views';
+          break;
+        case 'page_manager_page_execute':
+        case 'page_manager_node_view':
+        case 'page_manager_contact_site':
+          // Is this a Panels page?
+          $variables['classes_array'][] = 'page-panels';
+          break;
+      }
+    }
   }
   $variables['jump_link_target'] = theme_get_setting('zen_jump_link_target');
   $variables['jump_link_text'] = theme_get_setting('zen_jump_link_text');
@@ -251,6 +257,18 @@ function zen_preprocess_maintenance_page(&$variables, $hook) {
   elseif (!module_exists('conditional_styles')) {
     zen_add_conditional_styles();
   }
+}
+
+/**
+ * Override or insert variables into the maintenance page template.
+ *
+ * @param $variables
+ *   An array of variables to pass to the theme template.
+ * @param $hook
+ *   The name of the template being rendered ("maintenance_page" in this case.)
+ */
+function zen_process_maintenance_page(&$variables, $hook) {
+  zen_process_html($variables, $hook);
 }
 
 /**
