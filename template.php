@@ -148,6 +148,7 @@ function zen_add_conditional_styles() {
                   'IE' => $condition,
                   '!IE' => FALSE,
                 ),
+                'weight' => 999,
                 'every_page' => TRUE,
               )
             );
