@@ -1,5 +1,6 @@
 Zen 7.x-3.x-dev, xxxx-xx-xx (development release)
 ---------------------------
+- #1478244: Weight needed for conditional stylesheets added via drupal_add_css()
 - #469f073: Fix font sizing of monospace fonts
 - #1249842: Deprecate liquid layout CSS
 - #1279838 by JohnAlbin and Bevan: Deleted regions cause PHP notices in maintenance-page.tpl.php
