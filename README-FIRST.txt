@@ -59,7 +59,7 @@ INSTALLATION
         making it available to only the example.com site if there is a
         sites/example.com/settings.php configuration file
 
-    Please note: you will need to create the "theme" folder under "sites/all/"
+    Please note: you will need to create the "themes" folder under "sites/all/"
     or "sites/default/".
 
     For more information about acceptable theme installation directories, read
