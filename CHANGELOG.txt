@@ -13,7 +13,6 @@ Zen 7.x-3.x-dev, xxxx-xx-xx (development release)
 - #1174290 by naxoc: Fix code error in js/README.txt
 - #1154358 by mverbaar, barraponto and JohnAlbin: Add theme setting for skip link text
 - #1245222: Field styling bleeds into node edit forms
-- #1134622: Add Sass versions of CSS files (experimental)
 - #1138744: Port panels layouts to Drupal 7
 
 Zen 7.x-3.1, 2011-04-26
