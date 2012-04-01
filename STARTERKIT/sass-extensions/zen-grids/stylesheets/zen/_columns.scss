@@ -2,12 +2,13 @@
 // Mixins for Zen Columns layout method.
 //
 
+$zen-columns-box-sizing: content-box !default;
 $legacy-support-for-ie6: true !default;
 
 
 //
-// This mixin should be applied to a container so that the children elements
-// become columns arranged with the Zen Columns layout method.
+// This mixin should be applied to a container so that the children items become
+// columns arranged with the Zen Columns layout method.
 //
 // The mixin has the following required parameters:
 // - $selectors: A list of selectors for all the columns inside the container.
@@ -19,6 +20,9 @@ $legacy-support-for-ie6: true !default;
 //   is for the second column. etc.
 //
 // The mixin has the following optional parameters:
+// - $box-sizing: The type of CSS3 box model each column should use. Can be set
+//   to content-box or border-box. Defaults to content-box, but border-box is
+//   way cooler. IE 6 and 7 don't support border-box.
 // - $leading-direction: The direction the columns should float. Can be set to
 //   "left" or "right". An extremely advanced option allows you to specify a
 //   a list of directions, one direction for each column.
@@ -35,8 +39,8 @@ $legacy-support-for-ie6: true !default;
 // In addition to standard columns, the mixin supports one horizontal navbar
 // that will appear (with a fixed height) above all the other columns. The
 // parameters for this optional navbar are:
-// - $navbar-selector: The selector for the navbar. It should be a child element
-//   of the container just as a normal column is.
+// - $navbar-selector: The selector for the navbar. It should be a child item of
+//   the container just as a normal column is.
 // - $navbar-height: The fixed height of the navbar. Required if the
 //   $navbar-selector is used.
 // - $navbar-width: The width of the navbar. Defaults to 100% of the container
@@ -51,6 +55,7 @@ $legacy-support-for-ie6: true !default;
 //
 @mixin zen-columns (
   // Information about the columns.
+  $box-sizing: $zen-columns-box-sizing,
   $selectors: ('.sidebar1', '.content', '.sidebar2'),
   $widths: (),
   $leading-direction: (),
@@ -115,6 +120,10 @@ $legacy-support-for-ie6: true !default;
     @if length($navbar-padding) >= 3 {
       $navbar-padding-y: nth($navbar-padding, 1) + nth($navbar-padding, 3);
     }
+    // We only keep track of the padding for content-box layouts.
+    @if $box-sizing == border-box {
+      $navbar-padding-x: 0;
+    }
     // Determine the distance of the navbar's right edge from the container's left edge.
     $navbar-reset: -$navbar-leading-gutter - $navbar-width - $navbar-padding-x;
     // The columns need to know the true height of the navbar box.
@@ -162,6 +171,10 @@ $legacy-support-for-ie6: true !default;
         $padding-x: 2 * nth($padding-values, 2);
       }
     }
+    // We only keep track of the padding for content-box layouts.
+    @if $box-sizing == border-box {
+      $padding-x: 0;
+    }
     // If the column is floating from the left, determine the distance from the
     // container's left edge to the column's left edge ($left-fill) and to the
     // column's right edge ($left-reset).
@@ -189,15 +202,11 @@ $legacy-support-for-ie6: true !default;
       width: $width;
       margin: $margin;
       padding: $padding-values;
-      border: 0 !important;
     }
   }
 
   // Apply rules to the container.
   position: relative;
-  @if $legacy-support-for-ie6 {
-    _zoom: 1; // Otherwise with a liquid layout, sidebars disappear when resizing the windows in IE6.
-  }
 
   // Apply rules to the navbar.
   @if $navbar-selector {
@@ -210,15 +219,29 @@ $legacy-support-for-ie6: true !default;
     }
   }
 
-  // Prevent overflowing content from breaking the layout.
+  // Apply rules to navbar and columns.
   #{$container-children} {
+    // Specify the border-box properties.
+    @if $box-sizing == border-box {
+      -moz-box-sizing: border-box;
+      -webkit-box-sizing: border-box;
+      -ms-box-sizing: border-box;
+      box-sizing: border-box;
+    }
+    // Prevent borders since they'll break the layout with content-box.
+    @if $box-sizing == content-box {
+      border: 0 !important;
+    }
+    // Prevent overflowing content from breaking the layout.
     overflow: visible;
     word-wrap: break-word; // A very nice CSS3 property.
 
-    @if $legacy-support-for-ie6 {
-      _display: inline; // display inline or double your floated margin! [1]
-      _overflow: hidden; // in IE6, overflow auto is broken [2] and so is overflow visible [3]
-      _overflow-y: visible;
+    @if $legacy-support-for-ie6 and $box-sizing == content-box {
+      .ie6 & {
+        display: inline; // display inline or double your floated margin! [1]
+        overflow: hidden; // in IE6, overflow auto is broken [2] and so is overflow visible [3]
+        overflow-y: visible;
+      }
     }
   }
 }

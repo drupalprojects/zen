@@ -45,6 +45,6 @@ $legacy-support-for-ie7: true;
 
 @import "compass/support";  // Add Compass' IE and vendor prefix support variables.
 @import "compass/utilities/general/clearfix"; // Better than Drupal's clearfix.
-@import "zen-columns";
+@import "zen";              // Add the Zen Grids responsive layout mixins.
 
 @import "custom";           // Import our custom mixins last.
