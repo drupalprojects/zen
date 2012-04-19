@@ -184,6 +184,10 @@ function zen_preprocess_html(&$variables, $hook) {
  *   The name of the template being rendered ("html" in this case.)
  */
 function zen_process_html(&$variables, $hook) {
+  // Hook into color.module.
+  if (module_exists('color')) {
+    _color_html_alter($variables);
+  }
   // Flatten out html_attributes.
   $variables['html_attributes'] = drupal_attributes($variables['html_attributes_array']);
 }
@@ -230,6 +234,16 @@ function zen_preprocess_page(&$variables, $hook) {
   }
   else {
     $variables['secondary_menu_heading'] = '';
+  }
+}
+
+/**
+ * Override or insert variables into the page template.
+ */
+function zen_process_page(&$variables, $hook) {
+  // Hook into color.module.
+  if (module_exists('color')) {
+    _color_page_alter($variables);
   }
 }
 
