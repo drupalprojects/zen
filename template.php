@@ -1,7 +1,7 @@
 <?php
 /**
  * @file
- * Contains theme override functions and preprocess functions for the Zen theme.
+ * Contains functions to alter Drupal's markup for the Zen theme.
  *
  * IMPORTANT WARNING: DO NOT MODIFY THIS FILE.
  *
@@ -42,6 +42,8 @@ function zen_theme(&$existing, $type, $theme, $path) {
  */
 function zen_breadcrumb($variables) {
   $breadcrumb = $variables['breadcrumb'];
+  $output = '';
+
   // Determine if we are to display the breadcrumb.
   $show_breadcrumb = theme_get_setting('zen_breadcrumb');
   if ($show_breadcrumb == 'yes' || $show_breadcrumb == 'admin' && arg(0) == 'admin') {
@@ -60,13 +62,10 @@ function zen_breadcrumb($variables) {
         $item = menu_get_item();
         if (!empty($item['tab_parent'])) {
           // If we are on a non-default tab, use the tab's title.
-          $title = check_plain($item['title']);
+          $breadcrumb[] = check_plain($item['title']);
         }
         else {
-          $title = drupal_get_title();
-        }
-        if ($title) {
-          $trailing_separator = $breadcrumb_separator;
+          $breadcrumb[] = drupal_get_title();
         }
       }
       elseif (theme_get_setting('zen_breadcrumb_trailing')) {
@@ -82,13 +81,16 @@ function zen_breadcrumb($variables) {
       if (!isset($variables['title_attributes_array']['class'])) {
         $variables['title_attributes_array']['class'][] = 'element-invisible';
       }
-      $heading = '<h2' . drupal_attributes($variables['title_attributes_array']) . '>' . $variables['title'] . '</h2>';
 
-      return '<div class="breadcrumb">' . $heading . implode($breadcrumb_separator, $breadcrumb) . $trailing_separator . $title . '</div>';
+      // Build the breadcrumb trail.
+      $ouptut = '<div class="breadcrumb">';
+      $output .= '<h2' . drupal_attributes($variables['title_attributes_array']) . '>' . $variables['title'] . '</h2>';
+      $output .= implode($breadcrumb_separator, $breadcrumb) . $trailing_separator;
+      $output .= '</div>';
     }
   }
-  // Otherwise, return an empty string.
-  return '';
+
+  return $output;
 }
 
 /**
@@ -194,12 +196,13 @@ function zen_preprocess_html(&$variables, $hook) {
     $path = drupal_get_path_alias($_GET['q']);
     // Add unique class for each website section.
     list($section, ) = explode('/', $path, 2);
-    if (arg(0) == 'node') {
-      if (arg(1) == 'add') {
+    $arg = explode('/', $_GET['q']);
+    if ($arg[0] == 'node' && isset($arg[1])) {
+      if ($arg[1] == 'add') {
         $section = 'node-add';
       }
-      elseif (is_numeric(arg(1)) && (arg(2) == 'edit' || arg(2) == 'delete')) {
-        $section = 'node-' . arg(2);
+      elseif (isset($arg[2]) && is_numeric($arg[1]) && ($arg[2] == 'edit' || $arg[2] == 'delete')) {
+        $section = 'node-' . $arg[2];
       }
     }
     $variables['classes_array'][] = drupal_html_class('section-' . $section);
