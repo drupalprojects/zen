@@ -179,9 +179,17 @@ function zen_preprocess_html(&$variables, $hook) {
     zen_add_conditional_styles();
   }
 
+  $variables['jump_link_target'] = theme_get_setting('zen_jump_link_target');
+  $variables['jump_link_text'] = theme_get_setting('zen_jump_link_text');
+
+  // Return early, so the maintenance page does not call any of the code below.
+  if ($hook != 'html') {
+    return;
+  }
+
   // Classes for body element. Allows advanced theming based on context
   // (home page, node of certain type, etc.)
-  if (!$variables['is_front'] && $hook == 'html') {
+  if (!$variables['is_front']) {
     // Add unique class for each page.
     $path = drupal_get_path_alias($_GET['q']);
     // Add unique class for each website section.
@@ -200,25 +208,21 @@ function zen_preprocess_html(&$variables, $hook) {
     $variables['classes_array'][] = 'with-wireframes'; // Optionally add the wireframes style.
   }
   // Store the menu item since it has some useful information.
-  if ($hook == 'html') {
-    $variables['menu_item'] = menu_get_item();
-    if ($variables['menu_item']) {
-      switch ($variables['menu_item']['page_callback']) {
-        case 'views_page':
-          // Is this a Views page?
-          $variables['classes_array'][] = 'page-views';
-          break;
-        case 'page_manager_page_execute':
-        case 'page_manager_node_view':
-        case 'page_manager_contact_site':
-          // Is this a Panels page?
-          $variables['classes_array'][] = 'page-panels';
-          break;
-      }
+  $variables['menu_item'] = menu_get_item();
+  if ($variables['menu_item']) {
+    switch ($variables['menu_item']['page_callback']) {
+      case 'views_page':
+        // Is this a Views page?
+        $variables['classes_array'][] = 'page-views';
+        break;
+      case 'page_manager_page_execute':
+      case 'page_manager_node_view':
+      case 'page_manager_contact_site':
+        // Is this a Panels page?
+        $variables['classes_array'][] = 'page-panels';
+        break;
     }
   }
-  $variables['jump_link_target'] = theme_get_setting('zen_jump_link_target');
-  $variables['jump_link_text'] = theme_get_setting('zen_jump_link_text');
 }
 
 /**
@@ -250,14 +254,7 @@ function zen_preprocess_page(&$variables, $hook) {
  *   The name of the template being rendered ("maintenance_page" in this case.)
  */
 function zen_preprocess_maintenance_page(&$variables, $hook) {
-  // If Zen is the maintenance theme, add some styles.
-  if ($GLOBALS['theme'] == 'zen') {
-    include_once './' . drupal_get_path('theme', 'zen') . '/zen-internals/template.zen.inc';
-    _zen_preprocess_html($variables, $hook);
-  }
-  elseif (!module_exists('conditional_styles')) {
-    zen_add_conditional_styles();
-  }
+  zen_preprocess_html($variables, $hook);
 }
 
 /**
@@ -269,7 +266,6 @@ function zen_preprocess_maintenance_page(&$variables, $hook) {
  *   The name of the template being rendered ("maintenance_page" in this case.)
  */
 function zen_process_maintenance_page(&$variables, $hook) {
-  zen_process_html($variables, $hook);
   // Ensure default regions get a variable. Theme authors often forget to remove
   // a deleted region's variable in maintenance-page.tpl.
   foreach (array('header', 'navigation', 'highlighted', 'help', 'content', 'sidebar_first', 'sidebar_second', 'footer', 'bottom') as $region) {
