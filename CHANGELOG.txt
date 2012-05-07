@@ -1,5 +1,6 @@
 Zen 7.x-3.x-dev, xxxx-xx-xx (development release)
 ---------------------------
+- #1560212 by AHOY: Opening breadcrumb <div> not printed
 - #1239784: Make zen logo's alpha channel be IE6 compatible
 - #1478244: Weight needed for conditional stylesheets added via drupal_add_css()
 - #469f073: Fix font sizing of monospace fonts
