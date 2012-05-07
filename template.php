@@ -83,7 +83,7 @@ function zen_breadcrumb($variables) {
       }
 
       // Build the breadcrumb trail.
-      $ouptut = '<div class="breadcrumb">';
+      $output = '<div class="breadcrumb">';
       $output .= '<h2' . drupal_attributes($variables['title_attributes_array']) . '>' . $variables['title'] . '</h2>';
       $output .= implode($breadcrumb_separator, $breadcrumb) . $trailing_separator;
       $output .= '</div>';
