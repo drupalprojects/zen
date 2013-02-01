@@ -112,8 +112,8 @@ function _zen_default($hook, $variables, $suggestions = array(), $extension = '.
  */
 function _zen_hook($hook) {
   if (!function_exists("_phptemplate_$hook")) {
-  	// Only create a function if $hook contains letters and underscores.
-  	if (!preg_match('/\W/', $hook)) {
+    // Only create a function if $hook contains letters and underscores.
+    if (!preg_match('/\W/', $hook)) {
       $declaration = <<<EOD
         function _phptemplate_$hook(\$vars, \$suggestions = array()) {
           return _zen_default('$hook', \$vars, \$suggestions);
@@ -125,8 +125,8 @@ EOD;
       // Since we can't create an override function, we simply add a template
       // suggestion that contains the sub-theme directory.
       global $theme_key;
-  	  $vars['template_file'] = "$theme_key/$hook";
-  	}
+      $vars['template_file'] = "$theme_key/$hook";
+    }
   }
 }
 
