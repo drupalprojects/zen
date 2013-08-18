@@ -58,7 +58,7 @@ function zen_breadcrumb($breadcrumb) {
 
     // Return the breadcrumb with separators.
     if (!empty($breadcrumb)) {
-      $breadcrumb_separator = theme_get_setting('zen_breadcrumb_separator');
+      $breadcrumb_separator = filter_xss_admin(theme_get_setting('zen_breadcrumb_separator'));
       $trailing_separator = $title = '';
       if (theme_get_setting('zen_breadcrumb_title')) {
         if ($title = drupal_get_title()) {
