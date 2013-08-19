@@ -1,5 +1,8 @@
-Zen 7.x-3.x-dev, xxxx-xx-xx (development release)
----------------------------
+Zen 7.x-3.2, 2013-08-19
+-----------------------
+- #1857020: Breadcrumb setting won't stay unchecked
+- #754000: Breadcrumb separator XSS vulnerability
+- #1232840: Redundant label CSS overrides Webform label placement selector
 - #1560212 by AHOY: Opening breadcrumb <div> not printed
 - #1239784: Make zen logo's alpha channel be IE6 compatible
 - #1478244: Weight needed for conditional stylesheets added via drupal_add_css()
