@@ -1,5 +1,8 @@
-Zen 6.x-1.x-dev, xxxx-xx-xx (development release)
----------------------------
+Zen 6.x-1.3, 2013-08-19
+-----------------------
+- #754000: Breadcrumb separator XSS vulnerability
+- #772488: Fatal error: Call to undefined function ctools_menu_primary_local_tasks()
+- #1454292 by danillonunes: Optimize images with lossless compression
 - #705264 by JohnAlbin, Jehu, mlncn and zenic: Allow Zen (and subthemes) to be used without a database
 - #742208: Conflict with domain theme module
 - #1046090 by daniels and JohnAlbin: $styles is destroyed by rare bug with APC
