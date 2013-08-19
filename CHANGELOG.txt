@@ -1,6 +1,9 @@
-Zen 6.x-2.x-dev, xxxx-xx-xx (development release)
----------------------------
--
+Zen 6.x-2.2, 2013-08-19
+-----------------------
+- #754000: Breadcrumb separator XSS vulnerability
+- #1454292 by danillonunes: Optimize images with lossless compression
+- #105524 by davidhwang and barraponto: Redundant label CSS overrides Webform label placement selector
+- #1174290 by naxoc: Fix code error in js/README.txt
 
 Zen 6.x-2.1, 2011-04-05
 -----------------------
