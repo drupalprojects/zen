@@ -657,17 +657,17 @@ if (!function_exists('drupal_html_id')) {
  * replace _zen_path() with drupal_get_path('theme', 'zen').
  */
 function _zen_path() {
-  static $_path = FALSE;
-  if (!$_path) {
+  static $path = FALSE;
+  if (!$path) {
     if (db_is_active()) {
-      $_path = drupal_get_path('theme', 'zen');
+      $path = drupal_get_path('theme', 'zen');
     }
     else {
       $matches = drupal_system_listing('zen\.info$', 'themes', 'name', 0);
       if (!empty($matches['zen']->filename)) {
-        $_path = dirname($matches['zen']->filename);
+        $path = dirname($matches['zen']->filename);
       }
     }
   }
-  return $_path;
+  return $path;
 }
