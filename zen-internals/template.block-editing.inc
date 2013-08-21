@@ -45,6 +45,17 @@ function zen_preprocess_block_editing(&$vars, $hook) {
   // Display 'edit view' for Views blocks.
   if ($block->module == 'views' && user_access('administer views')) {
     list($view_name, $view_block) = explode('-block', $block->delta);
+    if (strlen($view_name) == 32) {
+      unset($view_block);
+      $hashes = variable_get('views_block_hashes', array());
+      if (!empty($hashes[$view_name])) {
+        list($view_name, $view_block) = explode('-', $hashes[$view_name]);
+        $view_block = 'views-tab-' . $view_block;
+      }
+    } else {
+      $view_block = 'views-tab-block' . $view_block;
+    }
+
     $vars['edit_links_array']['block-edit-view'] = l('<span>' . t('edit view') . '</span>', 'admin/build/views/edit/' . $view_name,
       array(
         'attributes' => array(
@@ -52,7 +63,7 @@ function zen_preprocess_block_editing(&$vars, $hook) {
           'class' => 'block-edit-view',
         ),
         'query' => drupal_get_destination(),
-        'fragment' => 'views-tab-block' . $view_block,
+        'fragment' => $view_block,
         'html' => TRUE,
       )
     );
