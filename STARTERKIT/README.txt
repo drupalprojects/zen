@@ -1,4 +1,4 @@
-BUILD A THEME WITH ZEN
+BUILD AN UNICORN THEME WITH ZEN
 ----------------------
 
 The base Zen theme is designed to be easily extended by its sub-themes. You
