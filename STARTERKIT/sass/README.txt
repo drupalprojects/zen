@@ -63,21 +63,6 @@ effect of: 'view original sources' or 'Enable CSS source maps'.
 * IE: http://msdn.microsoft.com/en-US/library/ie/dn255007%28v=vs.85%29#source_maps
 
 
-Browser Plug-ins
-
-An alternative method is to install a browser plug-in, such as FireCompass or
-the older FireSass plug-in into Firefox.  Then you'll need to edit your
-sub-theme's config.rb file to uncomment and set either:
-
-  firesass = true
-  firecompass = true
-
-Finally, you'll need to install the appropriate plug-in:
-
-  Firesass:  https://addons.mozilla.org/en-US/firefox/addon/firesass-for-firebug
-  FireCompass: https://addons.mozilla.org/en-US/firefox/addon/firecompass-for-firebug
-
-
 MOVING YOUR CSS TO PRODUCTION
 -----------------------------
 
