@@ -607,6 +607,11 @@ function zen_menu_local_tasks(&$variables) {
  * @ingroup themeable
  */
 function zen_menu_local_task($variables) {
+  // Views uses hook_menu_local_task without using hook_menu_local_tasks, which breaks all the styling.
+  if (isset($variables['element']['#parents'][0]) && $variables['element']['#parents'][0] === 'displays') {
+    // Use core's theme hook instead.
+    return theme_menu_local_task($variables);
+  }
   $link = $variables['element']['#link'];
   $link_text = $link['title'];
 
