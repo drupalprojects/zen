@@ -1,6 +1,6 @@
 // This script is used by the MAINTAINERS to generate the CSS files from the
-// STARTERKIT's Sass files. It's a copy of STARTERKIT/gulpfile.s with the
-// "default" task overridden and the STARTERKIT path added to includePaths.
+// STARTERKIT's Sass files. It's a copy of STARTERKIT/gulpfile.s with a
+// few lines added to the very bottom.
 
 'use strict';
 
@@ -21,7 +21,6 @@ var options = {};
 options.rootPath = {
   project     : __dirname + '/',
   styleGuide  : __dirname + '/styleguide/',
-  starterkit  : path.resolve('../STARTERKIT') + '/',
   theme       : __dirname + '/'
 };
 
@@ -39,7 +38,6 @@ options.drupalURL = 'http://localhost';
 options.sass = {
   importer: importOnce,
   includePaths: [
-    options.rootPath.starterkit + 'sass',
     options.theme.sass,
     options.rootPath.project + 'node_modules/breakpoint-sass/stylesheets',
     options.rootPath.project + 'node_modules/chroma-sass/sass',
@@ -63,7 +61,7 @@ options.sassFiles = [
 options.autoprefixer = {
   browsers: [
     '> 1%',
-    'ie 8'
+    'ie 9'
   ]
 };
 
@@ -129,7 +127,7 @@ var gulp      = require('gulp'),
   kss         = require('kss');
 
 // The default task.
-gulp.task('default', ['styles:production']);
+gulp.task('default', ['build']);
 
 // #################
 // Build everything.
@@ -161,8 +159,8 @@ gulp.task('styles:production', ['clean:css'], function() {
 // ##################
 // Build style guide.
 // ##################
-gulp.task('styleguide', ['clean:styleguide', 'styleguide:chroma-kss-markup'], function(cb) {
-  kss(options.styleGuide, cb);
+gulp.task('styleguide', ['clean:styleguide', 'styleguide:chroma-kss-markup'], function() {
+  return kss(options.styleGuide);
 });
 
 gulp.task('styleguide:chroma-kss-markup', function() {
@@ -175,9 +173,9 @@ gulp.task('styleguide:chroma-kss-markup', function() {
 });
 
 // Debug the generation of the style guide with the --verbose flag.
-gulp.task('styleguide:debug', ['clean:styleguide', 'styleguide:chroma-kss-markup'], function(cb) {
+gulp.task('styleguide:debug', ['clean:styleguide', 'styleguide:chroma-kss-markup'], function() {
   options.styleGuide.verbose = true;
-  kss(options.styleGuide, cb);
+  return kss(options.styleGuide);
 });
 
 // #########################
@@ -274,3 +272,8 @@ gulp.task('clean:css', function() {
 // - https://github.com/google/web-starter-kit/blob/master/gulpfile.babel.js
 // - https://github.com/dlmanning/gulp-sass/blob/master/README.md
 // - http://www.browsersync.io/docs/gulp/
+
+
+// Overrides for the Zen base theme version of this file.
+options.sass.includePaths.unshift(path.resolve('../STARTERKIT') + '/sass');
+gulp.task('default', ['styles:production']);
