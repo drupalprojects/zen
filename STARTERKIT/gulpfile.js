@@ -27,8 +27,10 @@ options.theme = {
   js    : options.rootPath.theme + 'js/'
 };
 
-// Set the URL used to access the Drupal website under development.
-options.drupalURL = 'http://localhost';
+// Set the URL used to access the Drupal website under development. This will
+// allow Browser Sync to serve the website and update CSS changes on the fly.
+options.drupalURL = '';
+// options.drupalURL = 'http://localhost';
 
 // Define the node-sass configuration. The includePaths is critical!
 options.sass = {
@@ -84,11 +86,6 @@ options.styleGuide = {
   title: 'Zen 7.x-6.x Style Guide'
 };
 
-// Define the path to the project's .scss-lint.yml.
-options.scssLint = {
-  yml: options.rootPath.project + '.scss-lint.yml'
-};
-
 // Define the paths to the JS files to lint.
 options.eslint = {
   files  : [
@@ -101,13 +98,6 @@ options.eslint = {
 // Gulp watch. Since polling is less efficient, we disable polling by default.
 options.gulpWatchOptions = {};
 // options.gulpWatchOptions = {interval: 1000, mode: 'poll'};
-
-// If you wish to disable the following tasks, you can set these variables to
-// true (which is simpler than re-writing the Gulp tasks to remove them.)
-options.disableTask = {
-  lintSass: false,
-  browserSync: false
-};
 
 
 // ################################
@@ -195,18 +185,17 @@ gulp.task('lint:js-with-fail', function() {
 
 // Lint Sass.
 gulp.task('lint:sass', function() {
-  if (options.disableTask.lintSass) {
-    return Promise.resolve();
-  }
   return gulp.src(options.theme.sass + '**/*.scss')
-    .pipe($.scssLint({'bundleExec': true, 'config': options.scssLint.yml}));
+    .pipe($.sassLint())
+    .pipe($.sassLint.format());
 });
 
 // Lint Sass and throw an error for a CI to catch.
 gulp.task('lint:sass-with-fail', function() {
   return gulp.src(options.theme.sass + '**/*.scss')
-    .pipe($.scssLint({'bundleExec': true, 'config': options.scssLint.yml}))
-    .pipe($.scssLint.failReporter());
+    .pipe($.sassLint())
+    .pipe($.sassLint.format())
+    .pipe($.sassLint.failOnError());
 });
 
 // ##############################
@@ -215,7 +204,7 @@ gulp.task('lint:sass-with-fail', function() {
 gulp.task('watch', ['browser-sync', 'watch:lint-and-styleguide', 'watch:js']);
 
 gulp.task('browser-sync', ['watch:css'], function() {
-  if (options.disableTask.browserSync) {
+  if (!options.drupalURL) {
     return Promise.resolve();
   }
   return browserSync.init({
