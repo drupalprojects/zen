@@ -12,10 +12,26 @@
 //
 // Style guide: forms.button
 
+// 1. Prevent a WebKit bug where (2) destroys native `audio` and `video`
+//    controls in Android 4.
+// 2. Correct the inability to style clickable types in iOS and Safari.
 .button,
-%button {
-  // Note that buttons also receive this property: -webkit-appearance: button
-  // @see base/forms/_form.scss
+%button,
+button,
+// 1
+html [type='button'],
+[type='reset'],
+[type='submit'] {
+  -moz-appearance: button;
+  -webkit-appearance: button; // 2
+}
+
+.button,
+%button,
+button,
+[type='button'],
+[type='reset'],
+[type='submit'] {
   // Some styles don't apply to <a> links since they are inline elements by default.
   display: inline-block;
   padding: 2px 6px;
