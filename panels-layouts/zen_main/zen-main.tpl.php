@@ -27,7 +27,7 @@
 
     <main class="<?php print $content_class; ?>" role="main">
       <?php print $content['highlighted']; ?>
-      <a href="#skip-link" class="visually-hidden--focusable" id="main-content">Back to top</a>
+      <a href="#skip-link" class="visually-hidden visually-hidden--focusable" id="main-content">Back to top</a>
       <?php print $content['content']; ?>
     </main>
 

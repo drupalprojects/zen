@@ -75,7 +75,7 @@
     <main class="<?php print $content_class; ?>" role="main">
       <?php print render($page['highlighted']); ?>
       <?php print $breadcrumb; ?>
-      <a href="#skip-link" class="visually-hidden--focusable" id="main-content">Back to top</a>
+      <a href="#skip-link" class="visually-hidden visually-hidden--focusable" id="main-content">Back to top</a>
       <?php print render($title_prefix); ?>
       <?php if ($title): ?>
         <h1><?php print $title; ?></h1>
@@ -93,7 +93,7 @@
 
     <div class="layout-swap__top layout-3col__full">
 
-      <a href="#skip-link" class="visually-hidden--focusable" id="main-menu" tabindex="-1">Back to top</a>
+      <a href="#skip-link" class="visually-hidden visually-hidden--focusable" id="main-menu" tabindex="-1">Back to top</a>
 
       <?php if ($main_menu): ?>
         <nav class="main-menu" role="navigation">
