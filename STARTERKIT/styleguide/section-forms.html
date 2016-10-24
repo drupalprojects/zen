@@ -101,14 +101,20 @@
               </a>
             </li>
                       <li class="kss-nav__menu-item">
-              <a class="kss-nav__menu-link" href="section-forms.html#kssref-forms-base-select">
+              <a class="kss-nav__menu-link" href="section-forms.html#kssref-forms-base-progress">
                 <span class="kss-nav__ref kss-nav__ref-child">6.1.7</span
+                ><span class="kss-nav__name">Progress</span>
+              </a>
+            </li>
+                      <li class="kss-nav__menu-item">
+              <a class="kss-nav__menu-link" href="section-forms.html#kssref-forms-base-select">
+                <span class="kss-nav__ref kss-nav__ref-child">6.1.8</span
                 ><span class="kss-nav__name">Select list</span>
               </a>
             </li>
                       <li class="kss-nav__menu-item">
               <a class="kss-nav__menu-link" href="section-forms.html#kssref-forms-base-textarea">
-                <span class="kss-nav__ref kss-nav__ref-child">6.1.8</span
+                <span class="kss-nav__ref kss-nav__ref-child">6.1.9</span
                 ><span class="kss-nav__name">Text areas</span>
               </a>
             </li>
@@ -392,7 +398,7 @@ see the <a href="section-forms.html#kssref-forms-button">button component</a>.</
           </div>
               
               <div class="kss-source kss-style">
-          Source: <code>base/forms/_forms.scss</code>, line 92
+          Source: <code>base/forms/_forms.scss</code>, line 78
         </div>
           </section>
           <section id="kssref-forms-base-fieldset" class="kss-section kss-section--depth-3">
@@ -476,7 +482,7 @@ common name given by the <code>&lt;legend&gt;</code> element.</p>
           </div>
               
               <div class="kss-source kss-style">
-          Source: <code>base/forms/_forms.scss</code>, line 188
+          Source: <code>base/forms/_forms.scss</code>, line 181
         </div>
           </section>
           <section id="kssref-forms-base-input" class="kss-section kss-section--depth-3">
@@ -497,6 +503,17 @@ common name given by the <code>&lt;legend&gt;</code> element.</p>
             <p>The <code>&lt;input&gt;</code> element is mostly used for text-based inputs that include the
 HTML5 types: <code>text</code>, <code>search</code>, <code>tel</code>, <code>url</code>, <code>email</code>, <code>password</code>, <code>date</code>,
 <code>time</code>, <code>number</code>, <code>range</code>, <code>color</code>, and <code>file</code>.</p>
+<p>Note: Certain font size values applied to <code>number</code> inputs cause the cursor
+style of the decrement button to change from <code>default</code> to <code>text</code>.</p>
+<p>Note: The search input is not fully stylable by default. In Chrome and Safari
+on OSX/iOS you can&#39;t control <code>font</code>, <code>padding</code>, <code>border</code>, or <code>background</code>. In
+Chrome and Safari on Windows you can&#39;t control <code>border</code> properly. It will
+apply <code>border-width</code> but will only show a border color (which cannot be
+controlled) for the outer 1px of that border. Applying
+<code>-webkit-appearance: textfield</code> addresses these issues without removing the
+benefits of search inputs (e.g. showing past searches). Safari (but not
+Chrome) will clip the cancel button on when it has padding (and <code>textfield</code>
+appearance).</p>
 
           </div>
         
@@ -711,7 +728,7 @@ HTML5 types: <code>text</code>, <code>search</code>, <code>tel</code>, <code>url
           </div>
               
               <div class="kss-source kss-style">
-          Source: <code>base/forms/_forms.scss</code>, line 116
+          Source: <code>base/forms/_forms.scss</code>, line 102
         </div>
           </section>
           <section id="kssref-forms-base-input-checkbox" class="kss-section kss-section--depth-3">
@@ -731,8 +748,8 @@ HTML5 types: <code>text</code>, <code>search</code>, <code>tel</code>, <code>url
                   <div class="kss-description">
             <p>If an <code>&lt;input&gt;</code> element has the <code>type=&#39;checkbox&#39;</code> attribute set, the form
 field is displayed as a checkbox.</p>
-<p>It&#39;s recommended that you don&#39;t attempt to style these elements. Firefox&#39;s
-implementation doesn&#39;t respect <code>box-sizing</code>, <code>padding</code>, or <code>width</code>.</p>
+<p>It is recommended that you do not style checkbox and radio inputs as
+Firefox&#39;s implementation does not respect box-sizing, padding, or width.</p>
 
           </div>
         
@@ -767,7 +784,7 @@ implementation doesn&#39;t respect <code>box-sizing</code>, <code>padding</code>
           </div>
               
               <div class="kss-source kss-style">
-          Source: <code>base/forms/_forms.scss</code>, line 150
+          Source: <code>base/forms/_forms.scss</code>, line 149
         </div>
           </section>
           <section id="kssref-forms-base-input-radio" class="kss-section kss-section--depth-3">
@@ -787,8 +804,8 @@ implementation doesn&#39;t respect <code>box-sizing</code>, <code>padding</code>
                   <div class="kss-description">
             <p>If an <code>&lt;input&gt;</code> element has the <code>type=&#39;radio&#39;</code> attribute set, the form field
 is displayed as a radio button.</p>
-<p>It&#39;s recommended that you don&#39;t attempt to style these elements. Firefox&#39;s
-implementation doesn&#39;t respect <code>box-sizing</code>, <code>padding</code>, or <code>width</code>.</p>
+<p>It is recommended that you do not style checkbox and radio inputs as
+Firefox&#39;s implementation does not respect box-sizing, padding, or width.</p>
 
           </div>
         
@@ -831,7 +848,7 @@ implementation doesn&#39;t respect <code>box-sizing</code>, <code>padding</code>
           </div>
               
               <div class="kss-source kss-style">
-          Source: <code>base/forms/_forms.scss</code>, line 162
+          Source: <code>base/forms/_forms.scss</code>, line 161
         </div>
           </section>
           <section id="kssref-forms-base-label" class="kss-section kss-section--depth-3">
@@ -888,7 +905,33 @@ putting the form control inside the label element itself.</p>
           </div>
               
               <div class="kss-source kss-style">
-          Source: <code>base/forms/_forms.scss</code>, line 222
+          Source: <code>base/forms/_forms.scss</code>, line 211
+        </div>
+          </section>
+          <section id="kssref-forms-base-progress" class="kss-section kss-section--depth-3">
+      <div class="kss-style">
+                <h3 class="kss-title kss-title--level-3">
+          <a class="kss-title__permalink" href="#kssref-forms-base-progress">
+            <span class="kss-title__ref">
+              6.1.7
+              <span class="kss-title__permalink-hash">
+                forms.base.progress
+              </span>
+            </span>
+            Progress
+          </a>
+        </h3>
+
+                  <div class="kss-description">
+            <p>The <code>&lt;progress&gt;</code> element represents the completion progress of a task.</p>
+
+          </div>
+        
+              </div>
+
+      
+              <div class="kss-source kss-style">
+          Source: <code>base/forms/_forms.scss</code>, line 245
         </div>
           </section>
           <section id="kssref-forms-base-select" class="kss-section kss-section--depth-3">
@@ -896,7 +939,7 @@ putting the form control inside the label element itself.</p>
                 <h3 class="kss-title kss-title--level-3">
           <a class="kss-title__permalink" href="#kssref-forms-base-select">
             <span class="kss-title__ref">
-              6.1.7
+              6.1.8
               <span class="kss-title__permalink-hash">
                 forms.base.select
               </span>
@@ -909,7 +952,9 @@ putting the form control inside the label element itself.</p>
             <p>The <code>&lt;select&gt;</code> element represents a form field for selecting amongst a set of
 options.</p>
 <p>Known limitation: by default, Chrome and Safari on OS X allow very limited
-styling of <code>&lt;select&gt;</code>, unless a <code>border</code> property is set.</p>
+styling of <code>&lt;select&gt;</code>, unless a <code>border</code> property is set. The default font
+weight on <code>optgroup</code> elements cannot safely be changed in Chrome on OSX and
+Safari on OS X.</p>
 
           </div>
         
@@ -1006,7 +1051,7 @@ styling of <code>&lt;select&gt;</code>, unless a <code>border</code> property is
           </div>
               
               <div class="kss-source kss-style">
-          Source: <code>base/forms/_forms.scss</code>, line 238
+          Source: <code>base/forms/_forms.scss</code>, line 227
         </div>
           </section>
           <section id="kssref-forms-base-textarea" class="kss-section kss-section--depth-3">
@@ -1014,7 +1059,7 @@ styling of <code>&lt;select&gt;</code>, unless a <code>border</code> property is
                 <h3 class="kss-title kss-title--level-3">
           <a class="kss-title__permalink" href="#kssref-forms-base-textarea">
             <span class="kss-title__ref">
-              6.1.8
+              6.1.9
               <span class="kss-title__permalink-hash">
                 forms.base.textarea
               </span>
@@ -1061,7 +1106,7 @@ styling of <code>&lt;select&gt;</code>, unless a <code>border</code> property is
           </div>
               
               <div class="kss-source kss-style">
-          Source: <code>base/forms/_forms.scss</code>, line 259
+          Source: <code>base/forms/_forms.scss</code>, line 258
         </div>
           </section>
           <section id="kssref-forms-autocomplete" class="kss-section kss-section--depth-2">
@@ -2139,7 +2184,7 @@ delete this component to save file weight in the generated CSS.</p>
     </td>
     <td>
       <div class="field-formatter-settings-edit-wrapper">
-        <input class="field-formatter-settings-edit form-submit ajax-processed" alt="Edit" type="image" id="edit-fields-field-image-settings-edit" name="field_image_formatter_settings_edit" src="http://drupal7x.dev/misc/configure.png">
+        <input class="field-formatter-settings-edit form-submit ajax-processed" value="Edit" type="button" id="edit-fields-field-image-settings-edit" name="field_image_formatter_settings_edit">
       </div>
     </td>
   </tr>
@@ -2254,7 +2299,7 @@ delete this component to save file weight in the generated CSS.</p>
     &lt;/td&gt;
     &lt;td&gt;
       &lt;div class=&quot;field-formatter-settings-edit-wrapper&quot;&gt;
-        &lt;input class=&quot;field-formatter-settings-edit form-submit ajax-processed&quot; alt=&quot;Edit&quot; type=&quot;image&quot; id=&quot;edit-fields-field-image-settings-edit&quot; name=&quot;field_image_formatter_settings_edit&quot; src=&quot;http://drupal7x.dev/misc/configure.png&quot;&gt;
+        &lt;input class=&quot;field-formatter-settings-edit form-submit ajax-processed&quot; value=&quot;Edit&quot; type=&quot;button&quot; id=&quot;edit-fields-field-image-settings-edit&quot; name=&quot;field_image_formatter_settings_edit&quot;&gt;
       &lt;/div&gt;
     &lt;/td&gt;
   &lt;/tr&gt;
