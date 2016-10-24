@@ -66,11 +66,8 @@ dl,
 ol,
 ul {
   @include margin(1 0);
-}
 
-// Turn off margins on nested lists.
-ol,
-ul {
+  // Turn off margins on nested lists.
   ol,
   ul {
     margin: 0;
