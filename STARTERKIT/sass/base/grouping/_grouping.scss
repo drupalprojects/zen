@@ -1,5 +1,4 @@
 // Dependencies.
-@import 'base/text/text';
 @import 'components/divider/divider';
 
 // Grouping content
@@ -64,10 +63,8 @@ blockquote {
 // Style guide: base.grouping.lists.dl
 
 dl,
-menu,
 ol,
 ul {
-  // Address margins set differently in IE 6/7.
   @include margin(1 0);
 }
 
@@ -92,23 +89,12 @@ dd {
   }
 }
 
-// Address paddings set differently in IE 6/7.
-menu,
 ol,
 ul {
   padding: 0 0 0 $indent-amount;
 
   @include rtl {
     padding: 0 $indent-amount 0 0;
-  }
-}
-
-@if support-for(ie, 7) {
-  // Correct list images handled incorrectly in IE 7.
-  nav ul,
-  nav ol {
-    list-style: none;
-    list-style-image: none;
   }
 }
 
@@ -127,10 +113,13 @@ ul {
 figure {
   // Add the correct margin in IE 8.
   @include margin(1 0);
+  // Add the correct display in IE 9-.
+  display: block;
 }
 
 figcaption {
-  // Add your styles.
+  // Add the correct display in IE 9-.
+  display: block;
 }
 
 // Horizontal rule
@@ -150,6 +139,17 @@ hr {
   height: 0;
   // Show the overflow in Edge and IE.
   overflow: visible;
+}
+
+// Main
+//
+// The `<main>` element represents the main content of the page.
+//
+// Style guide: base.grouping.main
+
+main {
+  // Add the correct display in IE.
+  display: block;
 }
 
 // Body copy
@@ -178,6 +178,14 @@ pre {
 // Markup: grouping-pre.twig
 //
 // Style guide: base.grouping.pre
+
+%monospace {
+  // Correct the inheritance and scaling of font size in all browsers.
+  // The font-family value ends with ", serif".
+  @include typeface(monospace);
+  // Correct the odd `em` font sizing in all browsers.
+  font-size: 1em;
+}
 
 pre {
   @extend %monospace;

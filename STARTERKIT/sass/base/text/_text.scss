@@ -16,7 +16,7 @@
 // Style guide: base.text.abbr
 
 abbr[title] {
-  // Remove the bottom border in Firefox <40.
+  // Remove the bottom border in Firefox 39-.
   border-bottom: 0;
   // Add the correct text decoration in Chrome, Edge, IE, Opera, and Safari.
   text-decoration: underline;
@@ -73,25 +73,18 @@ cite {
 
 // Code
 //
-// The `<code>` element represents a fragment of computer code. The `<var>`
-// element represents a variable. The `<samp>` element represents (sample)
-// output from a program or computing system. The `<kbd>` element represents
-// user input (typically keyboard input.)
+// The `<code>` element represents a fragment of computer code. The `<samp>`
+// element represents (sample) output from a program or computing system. The
+// `<kbd>` element represents user input (typically keyboard input.)
 //
 // Markup: text-code.twig
 //
 // Style guide: base.text.code
 
-%monospace,
 code,
 kbd,
-samp,
-var {
-  // Correct the inheritance and scaling of font size in all browsers.
-  // The font-family value ends with ", serif".
-  @include typeface(monospace);
-  // Correct the odd `em` font sizing in all browsers.
-  font-size: 1em;
+samp {
+  @extend %monospace;
 }
 
 // Deleted text
@@ -115,7 +108,7 @@ del {
 // Style guide: base.text.dfn
 
 dfn {
-  // Add the correct font style in Android <4.4.
+  // Add the correct font style in Android 4.3-.
   font-style: italic;
 }
 
@@ -160,7 +153,7 @@ ins {
 // Style guide: base.text.mark
 
 mark {
-  // Add the correct background and color in IE <10.
+  // Add the correct background and color in IE 9-.
   background-color: color(mark-bg);
   color: color(text);
 }
