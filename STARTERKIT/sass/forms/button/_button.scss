@@ -22,6 +22,7 @@ button,
 html [type='button'],
 [type='reset'],
 [type='submit'] {
+  // sass-lint:disable no-vendor-prefixes
   -moz-appearance: button;
   -webkit-appearance: button; // 2
 }
@@ -45,6 +46,7 @@ button,
   cursor: pointer;
   color: color(button);
 
+  // sass-lint:disable no-vendor-prefixes
   // Remove the inner border and padding in Firefox.
   &::-moz-focus-inner {
     border-style: none;
@@ -55,6 +57,7 @@ button,
   &:-moz-focusring {
     outline: 1px dotted ButtonText;
   }
+  // sass-lint:enable no-vendor-prefixes
 
   &:hover,
   &:focus,

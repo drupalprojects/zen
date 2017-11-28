@@ -18,6 +18,7 @@
 abbr[title] {
   // Remove the bottom border in Firefox 39-.
   border-bottom: 0;
+  // sass-lint:disable no-duplicate-properties
   // Add the correct text decoration in Chrome, Edge, IE, Opera, and Safari.
   text-decoration: underline;
   text-decoration: underline dotted;
