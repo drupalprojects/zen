@@ -53,8 +53,8 @@
 
   <?php if ($content['footer']): ?>
     <footer class="footer" role="contentinfo">
-      <?php print $content['header']; ?>
-    </header>
+      <?php print $content['footer']; ?>
+    </footer>
   <?php endif; ?>
 
 </div>
