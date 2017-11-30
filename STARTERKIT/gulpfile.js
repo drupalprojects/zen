@@ -86,9 +86,12 @@ options.eslint = {
   ]
 };
 
-// If your files are on a network share, you may want to turn on polling for
-// Gulp watch. Since polling is less efficient, we disable polling by default.
+// The default file-watching interval is 100 ms. If that leads to excessive CPU
+// usage, you can set a higher value. Additionally, if your files are on a
+// network share, you may want to turn on polling for Gulp watch. Since polling
+// is less efficient, we disable polling by default.
 options.gulpWatchOptions = {};
+// options.gulpWatchOptions = {interval: 600};
 // options.gulpWatchOptions = {interval: 1000, mode: 'poll'};
 
 
