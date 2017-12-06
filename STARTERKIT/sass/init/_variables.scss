@@ -5,25 +5,6 @@
 // Style guide: sass.variables
 
 
-// Browser support
-//
-// For older versions of browsers, some Sass relies on the `support-for()` to
-// control whether extra CSS is needed to be output. The `support-for()`
-// function and the `$support-for` variable are documented on the [support-for
-// homepage](https://github.com/JohnAlbin/support-for).
-//
-// Style guide: sass.variables.support-for
-
-// Support the same browsers as normalize.css v3.
-// Possible keys: chrome, edge, firefox, ie, opera, safari, '*'
-$support-for: (
-  // IE 9-11
-  ie:  9,
-  // The last 4 versions of all other browsers.
-  '*': -4,
-);
-
-
 // Font faces, stacks and sizes.
 //
 // Font styling and line heights are controlled by the several variables that
