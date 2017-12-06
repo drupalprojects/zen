@@ -16,7 +16,7 @@
 // Style guide: base.text.abbr
 
 abbr[title] {
-  // Remove the bottom border in Firefox 39-.
+  // Remove the bottom border in Chrome 57- and Firefox 39-.
   border-bottom: 0;
   // sass-lint:disable no-duplicate-properties
   // Add the correct text decoration in Chrome, Edge, IE, Opera, and Safari.
@@ -53,8 +53,8 @@ strong {
 }
 
 // sass-lint:disable no-mergeable-selectors
-strong,
-b {
+b,
+strong {
   // Add the correct font weight in Chrome, Edge, and Safari.
   font-weight: bolder;
 }

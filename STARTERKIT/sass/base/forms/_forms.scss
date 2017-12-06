@@ -188,10 +188,9 @@ input {
 // Style guide: forms.base.fieldset
 
 fieldset {
-  // Change the border, margin, and padding in all browsers (opinionated).
-  @include padding(.35 .625 .65);
+  // Correct the padding in Firefox.
+  @include padding(.35 .5 .65);
   border: 1px solid color(border);
-  margin: 0 2px;
 }
 
 legend {
