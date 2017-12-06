@@ -24,7 +24,7 @@ if (theme_get_setting('zen_rebuild_registry') && !defined('MAINTENANCE_MODE')) {
  * Implements HOOK_theme().
  */
 function zen_theme(&$existing, $type, $theme, $path) {
-  include_once './' . drupal_get_path('theme', 'zen') . '/zen-internals/template.theme-registry.inc';
+  include_once DRUPAL_ROOT . '/' . drupal_get_path('theme', 'zen') . '/zen-internals/template.theme-registry.inc';
   return _zen_theme($existing, $type, $theme, $path);
 }
 
